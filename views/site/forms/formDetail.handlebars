@@ -1,0 +1,116 @@
+<div class="content-body" style="min-height: 1116px;">
+    <div class="container-fluid">
+        <!-- Add Project -->
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+            </div>
+            {{!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Components</a></li>
+                </ol>
+            </div> --}}
+        </div>
+        <!-- row -->
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-6 col-xxl-6">
+                <div class="card">
+                    <form action="/form/answer/{{form._id}}" method="POST">
+
+                        <div class="card-header">
+                            <h4 class="card-title">{{form.formName}}</h4>
+                        </div>
+                        <div class="card-body">
+                            {{#each form.questAndAnswer}}
+                            {{#if question}}
+                            <div class="row d-flex">
+                                <div class="form-group col-md-12">
+                                    <label class="mb-1"><strong>{{question}}</strong></label>
+                                    {{#if (eq questionKind "Text")}}
+                                    <input type="text" name="questAndAnswer.{{@index}}.answer" {{#if (eq isRequired "on" )}} required {{/if}} class="form-control">
+                                    {{else if (eq questionKind "Number")}}
+                                    <input type="number" name="questAndAnswer.{{@index}}.answer" {{#if (eq isRequired "on" )}} required {{/if}} class="form-control">
+                                    {{else if (eq questionKind "Date")}}
+                                    <input type="date" name="questAndAnswer.{{@index}}.answer"  {{#if (eq isRequired "on" )}} required {{/if}} class="form-control">
+                                    {{else if (eq questionKind "Number")}}
+                                    <input type="number" name="questAndAnswer.{{@index}}.answer" {{#if (eq isRequired "on" )}} required {{/if}} class="form-control">
+                                    {{else if (eq questionKind "Number")}}
+                                    <input type="number" name="questAndAnswer.{{@index}}.answer" {{#if (eq isRequired "on" )}} required {{/if}} class="form-control">
+                                    {{else if (eq questionKind "Radio")}}
+                                    {{#each answerList}}
+                                    <div class="row">
+                                        <div class="form-check d-inline-block mx-2">
+                                            <input class="form-check-input" type="radio"
+                                                name="questAndAnswer.{{@../index}}.answer" value="{{this}}"
+                                                id="questAndAnswer.{{@../index}}.{{@index}}.answer">
+                                            <label class="form-check-label"
+                                                for="questAndAnswer.{{@../index}}.{{@index}}.answer">
+                                                {{this}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                    {{else if (eq questionKind "Checkbox")}}
+                                    {{#each answerList}}
+                                    <div class="row">
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input"
+                                                    name="questAndAnswer.{{@../index}}.answer" value="{{this}}">{{this}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                    {{else if (eq questionKind "Teacher")}}
+                                    <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                        <select class="form-control default-select" {{#if (eq isRequired "on" )}} required {{/if}}
+                                            name="questAndAnswer.{{@index}}.answer" id="questAndAnswer{{@index}}">
+                                            <option selected disabled>Choose...</option>
+
+                                            {{#each ../teacher}}
+                                            <option value="{{userName}} {{userSurname}}">{{userName}} {{userSurname}}
+                                            </option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    {{else if (eq questionKind "Student")}}
+                                    <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                        <select class="form-control default-select" {{#if (eq isRequired "on" )}} required {{/if}}
+                                            name="questAndAnswer.{{@index}}.answer" id="questAndAnswer{{@index}}">
+                                            <option selected disabled>Choose...</option>
+
+                                            {{#each ../student}}
+                                            <option value="{{userName}} {{userSurname}}">{{userName}} {{userSurname}}
+                                            </option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    {{else if (eq questionKind "Course")}}
+                                    <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                        <select class="form-control default-select" {{#if (eq isRequired "on" )}} required {{/if}}
+                                            name="questAndAnswer.{{@index}}.answer" id="questAndAnswer{{@index}}">
+                                            <option selected disabled>Choose...</option>
+                                            {{#each ../course}}
+                                            <option value="{{lessonCode}} {{lessonName}}">{{lessonCode}} {{lessonName}}
+                                            </option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <hr class="text-primary">
+                            {{/if}}
+                            {{/each}}
+                            <div class="card-footer text-end">
+                                <button type="submit" class="btn btn-primary">Submit Form</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,123 @@
+<div class="content-body" style="min-height: 862px;">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+                    <p class="mb-0">Validation</p>
+                </div>
+            </div>
+            {{!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Form</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Validation</a></li>
+                </ol>
+            </div> --}}
+        </div>
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Course Registration</h4>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <form action="/course/course-registration" method="POST">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label>Choose Course:</label>
+                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                            <select class="form-control default-select" name="courseCode">
+                                                {{#each lesson}}
+                                                <option value="{{_id}}">{{lessonCode}} - {{lessonName}} </option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label>Choose Teacher:</label>
+                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                            <select class="form-control default-select" name="teacherName">
+                                                {{#each user}}
+                                                {{#if (eq role "Teacher")}}
+                                                <option value="{{_id}}">{{userName}} {{userSurname}}</option>
+                                                {{/if}}
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Choose Student(s):</label>
+                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                            <select multiple="" class="form-control default-select" name="studentName">
+                                                {{#each user}}
+                                                {{#if (eq role "Student")}}
+                                                <option value="{{_id}}">{{userName}} {{userSurname}}</option>
+                                                {{/if}}
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>Choose Course Hour and Minutes</label>
+                                        <div class="row col-md-9">
+                                            <div class="col-md-6">
+                                                <select class="form-control default-select" name="courseHour">
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control default-select col-md-6"
+                                                    name="courseMinute">
+                                                    <option value="00">00</option>
+                                                    <option value="30">30</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Choose Day</label>
+
+                                        <select class="form-control default-select" name="courseHour">
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thirsday">Thirsday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Satuday">Satuday</option>
+                                            <option value="Sunday">Sunday</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-danger light"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Create new lesson</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

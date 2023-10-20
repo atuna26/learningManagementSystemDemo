@@ -1,0 +1,60 @@
+<div class="content-body" style="min-height: 1116px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">{{form.0.formName}} Datatable </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <div id="example_wrapper" class="dataTables_wrapper">
+                                <div id="example_filter" class="dataTables_filter"></div>
+                                <table id="example" class="display dataTable" style="min-width: 845px" role="grid"
+                                    aria-describedby="example_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1"
+                                                colspan="1" aria-sort="ascending"
+                                                aria-label="User: activate to sort column descending">User</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1"
+                                                colspan="1" aria-sort="ascending"
+                                                aria-label="Date: activate to sort column descending">Date</th>
+                                            {{#each form.0.questAndAnswer}}
+                                            
+                                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
+                                                colspan="1"
+                                                aria-label="{{question}}: activate to sort column ascending">
+                                                {{question}}</th>
+
+                                                {{/each}}
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each form}}
+                                        <tr class="odd" role="row">
+                                            <td class="sorting_1">{{formUser.userName}} {{formUser.userSurname}}</td>
+                                              <td class="sorting_1">{{moment date}}</td>
+                                            {{#each questAndAnswer}}
+                                            <td>{{answer}} {{#if chatgptAnswer}} --------- AI'S ANSWER: {{chatgptAnswer}} {{/if}} </td>
+                                            {{/each}}
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                    {{!-- <tfoot>
+                                        <tr>
+                                            {{#each form.0.questAndAnswer}}
+                                            <th rowspan="1" colspan="1">{{question}}</th>
+                                            {{/each}}
+                                        </tr>
+                                    </tfoot> --}}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
