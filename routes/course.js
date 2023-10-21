@@ -31,13 +31,18 @@ router.get("/course-list", (req,res)=>{
 router.get("/course-registration", (req,res)=>{
   User.find({}).lean().then(user=>{
     Lesson.find({}).lean().then(lesson=>{
-      res.render("site/courseRegistration",{userData:req.userData,user:user,lesson:lesson})
+      Timetable.find({}).populate({path:"teacherName", model:"User"}).populate({path:"studentName", model:"User"}).populate({path:"courseCode", model:"Lesson"}).lean().then(timetable=>{
+        res.render("site/courseRegistration",{userData:req.userData,user:user,lesson:lesson,timetable:timetable})
+      })
     })
   })
 })
 
 
 router.post("/course-registration",(req,res)=>{
+  Timetable.create({...req.body}).then(timetable=>{
+    res.redirect("/course/course-registration")
+  })
 
 })
 

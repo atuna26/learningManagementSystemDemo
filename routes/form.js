@@ -152,9 +152,9 @@ router.post("/answer/:id", async (req, res) => {
     ai.chat.completions
         .create({
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: `We have an education system. In this education system, after the teacher gives a lesson to the students, they evaluate the students with a form. The question is as follows: 'General Impressions: (Provide a brief summary of the topic and topic's overall understanding by the student.)'. I want you to correct grammatical and spelling mistakes, and also correct the sentence so that we can show it to your parents. The answer is as follows: ' ${newForm.questAndAnswer[15].answer} ' Please write only the corrected version. `}],
+          messages: [
+            { role: "user", content: `We have an education system. In this education system, after the teacher gives a lesson to the students, they evaluate the students with a form. The question is as follows: 'General Impressions: (Provide a brief summary of the topic and topic's overall understanding by the student.)'. I want you to correct grammatical and spelling mistakes, and also correct the sentence so that we can show it to their parents. The answer is as follows: ' ${newForm.questAndAnswer[15].answer} ' Please write only the corrected version. `}],
         }).then(respond=>{
-          console.log(respond.choices[0].message.content)
           newForm.questAndAnswer[15].chatgptAnswer = respond.choices[0].message.content
           newForm.questAndAnswer.forEach((formQuestion, index) => {
             formQuestion.question = form.questAndAnswer[index].question;

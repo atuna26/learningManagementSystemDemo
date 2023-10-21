@@ -37,7 +37,7 @@
                                             <td class="sorting_1">{{formUser.userName}} {{formUser.userSurname}}</td>
                                               <td class="sorting_1">{{moment date}}</td>
                                             {{#each questAndAnswer}}
-                                            <td>{{answer}} {{#if chatgptAnswer}} --------- AI'S ANSWER: {{chatgptAnswer}} {{/if}} </td>
+                                            <td>{{answer}} {{#if chatgptAnswer}} <br> <span class="text-danger">AI'S ANSWER:</span>  <span class="text-success">{{chatgptAnswer}}</span> {{/if}} </td>
                                             {{/each}}
                                         </tr>
                                         {{/each}}

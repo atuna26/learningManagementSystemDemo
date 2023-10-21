@@ -63,9 +63,9 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-3 mb-3">
                                         <label>Choose Course Hour and Minutes</label>
-                                        <div class="row col-md-9">
+                                        <div class="row col-md-12">
                                             <div class="col-md-6">
                                                 <select class="form-control default-select" name="courseHour">
                                                     <option value="09">09</option>
@@ -93,27 +93,1363 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3 mb-3">
+                                        <label>Course End Hour and Minutes</label>
+                                        <div class="row col-md-12">
+                                            <div class="col-md-6">
+                                                <select class="form-control default-select" name="courseEndHour">
+                                                    <option value="09">09</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-control default-select col-md-6"
+                                                    name="courseEndMinute">
+                                                    <option value="00">00</option>
+                                                    <option value="30">30</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
                                         <label>Choose Day</label>
 
-                                        <select class="form-control default-select" name="courseHour">
+                                        <select class="form-control default-select" name="courseDay">
                                             <option value="Monday">Monday</option>
                                             <option value="Tuesday">Tuesday</option>
                                             <option value="Wednesday">Wednesday</option>
                                             <option value="Thirsday">Thirsday</option>
                                             <option value="Friday">Friday</option>
-                                            <option value="Satuday">Satuday</option>
+                                            <option value="Saturday">Satuday</option>
                                             <option value="Sunday">Sunday</option>
                                         </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Choose Day</label>
 
+                                        <select class="form-control default-select" name="courseType">
+                                            <option value="Office">Office</option>
+                                            <option value="Online">Online</option>
+                                            <option value="Home Schooling">Home Schooling</option>
+                                            <option value="Other">Other</option>
+                                        </select>
                                     </div>
                                 </div>
+
+
 
                                 <button type="button" class="btn btn-danger light"
                                     data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-primary">Create new lesson</button>
 
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Coure Weekly Timetable</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered table-responsive-sm">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>HOURS/DAY</th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th>
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                        <th>Saturday</th>
+                                        <th>Sunday</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr>
+                                        <th class="text-black">09.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "09")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "09")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "09")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "09")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "09")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "09")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "09")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">10.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "10")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "10")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "10")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "10")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "10")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "10")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "10")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">11.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "11")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "11")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "11")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "11")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "11")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "11")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "11")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">12.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "12")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "12")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "12")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "12")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "12")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "12")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "12")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">13.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "13")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "13")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "13")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "13")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "13")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "13")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "13")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">14.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "14")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "14")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "14")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "14")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "14")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "14")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "14")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">15.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "15")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "15")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "15")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "15")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "15")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "15")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "15")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">16.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "16")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "16")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "16")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "16")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "16")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "16")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "16")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">17.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "17")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "17")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "17")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "17")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "17")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "17")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "17")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">18.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "18")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "18")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "18")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "18")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "18")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "18")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "18")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-black">19.00</th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "19")}}
+                                            {{#if (eq courseDay "Monday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "19")}}
+                                            {{#if (eq courseDay "Tuesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "19")}}
+                                            {{#if (eq courseDay "Wednesday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "19")}}
+                                            {{#if (eq courseDay "Thursday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "19")}}
+                                            {{#if (eq courseDay "Friday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "19")}}
+                                            {{#if (eq courseDay "Saturday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                        <th>
+                                            {{#each timetable}}
+                                            {{#if (eq courseHour "19")}}
+                                            {{#if (eq courseDay "Sunday")}}
+                                            {{#if (eq courseType "Office")}} <span class="text-success"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Online")}} <span class="text-danger"> {{courseCode.lessonName}} </span> {{/if}}
+                                            {{#if (eq courseType "Home Schooling")}} <span class="text-warning"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{#if (eq courseType "Other")}} <span class="text-info"> {{courseCode.lessonName}} </span> {{/if}} 
+                                            {{courseHour}}:{{courseMinute}} <br>
+                                            {{teacherName.userName}} {{teacherName.userSurname}} - {{#each studentName}}
+                                            {{userName}} {{userSurname}} {{/each}}
+                                            <br>
+                                            {{/if}}
+                                            {{/if}}
+                                            {{/each}}
+                                        </th>
+                                    </tr>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
