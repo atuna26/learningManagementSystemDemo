@@ -149,5 +149,9 @@ router.post("/register/student", (req, res) => {
 });
 
 
+router.post("/logout",(req,res)=>{
+  req.session.userId = null
+  res.redirect("/users/login");
+})
 
 module.exports = router;

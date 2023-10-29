@@ -62,7 +62,8 @@ app.use(methodOverride('_method'))
 const hbs = exphbs.create({
     helpers: {
         eqArray: function(arr,value){
-         if(arr.toString().includes(value.toString())){
+            const teacherId = arr.map((teacher) => teacher._id.toString());
+         if(teacherId.includes(value.toString())){
             return true;
          }
         },
@@ -100,6 +101,12 @@ const hbs = exphbs.create({
         },
         eq: function (a, b) {
             return a === b;
+        },
+        eqWithTrue: function (a, b) {
+            console.log(a)
+            console.log(b)
+            if(a==b)
+            return true
         },
         add: function (value,addition){
             return parseInt(value) + parseInt(addition)

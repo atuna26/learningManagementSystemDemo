@@ -283,7 +283,7 @@
 				</div>
 			</div>
 		</div>
-		
+		{{>weeklyCourseTable}}
 		<div class="row">
 			<div class="col-xl-6 col-xxl-12">
 				<div class="row">
@@ -521,6 +521,32 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+	{{#if (eq userData.role "Teacher")}}
+	<div class="container-fluid">
+		<div class="form-head d-flex flex-wrap mb-sm-4 mb-3 align-items-center">
+			<div class="me-auto  d-lg-block mb-3">
+				<h2 class="text-black mb-0 font-w700">Dashboard</h2>
+				<p class="mb-0">Lorem ipsum dolor sit amet </p>
+			</div>
+			<div id="weeklyCourseForm">
+			{{>weeklyCourseTable}}
+			</div>
+		</div>
+	</div>
+	{{/if}}
+	{{#if (eq userData.role "Student")}}
+	<div class="container-fluid">
+		<div class="form-head d-flex flex-wrap mb-sm-4 mb-3 align-items-center">
+			<div class="me-auto  d-lg-block mb-3">
+				<h2 class="text-black mb-0 font-w700">Dashboard</h2>
+				<p class="mb-0">Lorem ipsum dolor sit amet </p>
+			</div>
+			<div id="weeklyCourseForm">
+			{{>weeklyCourseTable}}
 			</div>
 		</div>
 	</div>

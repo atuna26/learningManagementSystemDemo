@@ -6,9 +6,9 @@ const Lesson = require("../models/Lesson");
 const { model } = require("mongoose");
 const openai = require("openai");
 
-const ai = new openai.OpenAI({
-  apiKey: process.env.API_KEY,
-});
+ const ai = new openai.OpenAI({
+   apiKey: process.env.API_KEY,
+ });
 
 async function LoadRoleInfo(req, res, next) {
   const user = await User.findOne({ _id: req.session.userId });

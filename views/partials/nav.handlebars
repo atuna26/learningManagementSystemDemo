@@ -812,16 +812,18 @@
 									</svg>
 									<span class="ms-2">Inbox </span>
 								</a>
-								<a href="/page_login" class="dropdown-item ai-icon">
-									<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
-										width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-										stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-										<polyline points="16 17 21 12 16 7"></polyline>
-										<line x1="21" y1="12" x2="9" y2="12"></line>
-									</svg>
-									<span class="ms-2">Logout </span>
-								</a>
+								<form action="/users/logout" method="Post">
+									<a href="javascript:;" onclick="parentNode.submit();" class="dropdown-item ai-icon">
+										<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
+											width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+											<polyline points="16 17 21 12 16 7"></polyline>
+											<line x1="21" y1="12" x2="9" y2="12"></line>
+										</svg>
+										<span class="ms-2">Logout</span>
+									</a>
+								</form>
 							</div>
 						</li>
 						<li class="nav-item lenguage-btn">
@@ -854,22 +856,23 @@
 				{{#if (eq userData.role "Teacher")}}
 				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 						<i class="flaticon-022-copy"></i>
-						<span class="nav-text">Lesson</span>
+						<span class="nav-text">Course</span>
 					</a>
 					<ul aria-expanded="false">
-						<li><a href="/lesson/lesson-list">My Lesson</a></li>
+						<li><a href="/lesson/lesson-list">My Courses</a></li>
 
 					</ul>
 				</li>
-				<li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="true">
+				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 						<i class="flaticon-072-printer"></i>
 						<span class="nav-text">Forms</span>
 					</a>
-					<ul aria-expanded="false" class="mm-collapse mm-show" style="">
+					<ul aria-expanded="false">
 						<li><a href="/form/available-form">Available Forms</a></li>
 						<li><a href="/form/sended-form">Sended Forms</a></li>
 					</ul>
 				</li>
+				
 				{{/if}}
 				{{#if (eq userData.role "Admin") }}
 				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -892,11 +895,11 @@
 						<li><a href="/course/course-registration">Course Registration</a></li>
 					</ul>
 				</li>
-				<li class="mm-active"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="true">
+				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 						<i class="flaticon-072-printer"></i>
 						<span class="nav-text">Forms</span>
 					</a>
-					<ul aria-expanded="false" class="mm-collapse mm-show" style="">
+					<ul aria-expanded="false" style="">
 						<li><a href="/form/available-form">Available Forms</a></li>
 						<li><a href="/form/sended-form">Sended Forms</a></li>
 						<li><a href="/form/created-form">Created Forms</a></li>
@@ -911,7 +914,7 @@
 				</a>
 			</div>
 			<div class="copyright">
-			
+
 			</div>
 		</div>
 	</div>
