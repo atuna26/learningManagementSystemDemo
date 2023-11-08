@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const { Schema } = require("mongoose")
 
-const TimetableSchema = new mongoose.Schema({
+const PlannedTimetableSchema = new mongoose.Schema({
     courseCode: {type: Schema.Types.ObjectId, ref: "lesson"},
     teacherName:[{type: Schema.Types.ObjectId, ref: "user"}],
     studentName:[{type: Schema.Types.ObjectId, ref: "user"}],
@@ -11,18 +11,8 @@ const TimetableSchema = new mongoose.Schema({
     courseMinute:{type:String},
     courseEndHour:{type:String},
     courseEndMinute:{type:String},
-    isCourseCompleted:{type:String, default:"False"}
+    date: { type: Date, default: Date.now },
 
 })
 
-const WeeklyTableSchema = new mongoose.Schema({
-    courses:[TimetableSchema],
-    week:{type:Number},
-    year:{type:Number},
-    startDate:{type:String},
-    endDate:{type:String},
-})
-
-
-
-module.exports = mongoose.model("WeeklyTable", WeeklyTableSchema)
+module.exports = mongoose.model("PlannedTimetable", PlannedTimetableSchema)

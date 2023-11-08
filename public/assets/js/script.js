@@ -1,4 +1,18 @@
-
+function submitForm(form){
+  Swal.fire({
+    title:"Are You Sure?",
+    text:"You won't be able to undo this action.",
+    type: 'warning',
+    confirmButtonText: 'Yes',
+    confirmButtonColor: "#d33",
+    showCancelButton: true,
+  }).then((result)=>{
+    if(result.value){
+      form.submit();
+    }
+  });
+  return false;
+}
 
 
 function questionKindChange(option) {

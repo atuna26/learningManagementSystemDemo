@@ -1,0 +1,79 @@
+<div class="content-body" style="min-height: 862px;">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-2 p-md-0">
+                <div class="welcome-text">
+                    <h4>Course</h4>
+                    <p class="mb-0">Course List</p>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Course List</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-responsive-md">
+                                <form action="/course/course-timeList/desicion/" method="post">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                                <input type="checkbox" class="form-check-input" id="checkAll"
+                                                  >
+                                            </div>
+                                        </th>
+                                        <th><strong>Teacher Name</strong></th>
+                                        <th><strong>Student Name</strong></th>
+                                        <th><strong>Course</strong></th>
+                                        <th><strong>Type</strong></th>
+                                        <th><strong>Week</strong></th>
+                                        <th><strong>Day</strong></th>
+                                        <th><strong>Time</strong></th>
+                                        <th><strong>Begin</strong></th>
+                                        <th><strong>
+                                                    <button class="btn btn-danger btn-xs shadow sharp me-1"
+                                                        name="action" value="send" type="submit" title="Add To Planned"><i
+                                                            class="fa fa-pencil color-muted"></i></button></strong>
+                                                <button class="btn btn-primary shadow btn-xs sharp me-1" name="action"
+                                                    type="submit" value="delete"><i class="fa fa-trash"></i></button></strong>
+
+                                            </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each weeklyTable}}
+                                    {{#each courses}}
+                                    <tr>
+                                        <td>
+                                            <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                                <input type="checkbox" class="form-check-input" value="{{_id}}"
+                                                    name="selected" id="customCheckBox2" >
+                                            </div>
+                                        </td>
+                                        <td> {{#each teacherName}} {{userName}} {{userSurname}} {{/each}} </td>
+                                        <td>{{#each studentName}} {{userName}} {{userSurname}} {{/each}}</td>
+                                        <td>{{courseCode.lessonCode}} - {{courseCode.lessonName}} </td>
+                                        <td>{{courseType}}</td>
+                                        <td>{{../week}}</td>
+                                        <td>{{courseDay}} </td>
+                                        <td>DÜZELTİLECEK</td>
+                                        <td>{{courseHour}}:{{courseMinute}}</td>
+                                    </tr>
+                                    {{/each}}
+                                    {{/each}}
+                                </tbody>
+                                </form>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

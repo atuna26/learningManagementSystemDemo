@@ -103,8 +103,6 @@ const hbs = exphbs.create({
             return a === b;
         },
         eqWithTrue: function (a, b) {
-            console.log(a)
-            console.log(b)
             if(a==b)
             return true
         },
