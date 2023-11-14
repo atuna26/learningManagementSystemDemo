@@ -2372,7 +2372,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value="30 minutes" id="questAndAnswer.10.0.answer">
+                                                value="30 minutes" {{#if (checkHour courseHour courseEndHour "30")}} checked {{/if}} id="questAndAnswer.10.0.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.0.answer">
                                                 30 minutes
                                             </label>
@@ -2381,7 +2381,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value=" 45 minutes" id="questAndAnswer.10.1.answer">
+                                                value="45 minutes" {{#if (checkHour courseHour courseEndHour "45")}} checked {{/if}} id="questAndAnswer.10.1.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.1.answer">
                                                 45 minutes
                                             </label>
@@ -2390,7 +2390,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value=" 60 minutes" id="questAndAnswer.10.2.answer">
+                                                value=" 60 minutes" {{#if (checkHour courseHour courseEndHour "60")}} checked {{/if}} id="questAndAnswer.10.2.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.2.answer">
                                                 60 minutes
                                             </label>
@@ -2399,7 +2399,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value=" 75 minutes" id="questAndAnswer.10.3.answer">
+                                                value=" 75 minutes" {{#if (checkHour courseHour courseEndHour "75")}} checked {{/if}} id="questAndAnswer.10.3.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.3.answer">
                                                 75 minutes
                                             </label>
@@ -2408,7 +2408,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value=" 90 minutes" id="questAndAnswer.10.4.answer">
+                                                value=" 90 minutes" {{#if (checkHour courseHour courseEndHour "90")}} checked {{/if}} id="questAndAnswer.10.4.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.4.answer">
                                                 90 minutes
                                             </label>
@@ -2417,7 +2417,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value=" 120 minutes" id="questAndAnswer.10.5.answer">
+                                                value=" 120 minutes" {{#if (checkHour courseHour courseEndHour "120")}} checked {{/if}} id="questAndAnswer.10.5.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.5.answer">
                                                 120 minutes
                                             </label>
@@ -2426,7 +2426,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value=" 150 minutes" id="questAndAnswer.10.6.answer">
+                                                value=" 150 minutes" {{#if (checkHour courseHour courseEndHour "150")}} checked {{/if}} id="questAndAnswer.10.6.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.6.answer">
                                                 150 minutes
                                             </label>
@@ -2435,7 +2435,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value=" 180 minutes" id="questAndAnswer.10.7.answer">
+                                                value=" 180 minutes" {{#if (checkHour courseHour courseEndHour "180")}} checked {{/if}} id="questAndAnswer.10.7.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.7.answer">
                                                 180 minutes
                                             </label>
@@ -2444,7 +2444,7 @@
                                     <div class="row">
                                         <div class="form-check d-inline-block mx-2">
                                             <input class="form-check-input" type="radio" name="questAndAnswer.10.answer"
-                                                value=" 4h" id="questAndAnswer.10.8.answer">
+                                                value=" 4h" {{#if (checkHour courseHour courseEndHour "240")}} checked {{/if}} id="questAndAnswer.10.8.answer">
                                             <label class="form-check-label" for="questAndAnswer.10.8.answer">
                                                 4h
                                             </label>

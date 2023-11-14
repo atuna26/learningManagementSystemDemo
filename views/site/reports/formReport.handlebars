@@ -1,0 +1,81 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-2 p-md-0">
+                <div class="welcome-text">
+                    <h4>Report</h4>
+                    <p class="mb-0">Form Report Total Form: {{formsLength}} </p>
+                    <div class="form-group col-md-12">
+                        <div class="dropdown bootstrap-select show-tick form-control default-select">
+                            <select class="form-control default-select" name="formFor" onchange="weekSelected()" id="weekSelect">
+                                {{#each weeklyTable}}
+                                <option  value="/report/form-reports/{{../actualForm}}/?startDate={{startDate}}&endDate={{endDate}}">{{week}}-{{year}} & {{startDate}} - {{endDate}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+            {{#each totalAnswerCounts}}
+            {{#unless (eq @key "0")}}{{#unless (eq @key "8")}}{{#unless (eq @key "9")}}{{#unless (eq @key
+            "15")}}{{#unless (eq @key "16")}}{{#unless (eq @key "17")}}
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title"> Question</h4>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <canvas id="myChart{{@key}}"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/unless}}{{/unless}}{{/unless}}{{/unless}}{{/unless}}{{/unless}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+<script>
+
+    function weekSelected(){
+    weekSelector = document.getElementById("weekSelect")
+    window.location.href= weekSelector.value
+    }
+
+    {{#each totalAnswerCounts}}
+                {{#unless (eq @key "0")}}{{#unless (eq @key "8")}}{{#unless (eq @key "9")}}{{#unless (eq @key "15")}}{{#unless (eq @key "16")}}{{#unless (eq @key "17")}}
+
+    let ctx{{@key}} = document.getElementById('myChart{{@key}}');
+
+    new Chart(ctx{{@key}}, {
+        type: 'bar',
+        data: {
+            labels: [
+                {{#each this }} "{{this.answer}}",{{/each}}],
+        datasets: [
+        {
+            label: "Question",
+            data: [{{#each this }} {{this.count}}, {{/each}}],
+        borderWidth: 1,
+                },
+            ]
+        },
+        options: {
+        scales: {
+             y: {
+                    beginAtZero: true
+                }
+
+        }
+    }
+    });
+                {{/unless}}{{/unless}}{{/unless}}{{/unless}}{{/unless}}{{/unless}}
+
+    {{/each}}
+</script>

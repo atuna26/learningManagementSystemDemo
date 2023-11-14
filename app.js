@@ -61,6 +61,14 @@ app.use(methodOverride('_method'))
 
 const hbs = exphbs.create({
     helpers: {
+        checkHour: function(a,b,total){
+            let expect=(b-a)*60
+            console.log(expect)
+            console.log(total)
+            if(expect==total){
+                return true
+            }
+        },
         eqArray: function(arr,value){
             const teacherId = arr.map((teacher) => teacher._id.toString());
          if(teacherId.includes(value.toString())){
@@ -134,6 +142,8 @@ app.use((req, res, next) => {
         app.use("/course",course)
         const form = require("./routes/form")
         app.use("/form", form)
+        const report = require("./routes/report")
+        app.use("/report", report)
     } else {
         res.redirect("/users/login")
     }

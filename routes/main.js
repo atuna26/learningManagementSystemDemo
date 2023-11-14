@@ -11,7 +11,7 @@ async function LoadRoleInfo(req, res, next) {
       userName:user.userName,
       role:user.role,
       id:user._id,
-      currentWeek:"13"
+      currentWeek:"10"
     }
     req.userData=userData
   }

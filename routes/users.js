@@ -9,6 +9,8 @@ async function LoadRoleInfo(req, res, next) {
     const userData = {
       userName: user.userName,
       role: user.role,
+      currentWeek: "10",
+
     };
     req.userData = userData;
   }

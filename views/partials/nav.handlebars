@@ -872,7 +872,7 @@
 						<li><a href="/form/sended-form">Sended Forms</a></li>
 					</ul>
 				</li>
-				
+
 				{{/if}}
 				{{#if (eq userData.role "Admin") }}
 				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -908,14 +908,25 @@
 						<li><a href="/form/created-form">Created Forms</a></li>
 					</ul>
 				</li>
+				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="flaticon-072-printer"></i>
+						<span class="nav-text">Reports</span>
+					</a>
+					<ul aria-expanded="false" style="">
+						<li><a href="/report/form-reports">Form Reports</a></li>
+						<li><a href="/report/lesson-reports">Lesson Reports</a></li>
+
+					</ul>
+				</li>
+
 				{{/if}}
 			</ul>
-			<div class="drum-box">
+			{{!-- <div class="drum-box">
 				<img src="/assets/images/ellipse5.png" alt="">
-				<p class="fs-18 font-w500 mb-4">Auto Generate Admission Report</p>
+				<p class="fs-18 font-w500 mb-4">PB Education System</p>
 				<a class="" href="javascript:void(0);"><i class="fa fa-long-arrow-right"></i>
 				</a>
-			</div>
+			</div> --}}
 			<div class="copyright">
 
 			</div>
