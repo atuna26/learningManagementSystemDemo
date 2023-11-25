@@ -1,0 +1,209 @@
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="form-head d-flex flex-wrap mb-sm-4 mb-3 align-items-center">
+            <div class="me-auto  d-lg-block mb-3">
+                <h2 class="text-black font-w700 mb-0">Accounting</h2>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="/accounting/change" method="post">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Teacher List</h4>
+                            <div class="row d-flex justify-content-end  float-end">
+                                <div class=" d-flex align-items-center justify-content-end">
+                                    <input type="text" name="moneyToBePaid"
+                                        class="form-control input-default w-25 float-end mx-2"
+                                        placeholder="Money to Be Paid" value="">
+                                    <input type="text" name="moneyPaid"
+                                        class="form-control input-default w-25 float-end mx-2" placeholder="Money Paid"
+                                        value="">
+                                    <input type="text" name="feePerLesson"
+                                        class="form-control input-default w-25 float-end mx-2"
+                                        placeholder="Lesson Price" value="">
+                                    <button class="btn btn-danger btn-xs shadow sharp me-1" name="action" value="send"
+                                        type="submit" title="Add All Weeks"><i
+                                            class="fa fa-pencil color-muted"></i></button></strong>
+                                    <button class="btn btn-primary btn-xs shadow sharp me-1" name="action"
+                                        value="balance" type="submit" title="Same"><i
+                                            class="fa-solid fa-scale-balanced"></i></button></strong>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-responsive-lg mb-4 dataTablesCard card-table text-black"
+                                    id="example5">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkAll">
+                                                    <label class="form-check-label" for="checkAll">
+
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th class="text-center">Name Surname</th>
+                                            <th>Weekly Lesson</th>
+                                            <th>Money to Be Paid</th>
+                                            <th>Money Paid</th>
+                                            <th>Remaining</th>
+                                            <th>Lesson Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each user}}
+                                        {{#if (eq role "Teacher")}}
+
+                                        <tr class="text-center">
+                                            <td>
+                                                <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                                    <input type="checkbox" class="form-check-input" value="{{_id}}"
+                                                        name="selected" id="customCheckBox2">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{userName}} {{userSurname}}
+                                            </td>
+                                            <td>
+                                                {{lessonCount}}
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-default w-50 text-center"
+                                                    value="{{moneyToBePaid}}" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-default w-50 text-center"
+                                                    value="{{moneyPaid}}" readonly>
+                                            </td>
+                                             <td>
+                                                <input type="text" class="form-control input-default w-50 text-center"
+                                                    value="{{substract moneyToBePaid moneyPaid}}" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-default w-50 text-center"
+                                                    value="{{feePerLesson}}" readonly>
+                                            </td>
+                                        </tr>
+                                        {{/if}}
+                                        {{/each}}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="/accounting/change" method="post">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Student List</h4>
+                            <div class="row d-flex justify-content-end  float-end">
+                                <div class=" d-flex align-items-center justify-content-end">
+                                    <input type="text" name="moneyToBePaid"
+                                        class="form-control input-default w-25 float-end mx-2"
+                                        placeholder="Money to Be Paid" value="">
+                                    <input type="text" name="moneyPaid"
+                                        class="form-control input-default w-25 float-end mx-2" placeholder="Money Paid"
+                                        value="">
+                                    <input type="text" name="feePerLesson"
+                                        class="form-control input-default w-25 float-end mx-2"
+                                        placeholder="Lesson Price" value="">
+                                    <button class="btn btn-danger btn-xs shadow sharp me-1" name="action" value="send"
+                                        type="submit" title="Add All Weeks"><i
+                                            class="fa fa-pencil color-muted"></i></button></strong>
+                                    <button class="btn btn-primary btn-xs shadow sharp me-1" name="action"
+                                        value="balance" type="submit" title="Same"><i
+                                            class="fa-solid fa-scale-balanced"></i></button></strong>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-responsive-lg mb-4 dataTablesCard card-table text-black"
+                                    id="example5">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="checkAll">
+                                                    <label class="form-check-label" for="checkAll">
+
+                                                    </label>
+                                                </div>
+                                            </th>
+                                            <th class="text-center">Name Surname</th>
+                                            <th>Weekly Lesson</th>
+                                            <th>Money to Be Paid</th>
+                                            <th>Money Paid</th>
+                                            <th>Remaining</th>
+                                            <th>Lesson Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each user}}
+                                        {{#if (eq role "Student")}}
+                                        <tr class="text-center">
+                                            <td>
+                                                <div class="form-check custom-checkbox checkbox-success check-lg me-3">
+                                                    <input type="checkbox" class="form-check-input" value="{{_id}}"
+                                                        name="selected" id="customCheckBox2">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{userName}} {{userSurname}}
+                                            </td>
+                                            <td>
+                                            8
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-default w-50 text-center"
+                                                    value="{{moneyToBePaid}}" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-default w-50 text-center"
+                                                    value="{{moneyPaid}}" readonly>
+                                            </td>
+                                             <td>
+                                                <input type="text" class="form-control input-default w-50 text-center"
+                                                    value="{{substract moneyToBePaid moneyPaid}}" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control input-default w-50 text-center"
+                                                    value="{{feePerLesson}}" readonly>
+                                            </td>
+                                        </tr>
+                                        {{/if}}
+                                        {{/each}}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

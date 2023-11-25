@@ -68,7 +68,7 @@
                                             <option selected disabled>Choose...</option>
 
                                             {{#each ../teacher}}
-                                            <option value="{{userName}} {{userSurname}}">{{userName}} {{userSurname}}
+                                            <option value="{{_id}}">{{userName}} {{userSurname}}
                                             </option>
                                             {{/each}}
                                         </select>
@@ -80,7 +80,7 @@
                                             <option selected disabled>Choose...</option>
 
                                             {{#each ../student}}
-                                            <option value="{{userName}} {{userSurname}}">{{userName}} {{userSurname}}
+                                            <option value="{{_id}}">{{userName}} {{userSurname}}
                                             </option>
                                             {{/each}}
                                         </select>
@@ -91,7 +91,7 @@
                                             name="questAndAnswer.{{@index}}.answer" id="questAndAnswer{{@index}}">
                                             <option selected disabled>Choose...</option>
                                             {{#each ../course}}
-                                            <option value="{{lessonCode}} {{lessonName}}">{{lessonCode}} {{lessonName}}
+                                            <option value="{{_id}}">{{lessonCode}} {{lessonName}}
                                             </option>
                                             {{/each}}
                                         </select>

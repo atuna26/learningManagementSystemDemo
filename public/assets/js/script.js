@@ -8,6 +8,7 @@ function submitForm(form){
     showCancelButton: true,
   }).then((result)=>{
     if(result.value){
+      form.action=
       form.submit();
     }
   });

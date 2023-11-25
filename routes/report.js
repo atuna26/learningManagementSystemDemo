@@ -6,6 +6,7 @@ const Lesson = require("../models/Lesson");
 const WeeklyTable = require("../models/WeeklyTable");
 const PlannedTimetable = require("../models/PlannedTimetable");
 const RequestPlannedTimetable = require("../models/requestPlannedTimetable")
+const Notification = require("../models/Notification")
 
 async function LoadRoleInfo(req, res, next) {
     const user = await User.findOne({ _id: req.session.userId });
@@ -14,9 +15,10 @@ async function LoadRoleInfo(req, res, next) {
         userName: user.userName,
         role: user.role,
         id:user._id,
-        currentWeek: "10",
+        currentWeek: "1",
       };
       req.userData = userData;
+     
     }
     next();
   }
@@ -58,7 +60,6 @@ router.get("/form-reports/:id/", async (req, res) => {
         }).lean();
 
         const totalAnswerCounts = {};
-
         forms.forEach(form => {
             if (form.questAndAnswer && typeof form.questAndAnswer === 'object') {
                 Object.entries(form.questAndAnswer).forEach(([key, value]) => {
@@ -89,5 +90,29 @@ router.get("/form-reports/:id/", async (req, res) => {
     }
 });
 
+router.get("/student/weekly",(req,res)=>{
+    WeeklyTable.find({}).lean().then(weeklyTable=>{
+        res.render("site/reports/studentWeekly",{weeklyTable,userData: req.userData})
+    })
+})
+
+router.get("/student/weekly/week/",async (req,res)=>{
+    const user = await User.findOne({ _id: req.session.userId });
+    const userId = user._id;
+    let {startDate,endDate}= req.query
+
+    Form.find({
+        actualForm:"652ef14bf65819d089c51c33",
+        "questAndAnswer.2.answer":userId,
+    }).populate({path:"questAndAnswer.1.answer", model:User}).populate({path:"questAndAnswer.6.answer", model:Lesson}).lean().then(form=>{
+        const startD = new Date(startDate);
+        const endD = new Date(endDate);
+        const formNew=form.filter((form)=>{
+            const lessonDate = new Date(form.questAndAnswer[3].answer);
+            return lessonDate >= startD && lessonDate <= endD;
+        })
+        res.render("site/reports/studentWeeklySingle",{formNew,layout:""})
+    })
+})
 
 module.exports = router;

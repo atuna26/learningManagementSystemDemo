@@ -2675,6 +2675,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning visually-hidden" id="prevButtons/{{_id}}"
+                        onclick="prevButtonFirst{{_id}}()">Previous</button>
                     <button type="button" class="btn btn-primary" id="nextButtons/{{_id}}"
                         onclick="nextButton{{_id}}()">Next</button>
                 </div>
@@ -4891,13 +4893,14 @@
                         let lessonPart2Cont2 = document.getElementById("lessonPart2Cont2/{{_id}}");
                         let lessonPart2Cont3 = document.getElementById("lessonPart2Cont3/{{_id}}");
                         let lessonPart2Cont4 = document.getElementById("lessonPart2Cont4/{{_id}}");
-
+                        let prevButton = document.getElementById("prevButtons/{{_id}}")
                         let lessonCancel = document.getElementById("lessonCancel/{{_id}}");
                         let lessonValue = document.getElementById("lessonSelect{{_id}}");
                         let buttons = document.getElementById("nextButtons/{{_id}}");
                         if (lessonValue.value == "No") {
                             document.getElementById("feedbackForm/{{_id}}").submit()
                         } else if (lessonValue.value == "Yes") {
+                            prevButton.classList.remove("visually-hidden")
                             lessonCancel.classList.add("visually-hidden")
                             lessonCont1.classList.add("visually-hidden")
                             lessonCont2.classList.add("visually-hidden")
@@ -4910,8 +4913,32 @@
                             alert("Unanswered Question")
                         }
                     }
+
+                    function prevButtonFirst{{_id}}(){
+                         let lessonCont1 = document.getElementById("lessonCont1/{{_id}}");
+                        let lessonCont2 = document.getElementById("lessonCont2/{{_id}}");
+                        let lessonPart2Cont1 = document.getElementById("lessonPart2Cont1/{{_id}}");
+                        let lessonPart2Cont2 = document.getElementById("lessonPart2Cont2/{{_id}}");
+                        let lessonPart2Cont3 = document.getElementById("lessonPart2Cont3/{{_id}}");
+                        let lessonPart2Cont4 = document.getElementById("lessonPart2Cont4/{{_id}}");
+                        let prevButton = document.getElementById("prevButtons/{{_id}}")
+                        let lessonCancel = document.getElementById("lessonCancel/{{_id}}");
+                        let lessonValue = document.getElementById("lessonSelect{{_id}}");
+                        let buttons = document.getElementById("nextButtons/{{_id}}");
+                            prevButton.classList.add("visually-hidden")
+                            lessonCont1.classList.remove("visually-hidden")
+                            lessonCont2.classList.remove("visually-hidden")
+                            lessonPart2Cont1.classList.add("visually-hidden")
+                            lessonPart2Cont2.classList.add("visually-hidden")
+                            lessonPart2Cont3.classList.add("visually-hidden")
+                            lessonPart2Cont4.classList.add("visually-hidden")
+                            buttons.setAttribute("onClick", "nextButton{{_id}}()")
+                            
+
+                    }
                     {{/each}}
                             {{/each}}
+                            
 
                                     {{#each weeklyTable}}
                                     {{#each courses}}
@@ -4923,6 +4950,10 @@
                                         let lessonPart3Cont1 = document.getElementById("lessonPart3Cont1/{{_id}}");
                                         let lessonPart3Cont2 = document.getElementById("lessonPart3Cont2/{{_id}}");
                                         let lessonPart3Cont3 = document.getElementById("lessonPart3Cont3/{{_id}}");
+                                        let prevButton = document.getElementById("prevButtons/{{_id}}")
+                                        prevButton.classList.remove("visually-hidden")
+                                        prevButton.setAttribute("onClick","prevButtonAgain{{_id}}()")
+
                                         let buttons = document.getElementById("nextButtons/{{_id}}");
 
 
@@ -4934,6 +4965,31 @@
                                         lessonPart3Cont2.classList.remove("visually-hidden")
                                         lessonPart3Cont3.classList.remove("visually-hidden")
                                         buttons.type = "submit"
+
+                                    }
+                                    function prevButtonAgain{{_id}}(){
+                                         let lessonPart2Cont1 = document.getElementById("lessonPart2Cont1/{{_id}}");
+                                        let lessonPart2Cont2 = document.getElementById("lessonPart2Cont2/{{_id}}");
+                                        let lessonPart2Cont3 = document.getElementById("lessonPart2Cont3/{{_id}}");
+                                        let lessonPart2Cont4 = document.getElementById("lessonPart2Cont4/{{_id}}");
+                                        let lessonPart3Cont1 = document.getElementById("lessonPart3Cont1/{{_id}}");
+                                        let lessonPart3Cont2 = document.getElementById("lessonPart3Cont2/{{_id}}");
+                                        let lessonPart3Cont3 = document.getElementById("lessonPart3Cont3/{{_id}}");
+                                        let prevButton = document.getElementById("prevButtons/{{_id}}")
+
+                                        let buttons = document.getElementById("nextButtons/{{_id}}");
+
+
+                                        lessonPart2Cont1.classList.remove("visually-hidden")
+                                        lessonPart2Cont2.classList.remove("visually-hidden")
+                                        lessonPart2Cont3.classList.remove("visually-hidden")
+                                        lessonPart2Cont4.classList.remove("visually-hidden")
+                                        lessonPart3Cont1.classList.add("visually-hidden")
+                                        lessonPart3Cont2.classList.add("visually-hidden")
+                                        lessonPart3Cont3.classList.add("visually-hidden")
+                                        buttons.type = "button"
+                                        buttons.setAttribute("onClick", "buttonAgain{{_id}}()")
+                                        prevButton.setAttribute("onClick", "prevButtonFirst{{_id}}()")
 
                                     }
 

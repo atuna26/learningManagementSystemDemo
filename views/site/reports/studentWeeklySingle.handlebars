@@ -30,11 +30,12 @@
 </head>
 <style>
     @media print {
-        .btn{
+        .btn {
             display: none;
         }
     }
 </style>
+
 <body class="body  h-100">
     <div class="authincation h-100">
         <div class="container h-100">
@@ -61,20 +62,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {{#each formNew}}
                                             <tr>
-                                                <td>1</td>
-                                                <td>16.30 2023-17-Perşembe</td>
-                                                <td>Mathematics</td>
-                                                <td>Fırat Tuga</td>
-                                                <td>Homework</td>
+                                                <td>{{@index}}</td>
+                                                <td>{{questAndAnswer.4.answer}} / {{questAndAnswer.3.answer}}</td>
+                                                <td>{{questAndAnswer.6.answer.lessonName}}</td>
+                                                <td>{{questAndAnswer.1.answer.userName}} {{questAndAnswer.1.answer.userSurname}}</td>
+                                                <td>{{questAndAnswer.8.answer}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>18.30 2023-17-Salı</td>
-                                                <td>CS</td>
-                                                <td>ALPEREN Tuna</td>
-                                                <td>HTML,CSS</td>
-                                            </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -101,24 +97,17 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {{#each formNew}}
                                             <tr>
-                                                <td>1</td>
-                                                <td>Mathematics 17-Perşembe</td>
-                                                <td>Online</td>
-                                                <td>On Time</td>
-                                                <td>Highly Engaged</td>
-                                                <td>Excellent</td>
-                                                <td>Productive</td>
+                                                <td>{{@index}} </td>
+                                                <td>{{questAndAnswer.4.answer}} / {{questAndAnswer.3.answer}}</td>
+                                                <td>{{questAndAnswer.5.answer}}</td>
+                                                <td>{{questAndAnswer.11.answer}}</td>
+                                                <td>{{questAndAnswer.12.answer}}</td>
+                                                <td>{{questAndAnswer.13.answer}}</td>
+                                                <td>{{questAndAnswer.14.answer}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>CS 17-Sali</td>
-                                                <td>Face To Face</td>
-                                                <td>On Time</td>
-                                                <td>Disengaged</td>
-                                                <td>Good</td>
-                                                <td>Productive</td>
-                                            </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
@@ -134,25 +123,22 @@
                                 <div class="table-responsive">
                                     <table class="table align-middle">
                                         <tbody>
+                                            {{#each formNew}}
                                             <tr>
-                                                <td><strong>Mathematics (17/Perşembe)</strong></td>
-                                                <td>General Impressions=> We have solved his homework. Nothing new. He
-                                                    is doing great.<br>
-                                                    Concern for Future Lessons=> None</td>
+                                                <td><strong>{{questAndAnswer.6.answer.lessonName}} ({{questAndAnswer.4.answer}} /
+                                                        {{questAndAnswer.3.answer}})</strong></td>
+                                                <td>General Impressions=> {{questAndAnswer.15.chatgptAnswer}} <br>
+                                                    Concern for Future Lessons=> {{questAndAnswer.16.chatgptAnswer}}
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td><strong>CS (17/Sali)</strong></td>
-                                                <td>General Impressions=> Demand pull and cost push inflation is covered
-                                                    during the class.<br>
-                                                    Concern for Future Lessons=> None for now</td>
-                                            </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-                                        <button type="button" class="btn btn-danger light" onclick="print()">Print</button>
+                    <button type="button" class="btn btn-danger light" onclick="print()">Print</button>
 
                 </div>
             </div>

@@ -63,11 +63,12 @@ const hbs = exphbs.create({
     helpers: {
         checkHour: function(a,b,total){
             let expect=(b-a)*60
-            console.log(expect)
-            console.log(total)
             if(expect==total){
                 return true
             }
+        },
+        substract:function(a,b){
+            return a-b;
         },
         eqArray: function(arr,value){
             const teacherId = arr.map((teacher) => teacher._id.toString());
@@ -76,7 +77,7 @@ const hbs = exphbs.create({
          }
         },
         plus: function(a,b){
-            return a+b
+            return a+b;
         },
         any: function() {
             let options = arguments[arguments.length - 1];
@@ -144,6 +145,8 @@ app.use((req, res, next) => {
         app.use("/form", form)
         const report = require("./routes/report")
         app.use("/report", report)
+        const accounting = require("./routes/accounting")
+        app.use("/accounting",accounting)
     } else {
         res.redirect("/users/login")
     }

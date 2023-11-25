@@ -689,77 +689,24 @@
 										fill="#A5A5A5" />
 								</svg>
 
-								<span class="badge light text-white bg-primary rounded-circle">4</span>
+								<span class="badge light text-white bg-primary rounded-circle">{{length}}</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<div id="dlab_W_Notification1" class="widget-media dz-scroll p-3 height380">
 									<ul class="timeline">
+										{{#each notification}}
 										<li>
 											<div class="timeline-panel">
-												<div class="media me-2">
-													<img alt="image" width="50" src="/assets/images/avatar/1.jpg">
+												<div class="media me-2 {{color}}">
+													<i class="{{symbol}}"></i>
 												</div>
 												<div class="media-body">
-													<h6 class="mb-1">Dr sultads Send you Photo</h6>
-													<small class="d-block">29 July 2020 - 02:26 PM</small>
+													<h6 class="mb-1">{{title}}</h6>
+													<small class="d-block">{{date}}</small>
 												</div>
 											</div>
 										</li>
-										<li>
-											<div class="timeline-panel">
-												<div class="media me-2 media-info">
-													KG
-												</div>
-												<div class="media-body">
-													<h6 class="mb-1">Resport created successfully</h6>
-													<small class="d-block">29 July 2020 - 02:26 PM</small>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="timeline-panel">
-												<div class="media me-2 media-success">
-													<i class="fa fa-home"></i>
-												</div>
-												<div class="media-body">
-													<h6 class="mb-1">Reminder : Treatment Time!</h6>
-													<small class="d-block">29 July 2020 - 02:26 PM</small>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="timeline-panel">
-												<div class="media me-2">
-													<img alt="image" width="50" src="/assets/images/avatar/1.jpg">
-												</div>
-												<div class="media-body">
-													<h6 class="mb-1">Dr sultads Send you Photo</h6>
-													<small class="d-block">29 July 2020 - 02:26 PM</small>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="timeline-panel">
-												<div class="media me-2 media-danger">
-													KG
-												</div>
-												<div class="media-body">
-													<h6 class="mb-1">Resport created successfully</h6>
-													<small class="d-block">29 July 2020 - 02:26 PM</small>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="timeline-panel">
-												<div class="media me-2 media-primary">
-													<i class="fa fa-home"></i>
-												</div>
-												<div class="media-body">
-													<h6 class="mb-1">Reminder : Treatment Time!</h6>
-													<small class="d-block">29 July 2020 - 02:26 PM</small>
-												</div>
-											</div>
-										</li>
+										{{/each}}
 									</ul>
 								</div>
 								<a class="all-notification" href="javascript:void(0)">See all notifications <i
@@ -853,6 +800,13 @@
 						<span class="nav-text">Dashboard</span>
 					</a>
 				</li>
+				{{#if (eq userData.role "Student") }}
+				<li><a href="/report/student/weekly" class="ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="fa-solid fa-chart-line"></i>
+						<span class="nav-text">Report</span>
+					</a>
+				</li>
+				{{/if}}
 				{{#if (eq userData.role "Teacher")}}
 				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
 						<i class="flaticon-022-copy"></i>
@@ -909,7 +863,7 @@
 					</ul>
 				</li>
 				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-072-printer"></i>
+						<i class="fa-solid fa-chart-line"></i>
 						<span class="nav-text">Reports</span>
 					</a>
 					<ul aria-expanded="false" style="">
@@ -918,7 +872,11 @@
 
 					</ul>
 				</li>
-
+				<li><a href="/accounting" class="ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="fa-solid fa-calculator"></i>
+						<span class="nav-text">Accounting</span>
+					</a>
+				</li>
 				{{/if}}
 			</ul>
 			{{!-- <div class="drum-box">

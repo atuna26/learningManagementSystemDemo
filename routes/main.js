@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../models/User");
 const WeeklyTable = require("../models/WeeklyTable")
 const Lesson = require("../models/Lesson")
+const Notification = require("../models/Notification")
 
 async function LoadRoleInfo(req, res, next) {
   const user = await User.findOne({ _id: req.session.userId });
@@ -13,7 +14,7 @@ async function LoadRoleInfo(req, res, next) {
       id:user._id,
       currentWeek:"10"
     }
-    req.userData=userData
+    req.userData = userData;
   }
   next();
  
@@ -34,7 +35,11 @@ router.get("/", async (req, res) => {
   WeeklyTable.find().populate({path:"courses.teacherName", model:"User"}).populate({path:"courses.studentName", model:"User"}).populate({path:"courses.courseCode", model:"Lesson"}).sort({week:1}).lean().then(weeklyTable=>{
    User.find().lean().then(user=>{
     Lesson.find().lean().then(lesson=>{
-      res.render("site/index",{userData:req.userData,numberTea,numberStu,weeklyTable,userId,lesson:lesson,user:user});
+      Notification.find({gettingUser:userId}).lean().then(notification=>{
+        const length = notification.length
+        res.render("site/index",{userData:req.userData,numberTea,numberStu,weeklyTable,userId,lesson:lesson,user:user,notification,length});
+      })
+   
 
     })
    })
