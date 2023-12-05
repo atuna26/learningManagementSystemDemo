@@ -51,16 +51,18 @@ router.get("/form-reports/:id/", async (req, res) => {
             })
         }
 
-        const forms = await Form.find({
+        const formOld = await Form.find({
             actualForm: req.params.id,
-            date: {
-                $gte: startDate,
-                $lte: endDate
-            }
         }).lean();
+        const forms=formOld.filter((form=>{
+           console.log(form.questAndAnswer[3].answer)
+            const lessonDate = new Date(form.questAndAnswer[3].answer);
+            console.log(lessonDate)
+            return lessonDate >= startDate && lessonDate <= endDate;
+        }))
 
         const totalAnswerCounts = {};
-        forms.forEach(form => {
+        await forms.forEach(form => {
             if (form.questAndAnswer && typeof form.questAndAnswer === 'object') {
                 Object.entries(form.questAndAnswer).forEach(([key, value]) => {
                     if (!totalAnswerCounts[key]) {
@@ -91,27 +93,28 @@ router.get("/form-reports/:id/", async (req, res) => {
 });
 
 router.get("/student/weekly",(req,res)=>{
-    WeeklyTable.find({}).lean().then(weeklyTable=>{
+    WeeklyTable.find({}).sort({week:1}).lean().then(weeklyTable=>{
         res.render("site/reports/studentWeekly",{weeklyTable,userData: req.userData})
     })
 })
 
 router.get("/student/weekly/week/",async (req,res)=>{
     const user = await User.findOne({ _id: req.session.userId });
+    const userName = user.userName;
     const userId = user._id;
     let {startDate,endDate}= req.query
 
     Form.find({
-        actualForm:"652ef14bf65819d089c51c33",
+        actualForm:"6569a0a3be6ebd006513a277",
         "questAndAnswer.2.answer":userId,
-    }).populate({path:"questAndAnswer.1.answer", model:User}).populate({path:"questAndAnswer.6.answer", model:Lesson}).lean().then(form=>{
+    }).lean().sort({"questAndAnswer.3.answer":1}).populate({path:"questAndAnswer.1.answer",model:User}).then(form=>{
         const startD = new Date(startDate);
         const endD = new Date(endDate);
         const formNew=form.filter((form)=>{
             const lessonDate = new Date(form.questAndAnswer[3].answer);
             return lessonDate >= startD && lessonDate <= endD;
         })
-        res.render("site/reports/studentWeeklySingle",{formNew,layout:""})
+        res.render("site/reports/studentWeeklySingle",{userName,endDate,startDate,formNew,layout:""})
     })
 })
 

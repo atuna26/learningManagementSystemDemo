@@ -44,6 +44,10 @@
                     <img src="assets/images/pblogo.webp" class="rounded me-2 float-end" width="150" alt="">
                 </div>
                 <div class="col-md-12">
+                    <div class="card-header d-flex justify-content-between">
+                                <h4 class="card-title text-start">feedback ({{startDate}}-{{endDate}}) for {{userName}} </h4>
+                                <img src="/assets/images/pblogo.webp" width="100" alt="">
+                    </div>
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header text-center d-flex justify-content-center">
@@ -54,11 +58,11 @@
                                     <table class="table table-bordered verticle-middle table-responsive-sm">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Course</th>
-                                                <th scope="col">Tutor</th>
-                                                <th scope="col">Topic</th>
+                                                <th scope="col"><strong>ID</strong></th>
+                                                <th scope="col"><strong>Date</strong></th>
+                                                <th scope="col"><strong>Course</strong></th>
+                                                <th scope="col"><strong>Tutor</strong></th>
+                                                <th scope="col"><strong>Topic</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -87,21 +91,21 @@
                                     <table class="table table-bordered verticle-middle table-responsive-sm">
                                         <thead>
                                             <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Type</th>
-                                                <th scope="col">Attandance</th>
-                                                <th scope="col">Participation Level</th>
-                                                <th scope="col">Lesson Comprehension</th>
-                                                <th scope="col">Productivity</th>
+                                                <th scope="col"><strong>ID</strong></th>
+                                                <th scope="col"><strong>Date</strong></th>
+                                                <th scope="col"><strong>Type</strong></th>
+                                                <th scope="col"><strong>Attandance</strong></th>
+                                                <th scope="col"><strong>Participation Level</strong></th>
+                                                <th scope="col"><strong>Lesson Comprehension</strong></th>
+                                                <th scope="col"><strong>Productivity</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {{#each formNew}}
-                                            <tr>
+                                            <tr class="text-center">
                                                 <td>{{@index}} </td>
                                                 <td>{{questAndAnswer.4.answer}} / {{questAndAnswer.3.answer}}</td>
-                                                <td>{{questAndAnswer.5.answer}}</td>
+                                                <td>{{#if (eq questAndAnswer.5.answer "Office")}}<i class="fa-solid fa-school"></i> {{else if (eq questAndAnswer.5.answer "Online") }}<i class="fa-solid fa-desktop"></i> {{else if (eq questAndAnswer.5.answer "Home Schooling") }}<i class="fa-solid fa-house-user"></i>{{/if}}</td>
                                                 <td>{{questAndAnswer.11.answer}}</td>
                                                 <td>{{questAndAnswer.12.answer}}</td>
                                                 <td>{{questAndAnswer.13.answer}}</td>
@@ -120,15 +124,15 @@
                                 <h4 class="card-title">General Impressions & Suggestion/Concern for Future Lessons:</h4>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
+                                <div class="table">
                                     <table class="table align-middle">
                                         <tbody>
                                             {{#each formNew}}
                                             <tr>
                                                 <td><strong>{{questAndAnswer.6.answer.lessonName}} ({{questAndAnswer.4.answer}} /
                                                         {{questAndAnswer.3.answer}})</strong></td>
-                                                <td>General Impressions=> {{questAndAnswer.15.chatgptAnswer}} <br>
-                                                    Concern for Future Lessons=> {{questAndAnswer.16.chatgptAnswer}}
+                                                <td style="word-wrap: break-word;white-space: normal;"><span class="text-success">General Impressions=></span> {{questAndAnswer.15.answer}} <br>
+                                                    <span class="text-success">Concern for Future Lessons=></span>  {{questAndAnswer.16.answer}}
                                                 </td>
                                             </tr>
                                             {{/each}}
