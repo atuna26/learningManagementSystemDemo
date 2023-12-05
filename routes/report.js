@@ -43,17 +43,16 @@ router.get("/form-reports/:id/", async (req, res) => {
             startDate = new Date(req.query.startDate)
             endDate = new Date(req.query.endDate)
         }else{
-            console.log("yok")
             await WeeklyTable.findOne({week:req.userData.currentWeek}).lean().then(week=>{
-                console.log(week.startDate)
                 startDate = new Date(week.startDate)
                 endDate = new Date(week.endDate)
             })
         }
-
-        const formOld = await Form.find({
-            actualForm: req.params.id,
-        }).lean();
+            const formOld = await Form.find({
+                actualForm: req.params.id,
+            }).lean();
+        
+        
         const forms=formOld.filter((form=>{
            console.log(form.questAndAnswer[3].answer)
             const lessonDate = new Date(form.questAndAnswer[3].answer);
