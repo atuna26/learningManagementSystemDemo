@@ -5,8 +5,9 @@
         <div class="row page-titles mx-0">
             <div class="col-sm-2 p-md-0">
                 <div class="welcome-text">
-                    <h4>Report</h4>
-                    <p class="mb-0">Form Report Total Form: {{formsLength}} </p>
+                    <h4>Report<br> {{moment startDate}} / {{moment endDate}}</h4>
+                    <p class="mb-0">Form Report Total Form: {{formsLength}}<br>
+                                    Total Hour : {{hourCalculate}} </p>
                     <div class="form-group col-md-12">
                         <div class="dropdown bootstrap-select show-tick form-control default-select">
                             <select class="form-control default-select" name="formFor" onchange="weekSelected()" id="weekSelect">
@@ -57,7 +58,10 @@
         type: 'bar',
         data: {
             labels: [
-                {{#each this }} "{{this.answer}}",{{/each}}],
+                {{#if (eq @key "1")}} {{#each this}} "{{this.answer.userName}}",{{/each}}
+                {{else if (eq @key "2")}} {{#each this}} "{{this.answer.userName}}",{{/each}}
+                {{else}}
+                {{#each this }} "{{this.answer}}",{{/each}}  {{/if}}],
         datasets: [
         {
             label: "Question",

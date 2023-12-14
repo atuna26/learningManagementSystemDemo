@@ -1,10 +1,10 @@
-<div class="content-body">
+<div class="content-body" style="min-height: 862px;">
     <div class="container-fluid">
         <div class="row page-titles mx-0">
             <div class="col-sm-2 p-md-0">
                 <div class="welcome-text">
                     <h4>Report</h4>
-                    <p class="mb-0">Weekly Report</p>
+                    <p class="mb-0">Student Report</p>
                 </div>
             </div>
         </div>
@@ -13,26 +13,24 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Course List</h4>
+                        <h4 class="card-title">Course List {{startD}}-{{endD}} </h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-responsive-md">
                                 <thead>
                                     <tr>
-                                        <th><strong>Week</strong></th>
-                                        <th><strong>Date</strong></th>
+                                        <th><strong>Name Surname </strong></th>
                                         <th><strong>Check</strong></th>
-                                        <th><strong>Download</strong></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{#each weeklyTable}}
+                                    {{#each user}}
                                     <tr>
-                                        <td>{{year}} Week: {{week}} </td>
-                                        <td>{{startDate}} - {{endDate}} </td>
-                                        <td><a class="badge light badge-success" href="/report/student/weekly/week/?startDate={{startDate}}&endDate={{endDate}}">Check</a></td>
-                                        <td><a class="badge light badge-primary" href="/report/form-reports/{{_id}}">Download</a></td>
+                                        <td>{{userName}} {{userSurName}} </td>
+                                           <td>
+                                        <a class="badge light badge-success" href="/report/student-reports/view/week?startDate={{../startD}}&endDate={{../endD}}&student={{_id}}">Check</a>
+                                        </td>
                                     </tr>
                                     {{/each}}
                                 </tbody>

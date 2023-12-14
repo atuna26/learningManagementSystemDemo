@@ -22,6 +22,9 @@ async function LoadRoleInfo(req, res, next) {
 
 router.use(LoadRoleInfo);
 
+router.get("/test",(req,res)=>{
+  res.render("site/index")
+})
 
 router.get("/formDemo",(req,res)=>{
   res.render("site/teacherformdemo",{ layout: "" })
