@@ -16,8 +16,8 @@
                             <div class="row">
                                 <div class="form-group">
                                         <label>Choose Course:</label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select" name="courseCode">
+                                        <div class="mb-3">
+                                            <select class="form-control" name="courseCode">
                                                 {{#each lesson}}
                                                 <option value="{{_id}}">{{lessonCode}} - {{lessonName}} </option>
                                                 {{/each}}
@@ -28,8 +28,9 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>Choose Student(s):</label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select multiple="" class="form-control default-select" name="studentName">
+                                        <div class="mb-3">
+                                            <select multiple="" class="form-control" data-choices
+                                                    data-choices-removeItem  name="studentName">
                                                 {{#each user}}
                                                 {{#if (eq role "Student")}}
                                                 <option value="{{_id}}">{{userName}} {{userSurname}}</option>
@@ -173,14 +174,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header row">
                             <div class="col-md-9">
                                 <h4 class="card-title">Course Weekly Timetable Year:{{year}} Week:{{week}}</h4>
                             </div>
                             <div class="col-md-3 d-flex justify-content-end">
-                                <a href="" style="z-index:9999999;" data-bs-toggle="modal" data-bs-target="#lessonRequest"
+                                <a href="" style="z-index:5;" data-bs-toggle="modal" data-bs-target="#lessonRequest"
                                     class="btn btn-sm btn-primary btn-rounded p-2 px-3"><i
-                                        class="fa fa-user-plus me-3"></i>Add Lesson</a>
+                                        class="las la-plus-circle"></i>Add Lesson</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -2131,8 +2132,9 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label>Choose Student(s):</label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select multiple="" class="form-control default-select" name="studentName">
+                                        <div class="mb-3">
+                                            <select multiple=""  class="form-control" data-choices
+                                                    data-choices-removeItem  name="studentName">
                                                 {{#each user}}
                                                 {{#if (eq role "Student")}}
                                                 <option value="{{_id}}">{{userName}} {{userSurname}}</option>
@@ -2710,7 +2712,7 @@
                             <div class="col-md-3 d-flex justify-content-end">
                                 <a href="" style="z-index:9999999;" data-bs-toggle="modal" data-bs-target="#lessonRequest"
                                     class="btn btn-sm btn-primary btn-rounded p-2 px-3"><i
-                                        class="fa fa-user-plus me-3"></i>Add Lesson</a>
+                                        class="las la-plus-circle"></i>Add Lesson</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -2753,7 +2755,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2780,7 +2782,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2807,7 +2809,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2834,7 +2836,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2861,7 +2863,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2888,7 +2890,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2915,7 +2917,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2945,7 +2947,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2972,7 +2974,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -2999,7 +3001,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3026,7 +3028,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3053,7 +3055,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3080,7 +3082,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3107,7 +3109,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3137,7 +3139,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3164,7 +3166,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3191,7 +3193,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3218,7 +3220,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3245,7 +3247,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3272,7 +3274,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3299,7 +3301,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3329,7 +3331,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3356,7 +3358,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3383,7 +3385,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3410,7 +3412,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3437,7 +3439,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3464,7 +3466,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3491,7 +3493,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3521,7 +3523,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3548,7 +3550,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3575,7 +3577,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3602,7 +3604,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3629,7 +3631,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3656,7 +3658,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3683,7 +3685,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3713,7 +3715,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3740,7 +3742,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3767,7 +3769,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3794,7 +3796,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3821,7 +3823,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3848,7 +3850,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3875,7 +3877,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3905,7 +3907,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3932,7 +3934,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3959,7 +3961,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -3986,7 +3988,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4013,7 +4015,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4040,7 +4042,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4067,7 +4069,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4097,7 +4099,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4124,7 +4126,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4151,7 +4153,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4178,7 +4180,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4205,7 +4207,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4232,7 +4234,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4259,7 +4261,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4289,7 +4291,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4316,7 +4318,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4343,7 +4345,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4370,7 +4372,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4397,7 +4399,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4424,7 +4426,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4451,7 +4453,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4481,7 +4483,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4508,7 +4510,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4535,7 +4537,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4562,7 +4564,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4589,7 +4591,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4616,7 +4618,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4643,7 +4645,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4673,7 +4675,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4700,7 +4702,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4727,7 +4729,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4754,7 +4756,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4781,7 +4783,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4808,7 +4810,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}
@@ -4835,7 +4837,7 @@
                                                 <a href="" data-bs-toggle="modal"
                                                     data-bs-target="#saveLessonForm{{_id}}"
                                                     class="btn btn-sm btn-success btn-rounded p-2 px-3 "><i
-                                                        class="fa fa-user-plus me-3"></i>Save Lesson</a>
+                                                        class="las la-plus-circle"></i>Save Lesson</a>
                                                 {{/if}}
                                                 {{/if}}
                                                 {{/if}} {{/each}}

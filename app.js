@@ -9,13 +9,10 @@ const mongoose = require("mongoose")
 const expressSession = require("express-session")
 const MongoStore = require("connect-mongo")
 const methodOverride = require("method-override")
-const helpers = require('handlebars-helpers');
-const fileUpload = require("express-fileupload");
 const moment = require('moment');
 const dotenv = require("dotenv")
 dotenv.config()
 const openai = require("openai")
- 
 
 
 
@@ -29,7 +26,6 @@ mongoose.connect(
     }
   );
   
-  app.use(fileUpload());
   
   app.use(
     expressSession({
@@ -43,19 +39,6 @@ mongoose.connect(
     })
   );
   
-// Flash - Message middleware
-app.use((req, res, next) => {
-    res.locals.sessionFlash = req.session.sessionFlash
-    delete req.session.sessionFlash
-    next()
-})
-
-app.use((req, res, next) => {
-    res.locals.sessionFlash = req.session.sessionFlash
-    delete req.session.sessionFlash
-    next()
-})
-
 app.use(express.static("public"))
 app.use(methodOverride('_method'))
 
@@ -65,6 +48,20 @@ const hbs = exphbs.create({
             let expect=(b-a)*60
             if(expect==total){
                 return true
+            }
+        },
+        tripleEq:function(a,b,c,d,e){
+            if(a==b||a==c||a==d||a==e){
+                return true
+            }else{
+                return false
+            }
+        },
+        tripleNotEq: function (a, b,c,d) {
+            if(!a==d||!b==d||!c==d){
+                return true
+            }else{
+                return false
             }
         },
         substract:function(a,b){
@@ -132,11 +129,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 const users = require("./routes/users")
-const { group } = require("console")
 app.use("/users", users)
 
 app.use((req, res, next) => {
-    if (req.session.userId) {
+    if (!req.session.userId) {
+        res.redirect("/users/login")
+    } else {
         const main = require("./routes/main")
         app.use("/", main)
         const course = require("./routes/course")
@@ -147,8 +145,6 @@ app.use((req, res, next) => {
         app.use("/report", report)
         const accounting = require("./routes/accounting")
         app.use("/accounting",accounting)
-    } else {
-        res.redirect("/users/login")
     }
     next();
 })

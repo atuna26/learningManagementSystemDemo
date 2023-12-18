@@ -26,19 +26,23 @@ async function LoadRoleInfo(req, res, next) {
 router.use(LoadRoleInfo);
 
 router.get("/students", (req, res) => {
+  let listjs=true;
+  let prismjs=true;
   let link = "student";
   User.find({role:"Student"})
     .lean()
     .then((user) => {
-      res.render("site/accounting/main", { link,user, userData: req.userData });
+      res.render("site/accounting/main", { link,user, userData: req.userData,listjs,prismjs });
     });
 });
 router.get("/teachers", (req, res) => {
+  let listjs=true;
+  let prismjs=true;
   let link = "teacher"
   User.find({role:"Teacher"})
     .lean()
     .then((user) => {
-      res.render("site/accounting/main", {link, user, userData: req.userData });
+      res.render("site/accounting/main", {link, user, userData: req.userData,listjs,prismjs });
     });
 });
 
@@ -46,8 +50,8 @@ router.get("/t-account", async (req, res) => {
   try {
     let totalOutgoing = 0;
     let totalIncoming = 0;
-    let startD = new Date("1.1.1900")
-    let endD = new Date("1.1.2900")
+    let startD = new Date("1.1.2023")
+    let endD = new Date("1.1.2024")
     if(req.query.startDate&&req.query.endDate){
       startD = new Date(req.query.startDate)
       endD = new Date(req.query.endDate)

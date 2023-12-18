@@ -1,78 +1,156 @@
-<div class="content-body" style="min-height: 862px;">
-    <div class="container-fluid">
-        <div class="row page-titles mx-0">
-            <div class="col-sm-6 p-md-0">
-                <div class="welcome-text">
-                    <h4>Users</h4>
-                    <p class="mb-0">Users Dashboard</p>
-                </div>
-            </div>
-            {{!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Table</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Bootstrap</a></li>
-                </ol>
-            </div> --}}
-        </div>
-        <!-- row -->
+<div class="main-content">
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">User List</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-responsive-md">
-                                <thead>
-                                    <tr>
-                                        <th style="width:80px;"><strong>#</strong></th>
-                                        <th><strong>Name</strong></th>
-                                        <th><strong>Surname</strong></th>
-                                        <th><strong>Role</strong></th>
-                                        <th><strong>Date</strong></th>
-                                        <th><strong>Status</strong></th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{#each user}}
-                                    <tr>
-                                        <td><strong>{{@index}}</strong></td>
-                                        <td>{{userName}}</td>
-                                        <td>{{userSurname}}</td>
-                                        <td>{{role}}</td>
-                                        <td>{{moment date}}</td>
-                                        <td><span class="badge light badge-success">Active</span></td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn {{#if (eq role "Admin")}} btn-info {{else if (eq role "Student")}} btn-primary {{else}} btn-active {{/if}} light sharp"
-                                                    data-bs-toggle="dropdown">
-                                                    <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
-                                                        <g stroke="none" stroke-width="1" fill="none"
-                                                            fill-rule="evenodd">
-                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                            <circle fill="#000000" cx="5" cy="12" r="2"></circle>
-                                                            <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                                            <circle fill="#000000" cx="19" cy="12" r="2"></circle>
-                                                        </g>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    {{/each}}
-                                </tbody>
-                            </table>
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Users</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Users</a></li>
+                                <li class="breadcrumb-item active">User List</li>
+                            </ol>
                         </div>
+
                     </div>
                 </div>
             </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0 flex-grow-1">User List</h4>
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="table-gridjs">
+                                <div role="complementary" class="gridjs gridjs-container">
+                                    <div class="gridjs-head">
+                                        <div class="gridjs-search"><input type="search" placeholder="Type a keyword..."
+                                                aria-label="Type a keyword..." class="gridjs-input gridjs-search-input">
+                                        </div>
+                                    </div>
+                                    <div class="gridjs-wrapper">
+                                        <table role="grid" class="gridjs-table">
+                                            <thead class="gridjs-thead">
+                                                <tr class="gridjs-tr">
+                                                    <th data-column-id="id" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">#</div><button tabindex="-1"
+                                                            aria-label="Sort column ascending"
+                                                            title="Sort column ascending"
+                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                    </th>
+                                                    <th data-column-id="name" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Name</div><button tabindex="-1"
+                                                            aria-label="Sort column ascending"
+                                                            title="Sort column ascending"
+                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                    </th>
+                                                    <th data-column-id="surname" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Surname</div><button
+                                                            tabindex="-1" aria-label="Sort column ascending"
+                                                            title="Sort column ascending"
+                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                    </th>
+                                                    <th data-column-id="role" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Role</div><button tabindex="-1"
+                                                            aria-label="Sort column ascending"
+                                                            title="Sort column ascending"
+                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                    </th>
+                                                    <th data-column-id="date" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Date</div><button tabindex="-1"
+                                                            aria-label="Sort column ascending"
+                                                            title="Sort column ascending"
+                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                    </th>
+                                                    <th data-column-id="status" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Status</div><button tabindex="-1"
+                                                            aria-label="Sort column ascending"
+                                                            title="Sort column ascending"
+                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                    </th>
+                                                    <th data-column-id="actions" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Actions</div><button
+                                                            tabindex="-1" aria-label="Sort column ascending"
+                                                            title="Sort column ascending"
+                                                            class="gridjs-sort gridjs-sort-neutral"></button>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="gridjs-tbody">
+                                                {{#each user}}
+                                                <tr class="gridjs-tr">
+                                                    <td data-column-id="id" class="gridjs-td"><span><span
+                                                                class="fw-semibold">{{@index}}</span></span></td>
+                                                    <td data-column-id="name" class="gridjs-td">{{userName}}</td>
+                                                    <td data-column-id="surname" class="gridjs-td"><span><a
+                                                                href="">{{userSurname}}</a></span></td>
+                                                    <td data-column-id="role" class="gridjs-td">{{role}}</td>
+                                                    <td data-column-id="date" class="gridjs-td">{{moment date}}</td>
+                                                    <td data-column-id="status" class="gridjs-td"><span
+                                                            class="badge bg-primary-subtle text-primary">Active</span></td>
+                                                    <td data-column-id="actions" class="gridjs-td"><span>
+                                                            <div class="dropdown">
+                                                                <button type="button" class="btn {{#if (eq role "
+                                                                    Admin")}} btn-info {{else if (eq role "Student" )}}
+                                                                    btn-primary {{else}} btn-active {{/if}} light sharp"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <svg width="20px" height="20px" viewBox="0 0 24 24"
+                                                                        version="1.1">
+                                                                        <g stroke="none" stroke-width="1" fill="none"
+                                                                            fill-rule="evenodd">
+                                                                            <rect x="0" y="0" width="24" height="24">
+                                                                            </rect>
+                                                                            <circle fill="#000000" cx="5" cy="12" r="2">
+                                                                            </circle>
+                                                                            <circle fill="#000000" cx="12" cy="12"
+                                                                                r="2"></circle>
+                                                                            <circle fill="#000000" cx="19" cy="12"
+                                                                                r="2"></circle>
+                                                                        </g>
+                                                                    </svg>
+                                                                </button>
+                                                                <div class="dropdown-menu">
+                                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                                    <a class="dropdown-item" href="#">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="gridjs-temp" class="gridjs-temp"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end card -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+
+
+
         </div>
+        <!-- container-fluid -->
     </div>
+    <!-- End Page-content -->
+
 </div>

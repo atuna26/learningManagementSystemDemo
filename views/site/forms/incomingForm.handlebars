@@ -1,60 +1,88 @@
-<div class="content-body" style="min-height: 1116px;">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">{{form.0.formName}} Datatable </h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <div id="example_wrapper" class="dataTables_wrapper">
-                                <div id="example_filter" class="dataTables_filter"></div>
-                                <table id="example" class="display dataTable" style="min-width: 845px" role="grid"
-                                    aria-describedby="example_info">
-                                    <thead>
-                                        <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1"
-                                                colspan="1" aria-sort="ascending"
-                                                aria-label="User: activate to sort column descending">User</th>
-                                                <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1"
-                                                colspan="1" aria-sort="ascending"
-                                                aria-label="Date: activate to sort column descending">Date</th>
-                                            {{#each form.0.questAndAnswer}}
-                                            
-                                            <th class="sorting" tabindex="0" aria-controls="example" rowspan="1"
-                                                colspan="1"
-                                                aria-label="{{question}}: activate to sort column ascending">
-                                                {{question}}</th>
+<div class="main-content">
 
-                                                {{/each}}
+    <div class="page-content">
+        <div class="container-fluid">
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {{#each form}}
-                                        <tr class="odd" role="row">
-                                            <td class="sorting_1">{{formUser.userName}} {{formUser.userSurname}}</td>
-                                              <td class="sorting_1">{{moment date}}</td>
-                                            {{#each questAndAnswer}}
-                                            <td>{{answer}} {{#if chatgptAnswer}} <br> <span class="text-danger">AI'S ANSWER:</span>  <span class="text-success">{{chatgptAnswer}}</span> {{/if}} </td>
-                                            {{/each}}
-                                        </tr>
-                                        {{/each}}
-                                    </tbody>
-                                    {{!-- <tfoot>
-                                        <tr>
-                                            {{#each form.0.questAndAnswer}}
-                                            <th rowspan="1" colspan="1">{{question}}</th>
-                                            {{/each}}
-                                        </tr>
-                                    </tfoot> --}}
-                                </table>
-                            </div>
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">{{form.0.formName}} Datatable</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Form</a></li>
+                                <li class="breadcrumb-item active">{{form.0.formName}} Datatable</li>
+                            </ol>
                         </div>
+
                     </div>
                 </div>
             </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{form.0.formName}} Datatable</h4>
+
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="customerList">
+                                <div class="row g-4 mb-3">
+                                    <div class="col-sm-auto">
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="d-flex justify-content-sm-end">
+                                            <div class="search-box ms-2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive table-card mt-3 mb-1">
+                                    <table class="table align-middle table-nowrap" id="customerTable">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>User</th>
+                                                <th>Date</th>
+                                                {{#each form.0.questAndAnswer}}
+                                                <th>{{question}}</th>
+                                                {{/each}}
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list form-check-all">
+                                            {{#each form}}
+                                            <tr>
+                                                <td>{{formUser.userName}} {{formUser.userSurname}}
+                                                </td>
+                                                <td>{{moment date}}</td>
+                                                {{#each questAndAnswer}}
+                                                <td>{{answer}} {{#if chatgptAnswer}} <br> <span class="text-danger">AI'S
+                                                        ANSWER:</span> <span
+                                                        class="text-success">{{chatgptAnswer}}</span>
+                                                    {{/if}} </td>
+                                                {{/each}}
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div><!-- end card -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
         </div>
+        <!-- container-fluid -->
     </div>
+    <!-- End Page-content -->
+
 </div>

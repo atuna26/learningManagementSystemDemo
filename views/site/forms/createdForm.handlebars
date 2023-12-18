@@ -1,912 +1,123 @@
-<div class="content-body" style="min-height: 862px;">
-    <div class="container-fluid">
-        <div class="row page-titles mx-0">
-            <div class="col-sm-6 p-md-0">
-                <div class="welcome-text">
-                    <h4>Form</h4>
-                    <p class="mb-0">Created Forms</p>
-                </div>
-            </div>
-            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                <a href="" data-bs-toggle="modal" data-bs-target="#addOrderModal"
-                    class="btn btn-primary btn-rounded mb-3"> <i class="flaticon-072-printer"></i>
-                    <span class="nav-text">New Form</span></a>
-            </div>
-            <div class="modal fade" id="addOrderModal">
-                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">New Teacher Form</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            </button>
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Created Forms</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Form</a></li>
+                                <li class="breadcrumb-item active">Created Forms</li>
+                            </ol>
                         </div>
-                        <form action="/form/new" method="POST">
-                            <div class="modal-body">
-                                <div class="form-group col-md-12">
-                                    <label class="mb-1"><strong>Form Name</strong></label>
-                                    <input type="text" name="formName" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <div class="col-md-12 row">
-                                        <div class="form-group col-md-6">
-                                            <label>Who are the form for?</label>
-                                            <div
-                                                class="dropdown bootstrap-select show-tick form-control default-select">
-                                                <select class="form-control default-select" name="formFor" id="sel2">
-                                                    <option value="Admin">Admin</option>
-                                                    <option value="Parent">Parent</option>
-                                                    <option value="Student">Student</option>
-                                                    <option value="Teacher">Teacher</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label>Form Kind</label>
-                                            <div
-                                                class="dropdown bootstrap-select show-tick form-control default-select">
-                                                <select class="form-control default-select" name="formKind" id="sel2">
-                                                    <option value="Once">Once</option>
-                                                    <option value="Daily">Daily</option>
-                                                    <option value="Weekly">Weekly</option>
-                                                    <option value="Monthly">Monthly</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 1</strong></label>
-                                        <input type="text" name="questAndAnswer.0.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 1 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.0.questionKind"
-                                                id="questAndAnswer0">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-                                            </select>
-                                        </div>
 
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.0.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer0 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.0.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 2</strong></label>
-                                        <input type="text" name="questAndAnswer.1.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 2 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.1.questionKind"
-                                                id="questAndAnswer1">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.1.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer1 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.1.answerList" class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 3</strong></label>
-                                        <input type="text" name="questAndAnswer.2.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 3 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.2.questionKind"
-                                                id="questAndAnswer2">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.2.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer2 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.2.answerList" class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 4</strong></label>
-                                        <input type="text" name="questAndAnswer.3.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 4 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.3.questionKind"
-                                                id="questAndAnswer3">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.3.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer3 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.3.answerList" class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 5</strong></label>
-                                        <input type="text" name="questAndAnswer.4.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 5 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.4.questionKind"
-                                                id="questAndAnswer4">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.4.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer4 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.4.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 6</strong></label>
-                                        <input type="text" name="questAndAnswer.5.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 6 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.5.questionKind"
-                                                id="questAndAnswer5">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.5.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer5 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.5.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 7</strong></label>
-                                        <input type="text" name="questAndAnswer.6.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 7 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.6.questionKind"
-                                                id="questAndAnswer6">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.6.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer6 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.6.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 8</strong></label>
-                                        <input type="text" name="questAndAnswer.7.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 8 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.7.questionKind"
-                                                id="questAndAnswer7">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.7.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer7 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.7.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 9</strong></label>
-                                        <input type="text" name="questAndAnswer.8.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 9 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.8.questionKind"
-                                                id="questAndAnswer8">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.8.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer8 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.8.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 10</strong></label>
-                                        <input type="text" name="questAndAnswer.9.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 10 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)" name="questAndAnswer.9.questionKind"
-                                                id="questAndAnswer9">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.9.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer9 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.9.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 11</strong></label>
-                                        <input type="text" name="questAndAnswer.10.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 11 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.10.questionKind" id="questAndAnswer10">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.10.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer10 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.10.answerList" class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 12</strong></label>
-                                        <input type="text" name="questAndAnswer.11.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 12 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.11.questionKind" id="questAndAnswer11">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.11.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer11 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.11.answerList" class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 13</strong></label>
-                                        <input type="text" name="questAndAnswer.12.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 13 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.12.questionKind" id="questAndAnswer12">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.12.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer12 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.12.answerList" class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 14</strong></label>
-                                        <input type="text" name="questAndAnswer.13.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 14 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.13.questionKind" id="questAndAnswer13">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.13.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer13 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.13.answerList" class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 15</strong></label>
-                                        <input type="text" name="questAndAnswer.14.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 15 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.14.questionKind" id="questAndAnswer14">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.14.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer14 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.14.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 16</strong></label>
-                                        <input type="text" name="questAndAnswer.15.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 16 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.15.questionKind" id="questAndAnswer15">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.15.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer15 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.15.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 17</strong></label>
-                                        <input type="text" name="questAndAnswer.16.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 17 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.16.questionKind" id="questAndAnswer16">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.16.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer16 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.16.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 18</strong></label>
-                                        <input type="text" name="questAndAnswer.17.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 18 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.17.questionKind" id="questAndAnswer17">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.17.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer17 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.17.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 19</strong></label>
-                                        <input type="text" name="questAndAnswer.18.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 19 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.18.questionKind" id="questAndAnswer18">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.18.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer18 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.18.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="text-primary">
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <label class="mb-1"><strong>Question 20</strong></label>
-                                        <input type="text" name="questAndAnswer.19.question" class="form-control">
-                                    </div>
-                                    <div class="form-group col-md-10">
-                                        <label><strong>Question 20 Kind</strong></label>
-                                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                                            <select class="form-control default-select"
-                                                onchange="questionKindChange(this)"
-                                                name="questAndAnswer.19.questionKind" id="questAndAnswer19">
-                                                <option value="Text">Text Question</option>
-                                                <option value="Number">Number Question</option>
-                                                <option value="Date">Date Question</option>
-                                                <option value="Radio">Radio Question</option>
-                                                <option value="Checkbox">Checkbox Question</option>
-                                                <option value="Student">Student List</option>
-                                                <option value="Teacher">Teacher List</option>
-                                                <option value="Course">Course List</option>
-
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-2  custom-checkbox checkbox-danger">
-                                        <label class="mb-1"><strong>Required</strong></label>
-                                        <input type="checkbox" class=" mt-5 form-check-input"
-                                            onclick="chechboxBoolean(this)" name="questAndAnswer.19.isRequired">
-                                    </div>
-                                    <div class="form-group row  questAndAnswer19 visually-hidden">
-                                        <div class="col-md-12">
-                                            <label class="mb-1"><strong>Options</strong></label>
-                                            <input type="text" placeholder="Separate items with commas"
-                                                name="questAndAnswer.19.answerList" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger light"
-                                    data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Create new form</button>
-
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- row -->
+            <!-- end page title -->
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Form List</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-responsive-md">
-                                <thead>
-                                    <tr>
-                                        <th style="width:80px;"><strong>#</strong></th>
-                                        <th><strong>Form Name</strong></th>
-                                        <th><strong>Form Submission Weekly</strong></th>
-                                        <th><strong>Non-submitters Weekly</strong></th>
-                                        <th><strong>From Status</strong></th>
-                                        <th><strong>View Form</strong></th>
-                                        <th><strong>View Answers</strong></th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{#each form}}
-                                    <tr>
-                                        <td><strong>{{@index}}</strong></td>
-                                        <td>{{formName}}</td>
-                                        <td>13/35</td>
-                                        <td>Ahmet Kara, Deniz Ela <a href="" class="badge light badge-primary"> ... </a>
-                                        </td>
-                                        <td><span class="badge light badge-success">{{#if (eq formStatus "Active")}}
-                                                Active {{else}} Pasive {{/if}} </span></td>
-                                        <td><a href="/form/form-detail/{{_id}}"
-                                                class="badge light badge-primary">SHOW</a></td>
-                                        <td><a href="/form/incoming-form/{{_id}}"
-                                                class="badge light badge-info">SHOW</a></td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn {{#if (eq role " Admin")}} btn-info
-                                                    {{else if (eq role "Student" )}} btn-primary {{else}} btn-active
-                                                    {{/if}} light sharp" data-bs-toggle="dropdown">
-                                                    <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
-                                                        <g stroke="none" stroke-width="1" fill="none"
-                                                            fill-rule="evenodd">
-                                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                                            <circle fill="#000000" cx="5" cy="12" r="2"></circle>
-                                                            <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                                            <circle fill="#000000" cx="19" cy="12" r="2"></circle>
-                                                        </g>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="" data-bs-toggle="modal"
-                                                        data-bs-target="#formModal{{_id}}">Edit</a>
-                                                    <a class="dropdown-item" href="#">Delete</a>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Forms List</h4>
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="customerList">
+                                <div class="row g-4 mb-3">
+                                    <div class="col-sm-auto">
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#addOrderModal"
+                                            class="btn btn-primary btn-rounded mb-3"> <i
+                                                class="flaticon-072-printer"></i>
+                                            <span class="nav-text">New Form</span></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+
+                                </div>
+                            </div>
+
+                            <div class="table-responsive table-card mt-3 mb-1">
+                                <table class="table align-middle table-nowrap" id="customerTable">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th><strong>Form Name</strong></th>
+                                            <th><strong>Form Submission Weekly</strong></th>
+                                            <th><strong>Non-submitters Weekly</strong></th>
+                                            <th><strong>From Status</strong></th>
+                                            <th><strong>View Form</strong></th>
+                                            <th><strong>View Answers</strong></th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="list form-check-all">
+                                        {{#each form}}
+                                        <tr>
+                                            <td>{{formName}}</td>
+                                            <td>13/35</td>
+                                            <td>Ahmet Kara, Deniz Ela <a href="" class="badge light bg-primary"> ...
+                                                </a>
+                                            </td>
+                                            <td><span class="badge light bg-success">{{#if (eq formStatus "Active")}}
+                                                    Active {{else}} Pasive {{/if}} </span></td>
+                                            <td><a href="/form/form-detail/{{_id}}"
+                                                    class="badge light bg-primary">SHOW</a></td>
+                                            <td><a href="/form/incoming-form/{{_id}}"
+                                                    class="badge light bg-info">SHOW</a></td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn {{#if (eq role " Admin")}} btn-info
+                                                        {{else if (eq role "Student" )}} btn-primary {{else}} btn-active
+                                                        {{/if}} light sharp" data-bs-toggle="dropdown">
+                                                        <svg width="20px" height="20px" viewBox="0 0 24 24"
+                                                            version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none"
+                                                                fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24"></rect>
+                                                                <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                                                                <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                                                <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                                                            </g>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="" data-bs-toggle="modal"
+                                                            data-bs-target="#formModal{{_id}}">Edit</a>
+                                                        <a class="dropdown-item" href="#">Delete</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    {{/each}}
-                                </tbody>
-                            </table>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                    </div><!-- end card -->
                 </div>
+                <!-- end col -->
             </div>
+            <!-- end col -->
         </div>
+        <!-- end row -->
     </div>
+    <!-- container-fluid -->
 </div>
-{{#each form}}
-<div class="modal fade" id="formModal{{_id}}">
+<!-- End Page-content -->
+
+</div>
+<div class="modal fade" id="addOrderModal">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">{{formName}}</h5>
+                <h5 class="modal-title">New Teacher Form</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal">
                 </button>
             </div>
@@ -914,7 +125,7 @@
                 <div class="modal-body">
                     <div class="form-group col-md-12">
                         <label class="mb-1"><strong>Form Name</strong></label>
-                        <input type="text" name="formName" value="{{formName}}" class="form-control">
+                        <input type="text" name="formName" class="form-control">
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 row">
@@ -942,59 +153,751 @@
                             </div>
                         </div>
                     </div>
-                    {{#each questAndAnswer}}
                     <div class="row">
                         <div class="form-group col-md-12">
-                            <label class="mb-1"><strong>Question {{plus @index 1}}</strong></label>
-                            <input type="text" value="{{question}}" name="questAndAnswer.{{@index}}.question"
-                                class="form-control">
+                            <label class="mb-1"><strong>Question 1</strong></label>
+                            <input type="text" name="questAndAnswer.0.question" class="form-control">
                         </div>
                         <div class="form-group col-md-10">
-                            <label><strong>Question {{plus @index 1}} Kind</strong></label>
+                            <label><strong>Question 1 Kind</strong></label>
                             <div class="dropdown bootstrap-select show-tick form-control default-select">
                                 <select class="form-control default-select" onchange="questionKindChange(this)"
-                                    name="questAndAnswer.{{@index}}.questionKind" id="questAndAnswer{{@index}}">
-                                    <option {{#if (eq questionKind "Text" )}} selected {{/if}} value="Text">Text
-                                        Question</option>
-                                    <option {{#if (eq questionKind "Number" )}} selected {{/if}} value="Number">Number
-                                        Question</option>
-                                    <option {{#if (eq questionKind "Date" )}} selected {{/if}} value="Date">Date
-                                        Question</option>
-                                    <option {{#if (eq questionKind "Radio" )}} selected {{/if}} value="Radio">Radio
-                                        Question</option>
-                                    <option {{#if (eq questionKind "Checkbox" )}} selected {{/if}} value="Checkbox">
-                                        Checkbox Question</option>
-                                    <option {{#if (eq questionKind "Student" )}} selected {{/if}} value="Student">
-                                        Student List</option>
-                                    <option {{#if (eq questionKind "Teacher" )}} selected {{/if}} value="Teacher">
-                                        Teacher List</option>
-                                    <option {{#if (eq questionKind "Course" )}} selected {{/if}} value="Course">Course
-                                        List</option>
+                                    name="questAndAnswer.0.questionKind" id="questAndAnswer0">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.0.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer0 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.0.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 2</strong></label>
+                            <input type="text" name="questAndAnswer.1.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 2 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.1.questionKind" id="questAndAnswer1">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
                                 </select>
                             </div>
                         </div>
                         <div class="form-group col-md-2  custom-checkbox checkbox-danger">
                             <label class="mb-1"><strong>Required</strong></label>
-                            <input type="checkbox" class=" mt-5 form-check-input" {{#if (eq isRequired "true" )}}
-                                checked value="true" {{/if}} onclick="chechboxBoolean(this)"
-                                name="questAndAnswer.{{@index}}.isRequired">
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.1.isRequired">
                         </div>
-                        <div class="form-group row  questAndAnswer{{@index}} {{#if (eq questionKind " Text")}}
-                            visually-hidden {{else if (eq questionKind "Number" )}} visually-hidden {{else if (eq
-                            questionKind "Date" )}} visually-hidden {{else if (eq questionKind "Student" )}}
-                            visually-hidden {{else if (eq questionKind "Teacher" )}} visually-hidden {{else if (eq
-                            questionKind "Number" )}} visually-hidden {{else if (eq questionKind "Course" )}}
-                            visually-hidden {{/if}}">
+                        <div class="form-group row  questAndAnswer1 visually-hidden">
                             <div class="col-md-12">
                                 <label class="mb-1"><strong>Options</strong></label>
-                                <input type="text" placeholder="Separate items with commas" value="{{answerList}}"
-                                    name="questAndAnswer.{{@index}}.answerList" class="form-control">
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.1.answerList" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 3</strong></label>
+                            <input type="text" name="questAndAnswer.2.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 3 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.2.questionKind" id="questAndAnswer2">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.2.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer2 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.2.answerList" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 4</strong></label>
+                            <input type="text" name="questAndAnswer.3.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 4 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.3.questionKind" id="questAndAnswer3">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.3.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer3 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.3.answerList" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 5</strong></label>
+                            <input type="text" name="questAndAnswer.4.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 5 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.4.questionKind" id="questAndAnswer4">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.4.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer4 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.4.answerList" class="form-control">
                             </div>
                         </div>
                     </div>
                     <hr class="text-primary">
-                    {{/each}}
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 6</strong></label>
+                            <input type="text" name="questAndAnswer.5.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 6 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.5.questionKind" id="questAndAnswer5">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
 
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.5.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer5 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.5.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 7</strong></label>
+                            <input type="text" name="questAndAnswer.6.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 7 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.6.questionKind" id="questAndAnswer6">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.6.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer6 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.6.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 8</strong></label>
+                            <input type="text" name="questAndAnswer.7.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 8 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.7.questionKind" id="questAndAnswer7">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.7.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer7 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.7.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 9</strong></label>
+                            <input type="text" name="questAndAnswer.8.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 9 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.8.questionKind" id="questAndAnswer8">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.8.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer8 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.8.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 10</strong></label>
+                            <input type="text" name="questAndAnswer.9.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 10 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.9.questionKind" id="questAndAnswer9">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.9.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer9 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.9.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 11</strong></label>
+                            <input type="text" name="questAndAnswer.10.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 11 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.10.questionKind" id="questAndAnswer10">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.10.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer10 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.10.answerList" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 12</strong></label>
+                            <input type="text" name="questAndAnswer.11.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 12 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.11.questionKind" id="questAndAnswer11">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.11.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer11 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.11.answerList" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 13</strong></label>
+                            <input type="text" name="questAndAnswer.12.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 13 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.12.questionKind" id="questAndAnswer12">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.12.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer12 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.12.answerList" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 14</strong></label>
+                            <input type="text" name="questAndAnswer.13.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 14 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.13.questionKind" id="questAndAnswer13">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.13.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer13 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.13.answerList" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 15</strong></label>
+                            <input type="text" name="questAndAnswer.14.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 15 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.14.questionKind" id="questAndAnswer14">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.14.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer14 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.14.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 16</strong></label>
+                            <input type="text" name="questAndAnswer.15.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 16 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.15.questionKind" id="questAndAnswer15">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.15.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer15 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.15.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 17</strong></label>
+                            <input type="text" name="questAndAnswer.16.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 17 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.16.questionKind" id="questAndAnswer16">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.16.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer16 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.16.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 18</strong></label>
+                            <input type="text" name="questAndAnswer.17.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 18 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.17.questionKind" id="questAndAnswer17">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.17.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer17 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.17.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 19</strong></label>
+                            <input type="text" name="questAndAnswer.18.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 19 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.18.questionKind" id="questAndAnswer18">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.18.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer18 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.18.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-primary">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="mb-1"><strong>Question 20</strong></label>
+                            <input type="text" name="questAndAnswer.19.question" class="form-control">
+                        </div>
+                        <div class="form-group col-md-10">
+                            <label><strong>Question 20 Kind</strong></label>
+                            <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                <select class="form-control default-select" onchange="questionKindChange(this)"
+                                    name="questAndAnswer.19.questionKind" id="questAndAnswer19">
+                                    <option value="Text">Text Question</option>
+                                    <option value="Number">Number Question</option>
+                                    <option value="Date">Date Question</option>
+                                    <option value="Radio">Radio Question</option>
+                                    <option value="Checkbox">Checkbox Question</option>
+                                    <option value="Student">Student List</option>
+                                    <option value="Teacher">Teacher List</option>
+                                    <option value="Course">Course List</option>
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2  custom-checkbox checkbox-danger">
+                            <label class="mb-1"><strong>Required</strong></label>
+                            <input type="checkbox" class=" mt-5 form-check-input" onclick="chechboxBoolean(this)"
+                                name="questAndAnswer.19.isRequired">
+                        </div>
+                        <div class="form-group row  questAndAnswer19 visually-hidden">
+                            <div class="col-md-12">
+                                <label class="mb-1"><strong>Options</strong></label>
+                                <input type="text" placeholder="Separate items with commas"
+                                    name="questAndAnswer.19.answerList" class="form-control">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -1005,4 +908,3 @@
         </div>
     </div>
 </div>
-{{/each}}

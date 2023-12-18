@@ -1,46 +1,88 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="main-content">
 
-<div class="content-body">
-    <div class="container-fluid">
-        <div class="row page-titles mx-0">
-            <div class="col-sm-2 p-md-0">
-                <div class="welcome-text">
-                    <h4>Report<br> {{moment startDate}} / {{moment endDate}}</h4>
-                    <p class="mb-0">Form Report Total Form: {{formsLength}}<br>
-                                    Total Hour : {{hourCalculate}} </p>
-                    <div class="form-group col-md-12">
-                        <div class="dropdown bootstrap-select show-tick form-control default-select">
-                            <select class="form-control default-select" name="formFor" onchange="weekSelected()" id="weekSelect">
-                                {{#each weeklyTable}}
-                                <option  value="/report/form-reports/{{../actualForm}}/?startDate={{startDate}}&endDate={{endDate}}">{{week}}-{{year}} & {{startDate}} - {{endDate}}</option>
-                                {{/each}}
-                            </select>
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Form Report</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Reports</a></li>
+                                <li class="breadcrumb-item active">Form Report</li>
+                            </ol>
                         </div>
+
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- row -->
-        <div class="row">
-            {{#each totalAnswerCounts}}
-            {{#unless (eq @key "0")}}{{#unless (eq @key "8")}}{{#unless (eq @key "9")}}{{#unless (eq @key
-            "15")}}{{#unless (eq @key "16")}}{{#unless (eq @key "17")}}
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title"> Question</h4>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Form Report<br> {{moment startDate}} / {{moment endDate}}</h4>
+
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="customerList">
+                                <div class="row g-4 mb-3">
+                                    <div class="col-sm-auto">
+                                        <div>
+                                            <select class="form-control" name="formFor" onchange="weekSelected()"
+                                                id="weekSelect">
+                                                {{#each weeklyTable}}
+                                                <option
+                                                    value="/report/form-reports/{{../actualForm}}/?startDate={{startDate}}&endDate={{endDate}}">
+                                                    {{week}}-{{year}} & {{startDate}} - {{endDate}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <p class="mb-0 text-end">Form Report Total Form: {{formsLength}}<br>
+                                            Total Hour : {{hourCalculate}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- end card -->
                     </div>
-                    <div class="card-body">
-                        <div>
-                            <canvas id="myChart{{@key}}"></canvas>
+                    <!-- end col -->
+                </div>
+                <!-- end col -->
+            </div>
+            <div class="row">
+                {{#each totalAnswerCounts}}
+                {{#unless (eq @key "0")}}{{#unless (eq @key "8")}}{{#unless (eq @key "9")}}{{#unless (eq @key
+                "15")}}{{#unless (eq @key "16")}}{{#unless (eq @key "17")}}
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{0.question}}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <canvas id="myChart{{@key}}"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {{/unless}}{{/unless}}{{/unless}}{{/unless}}{{/unless}}{{/unless}}
+                {{/each}}
             </div>
-            {{/unless}}{{/unless}}{{/unless}}{{/unless}}{{/unless}}{{/unless}}
-            {{/each}}
+            <!-- end row -->
         </div>
+        <!-- container-fluid -->
     </div>
+    <!-- End Page-content -->
+
 </div>
 <script>
 
@@ -64,7 +106,7 @@
                 {{#each this }} "{{this.answer}}",{{/each}}  {{/if}}],
         datasets: [
         {
-            label: "Question",
+            label: "Answer",
             data: [{{#each this }} {{this.count}}, {{/each}}],
         borderWidth: 1,
                 },

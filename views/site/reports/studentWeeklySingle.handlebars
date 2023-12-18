@@ -2,19 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <!-- Meta -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="DexignZone">
-    <meta name="robots" content="">
-    <meta name="keywords"
-        content="bootstrap, courses, education admin template, educational, instructors, codeigniter, learning admin, learning admin theme, learning application, lessons, lms admin template, lms rails, quizzes ui, school admin">
-    <meta name="description"
-        content="Owlio is a clean-coded, responsive CodeIgniter template that can be easily customised to fit the needs of various instructors and lms admin template, educational, learning application, lessons, and other businesses.">
-    <meta property="og:title" content="Owlio - CodeIgniter School Admission Admin Dashboard Template">
-    <meta property="og:description"
-        content="Owlio is a clean-coded, responsive CodeIgniter template that can be easily customised to fit the needs of various instructors and lms admin template, educational, learning application, lessons, and other businesses.">
-    <meta property="og:image" content="https://owlio.dexignzone.com/codeigniter/social-image.png">
-    <meta name="format-detection" content="telephone=no">
+
 
     <!-- Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,11 +10,22 @@
     <!-- PAGE TITLE HERE -->
     <title>PB Education Online Learning System</title>
 
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
-    <link href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-    <link href="/assets/css/style.css" rel="stylesheet">
+    {{#if gridjs}}
+    <!-- gridjs css -->
+    <link rel="stylesheet" href="/assets/libs/gridjs/theme/mermaid.min.css">
+    {{/if}}
 
+    <!-- plugin css -->
+    <link href="/assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Layout config Js -->
+    <script src="/assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 </head>
 <style>
     @media print {
@@ -41,12 +40,11 @@
         <div class="container h-100">
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="media d-flex align-items-center justify-content-end my-2">
-                    <img src="assets/images/pblogo.webp" class="rounded me-2 float-end" width="150" alt="">
                 </div>
                 <div class="col-md-12">
                     <div class="card-header d-flex justify-content-between">
-                                <h4 class="card-title text-start">feedback ({{startDate}}-{{endDate}}) for {{userName}} </h4>
-                                <img src="/assets/images/pblogo.webp" width="100" alt="">
+                        <h4 class="card-title text-end">feedback ({{startDate}}-{{endDate}}) for {{userName}} </h4>
+                        <img src="/lms/pblogo.webp" width="100" alt="">
                     </div>
                     <div class="col-lg-12">
                         <div class="card">
@@ -71,7 +69,8 @@
                                                 <td>{{@index}}</td>
                                                 <td>{{questAndAnswer.4.answer}} / {{questAndAnswer.3.answer}}</td>
                                                 <td>{{questAndAnswer.6.answer.lessonName}}</td>
-                                                <td>{{questAndAnswer.1.answer.userName}} {{questAndAnswer.1.answer.userSurname}}</td>
+                                                <td>{{questAndAnswer.1.answer.userName}}
+                                                    {{questAndAnswer.1.answer.userSurname}}</td>
                                                 <td>{{questAndAnswer.8.answer}}</td>
                                             </tr>
                                             {{/each}}
@@ -105,7 +104,12 @@
                                             <tr class="text-center">
                                                 <td>{{@index}} </td>
                                                 <td>{{questAndAnswer.4.answer}} / {{questAndAnswer.3.answer}}</td>
-                                                <td>{{#if (eq questAndAnswer.5.answer "Office")}}<i class="fa-solid fa-school"></i> {{else if (eq questAndAnswer.5.answer "Online") }}<i class="fa-solid fa-desktop"></i> {{else if (eq questAndAnswer.5.answer "Home Schooling") }}<i class="fa-solid fa-house-user"></i>{{/if}}</td>
+                                                <td>{{#if (eq questAndAnswer.5.answer "Office")}}<i
+                                                        class="fa-solid fa-school"></i> {{else if (eq
+                                                    questAndAnswer.5.answer "Online") }}<i
+                                                        class="fa-solid fa-desktop"></i> {{else if (eq
+                                                    questAndAnswer.5.answer "Home Schooling") }}<i
+                                                        class="fa-solid fa-house-user"></i>{{/if}}</td>
                                                 <td>{{questAndAnswer.11.answer}}</td>
                                                 <td>{{questAndAnswer.12.answer}}</td>
                                                 <td>{{questAndAnswer.13.answer}}</td>
@@ -129,10 +133,14 @@
                                         <tbody>
                                             {{#each formNew}}
                                             <tr>
-                                                <td><strong>{{questAndAnswer.6.answer.lessonName}} ({{questAndAnswer.4.answer}} /
+                                                <td><strong>{{questAndAnswer.6.answer.lessonName}}
+                                                        ({{questAndAnswer.4.answer}} /
                                                         {{questAndAnswer.3.answer}})</strong></td>
-                                                <td style="word-wrap: break-word;white-space: normal;"><span class="text-success">General Impressions=></span> {{questAndAnswer.15.answer}} <br>
-                                                    <span class="text-success">Concern for Future Lessons=></span>  {{questAndAnswer.16.answer}}
+                                                <td style="word-wrap: break-word;white-space: normal;"><span
+                                                        class="text-success">General Impressions=></span>
+                                                    {{questAndAnswer.15.answer}} <br>
+                                                    <span class="text-success">Concern for Future Lessons=></span>
+                                                    {{questAndAnswer.16.answer}}
                                                 </td>
                                             </tr>
                                             {{/each}}
@@ -152,10 +160,57 @@
 	Scripts
 ***********************************-->
     <!-- Required vendors -->
-    <script src="/assets/vendor/global/global.min.js"></script>
-    <script src="/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="/assets/js/custom.min.js"></script>
-    <script src="/assets/js/deznav-init.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/libs/feather-icons/feather.min.js"></script>
+    <script src="/assets/js/plugins.js"></script>
+
+    {{#if listjs}}
+    <!-- listjs init -->
+    <script src="/assets/js/pages/listjs.init.js"></script>
+    {{/if}}
+
+    {{#if prismjs}}
+    <!-- prismjs plugin -->
+    <script src="/assets/libs/prismjs/prism.js"></script>
+    <script src="/assets/libs/list.js/list.min.js"></script>
+    <script src="/assets/libs/list.pagination.js/list.pagination.min.js"></script>
+    {{/if}}
+
+    {{#if gridjs}}
+    <!-- gridjs js -->
+    <script src="/assets/libs/gridjs/gridjs.umd.js"></script>
+    <!-- gridjs init -->
+    <script src="/assets/js/pages/gridjs.init.js"></script>
+    {{/if}}
+
+    {{#if ckeditor}}
+    <!-- ckeditor -->
+    <script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+    {{/if}}
+
+    {{#if apexcharts}}
+    <!-- apexcharts -->
+    <script src="/assets/libs/apexcharts/apexcharts.min.js"></script>
+    {{/if}}
+
+    {{#if vectorMap}}
+    <!-- Vector map-->
+    <script src="/assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
+    <script src="/assets/libs/jsvectormap/maps/world-merc.js"></script>
+    {{/if}}
+
+    {{#if dashboardInit}}
+    <!-- Dashboard init -->
+    <script src="/assets/js/pages/dashboard.init.js"></script>
+    {{/if}}
+
+    <!-- Sweet Alerts js -->
+    <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    <!-- App js -->
+    <script src="/assets/js/app.js"></script>
 </body>
 
 </html>

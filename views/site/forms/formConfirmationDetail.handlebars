@@ -1,0 +1,64 @@
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        {{!-- <h4 class="mb-sm-0">Created Forms</h4> --}}
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                {{!-- <li class="breadcrumb-item"><a href="javascript: void(0);">Form</a></li>
+                                <li class="breadcrumb-item active">Created Forms</li> --}}
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-6 col-xxl-6">
+                    <div class="card">
+                        <form action="/form/confirm/{{form._id}}" method="POST">
+
+                            <div class="card-header">
+                                <h4 class="card-title">{{form.formName}}</h4>
+                            </div>
+                            <div class="card-body">
+                                {{#each form.questAndAnswer}}
+                                {{#if question}}
+                                <div class="row d-flex">
+                                    <div class="form-group col-md-12">
+                                        <label for="">{{question}}</label>
+                                        <input type="text" name="questAndAnswer.{{@index}}.answer" value="{{answer}}"
+                                            {{#unless (tripleEq @index 4 15 16 17)}} readonly {{/unless}}
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <hr class="text-primary">
+                                {{/if}}
+                                {{/each}}
+                                <div class="card-footer text-end">
+                                    <button type="submit" name="action" value="arabic" class="text-start btn btn-danger mb-3">Translate answers to Arabic</button>
+                                    <button type="submit" name="action" value="english" class="text-start btn btn-danger mb-3">Translate answers to English</button>
+                                    <button type="submit" name="action" value="turkish" class="text-start btn btn-danger mb-3">Translate answers to Turkish</button>
+                                    <button type="submit" name="action" value="save" class="btn btn-success">Save</button>
+                                    <button type="submit" name="action" value="confirm" class="btn btn-primary">Confirm</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- container-fluid -->
+</div>
+<!-- End Page-content -->

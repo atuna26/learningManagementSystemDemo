@@ -1,79 +1,125 @@
-<div class="content-body" style="min-height: 862px;">
-    <div class="container-fluid">
-        <div class="row page-titles mx-0">
-            <div class="col-sm-2 p-md-0">
-                <div class="welcome-text">
-                    <h4>Course</h4>
-                    <p class="mb-0">Course List</p>
-                </div>
-            </div>
-        </div>
-        <!-- row -->
+<div class="main-content">
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Course List</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-responsive-md">
-                                <form action="/course/course-timeList/desicion/" method="post">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            <div class="form-check custom-checkbox checkbox-success check-lg me-3">
-                                                <input type="checkbox" class="form-check-input" id="checkAll"
-                                                  >
-                                            </div>
-                                        </th>
-                                        <th><strong>Teacher Name</strong></th>
-                                        <th><strong>Student Name</strong></th>
-                                        <th><strong>Course</strong></th>
-                                        <th><strong>Type</strong></th>
-                                        <th><strong>Week</strong></th>
-                                        <th><strong>Day</strong></th>
-                                        <th><strong>Time</strong></th>
-                                        <th><strong>Begin</strong></th>
-                                        <th><strong>
-                                                    <button class="btn btn-danger btn-xs shadow sharp me-1"
-                                                        name="action" value="send" type="submit" title="Add To Planned"><i
-                                                            class="fa fa-pencil color-muted"></i></button></strong>
-                                                <button class="btn btn-primary shadow btn-xs sharp me-1" name="action"
-                                                    type="submit" value="delete"><i class="fa fa-trash"></i></button></strong>
+    <div class="page-content">
+        <div class="container-fluid">
 
-                                            </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{#each weeklyTable}}
-                                    {{#each courses}}
-                                    <tr>
-                                        <td>
-                                            <div class="form-check custom-checkbox checkbox-success check-lg me-3">
-                                                <input type="checkbox" class="form-check-input" value="{{_id}}"
-                                                    name="selected" id="customCheckBox2" >
-                                            </div>
-                                        </td>
-                                        <td> {{#each teacherName}} {{userName}} {{userSurname}} {{/each}} </td>
-                                        <td>{{#each studentName}} {{userName}} {{userSurname}} {{/each}}</td>
-                                        <td>{{courseCode.lessonCode}} - {{courseCode.lessonName}} </td>
-                                        <td>{{courseType}}</td>
-                                        <td>{{../week}}</td>
-                                        <td>{{courseDay}} </td>
-                                        <td>DÜZELTİLECEK</td>
-                                        <td>{{courseHour}}:{{courseMinute}}</td>
-                                    </tr>
-                                    {{/each}}
-                                    {{/each}}
-                                </tbody>
-                                </form>
-                            </table>
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Course List</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Course</a></li>
+                                <li class="breadcrumb-item active">Course List</li>
+                            </ol>
                         </div>
+
                     </div>
                 </div>
             </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Course List</h4>
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="customerList">
+                                <div class="row g-4 mb-3">
+                                    <div class="col-sm-auto">
+                                        <div>
+                                            {{!-- <button type="button" class="btn btn-success add-btn"
+                                                data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i
+                                                    class="ri-add-line align-bottom me-1"></i> Add</button>
+                                            <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i
+                                                    class="ri-delete-bin-2-line"></i></button> --}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="d-flex justify-content-sm-end">
+                                            <div class="search-box ms-2">
+                                                <input type="text" class="form-control search" placeholder="Search...">
+                                                <i class="ri-search-line search-icon"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive table-card mt-3 mb-1">
+                                    <table class="table align-middle table-nowrap" id="customerTable">
+                                        <form action="/course/course-timeList/desicion/" method="post">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th scope="col" style="width: 50px;">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="checkAll" value="option">
+                                                        </div>
+                                                    </th>
+                                                    <th class="sort">Teacher Name</th>
+                                                    <th class="sort">Student Name</th>
+                                                    <th class="sort">Course</th>
+                                                    <th class="sort">Type</th>
+                                                    <th class="sort">Week</th>
+                                                    <th class="sort">Day</th>
+                                                    <th class="sort">Time</th>
+                                                    <th class="sort">Begin</th>
+                                                    <th><strong>
+                                                            <button class="btn btn-danger btn-xs shadow sharp me-1"
+                                                                name="action" value="send" type="submit"
+                                                                title="Add To Planned"><i
+                                                                    class="ri-edit-fill"></i></button></strong>
+                                                        <button class="btn btn-primary shadow btn-xs sharp me-1"
+                                                            name="action" type="submit" value="delete"><i
+                                                                class="ri-delete-bin-2-line"></i></button></strong>
+
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list form-check-all">
+                                                {{#each weeklyTable}}
+                                                {{#each courses}}
+                                                <tr>
+                                                    <th scope="row">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                value="{{_id}}" name="selected" value="option1">
+                                                        </div>
+                                                    </th>
+                                                    <td>{{#each teacherName}} {{userName}} {{userSurname}} {{/each}}
+                                                    </td>
+                                                    <td>{{#each studentName}} {{userName}} {{userSurname}} {{/each}}
+                                                    </td>
+                                                    <td>{{courseCode.lessonCode}} - {{courseCode.lessonName}} </td>
+                                                    <td>{{courseType}}</td>
+                                                    <td>{{../week}}</td>
+                                                    <td>{{courseDay}} </td>
+                                                    <td>DÜZELTİLECEK</td>
+                                                    <td>{{courseHour}}:{{courseMinute}}</td>
+
+                                                </tr>
+                                                {{/each}}
+                                                {{/each}}
+                                            </tbody>
+                                        </form>
+                                    </table>
+                                </div>
+                            </div>
+                        </div><!-- end card -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
         </div>
+        <!-- container-fluid -->
     </div>
+    <!-- End Page-content -->
+
 </div>

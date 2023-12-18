@@ -20,26 +20,28 @@ async function LoadRoleInfo(req, res, next) {
 router.use(LoadRoleInfo);
 
 router.get("/", (req, res) => {
+  let gridjs = true;
   User.find({})
     .lean()
     .then((user) => {
-      res.render("site/users", { user: user, userData: req.userData });
+      res.render("site/users", { user: user, userData: req.userData, gridjs });
     });
 });
 
 router.get("/login", (req, res) => {
   if (!req.session.userId) {
-    res.render("site/login", { layout: "" });
+    res.render("site/signin", { layout: "" });
   } else {
     res.redirect("/");
   }
 });
 
 router.get("/student", (req, res) => {
+  let gridjs = true;
   User.find({ role: "Student" })
     .lean()
     .then((user) => {
-      res.render("site/students", { user: user, userData: req.userData });
+      res.render("site/students", { user: user, userData: req.userData,gridjs });
     });
 });
 

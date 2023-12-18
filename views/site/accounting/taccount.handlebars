@@ -1,74 +1,112 @@
-<div class="content-body">
-    <div class="container-fluid">
-        <div class="form-head d-flex flex-wrap mb-sm-4 mb-3 align-items-center">
-            <div class="me-auto  d-lg-block mb-3">
-                <h2 class="text-black font-w700 mb-0">Accounting</h2>
-            </div>
-        </div>
+<div class="main-content">
 
+    <div class="page-content">
+        <div class="container-fluid">
 
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">T-Account </h4>
 
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Accounting</a></li>
+                                <li class="breadcrumb-item active">T-Account</li>
+                            </ol>
+                        </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Payment History</h4>
-                        <h2 class="card-title">
-                            <span class="text-success">Total Incoming:{{totalIncoming}}₺</span>
-                            <br><span class="text-danger">Total Outgoing:{{totalOutgoing}}₺</span><br> Remain:
-                            {{substract totalIncoming totalOutgoing }}₺
-                        </h2>
-
-                        <form action="/accounting/t-account/history" method="post">
-                            <div class="row d-flex justify-content-center align-items-center">
-                                <div class="col-md-4 mx-4">
-                                    <p class="mb-1">Start Date</p>
-                                    <input type="date" name="startDate" value="{{moment startD}}" id="">
-                                </div>
-                                <div class="col-md-4 mx-3">
-                                    <p class="mb-1">End Date</p>
-                                    <input type="date" name="endDate" value="{{moment endD}}" id="">
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-primary mr-2" type="submit">Filter</button>
-                                </div>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-responsive-lg mb-4 dataTablesCard card-table text-black"
-                            id="example5">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each paymentHistory}}
-                                {{#if (eq type "outgoing")}}
-                                <tr>
-                                    <td>{{moment date}}</td>
-                                    <td><span class="text-danger">-{{amount}}₺</span></td>
-                                </tr>
-                                {{/if}}
-                                {{#if (eq type "incoming")}}
-                                <tr>
-                                    <td>{{moment date}}</td>
-                                    <td><span class="text-success">+{{amount}}₺</span></td>
-                                </tr>
-                                {{/if}}
-                                {{/each}}
-
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="/accounting/change/{{link}}" method="post">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment History</h4>
+
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div id="customerList">
+                                    <div class="row g-4 mb-3">
+                                        <div class="col-sm-auto">
+                                            <h2 class="card-title">
+                                                <span class="text-success">Total Incoming:{{totalIncoming}}₺</span>
+                                                <br><span class="text-danger">Total
+                                                    Outgoing:{{totalOutgoing}}₺</span><br> Remain:
+                                                {{substract totalIncoming totalOutgoing }}₺
+                                            </h2>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="d-flex justify-content-sm-end">
+                                                <div class="search-box ms-2">
+                                                    <form action="/accounting/t-account/history" method="post">
+                                                        <div
+                                                            class="row d-flex justify-content-center align-items-center">
+                                                            <div class="col-md-4 mx-2">
+                                                                <p class="mb-1">Start Date</p>
+                                                                <input type="date" name="startDate"
+                                                                    value="{{moment startD}}" id="">
+                                                            </div>
+                                                            <div class="col-md-4 mx-2">
+                                                                <p class="mb-1">End Date</p>
+                                                                <input type="date" name="endDate"
+                                                                    value="{{moment endD}}" id="">
+                                                            </div>
+                                                            <div class="col-md-2 mt-3">
+                                                                <button class="btn btn-primary mr-2"
+                                                                    type="submit">Filter</button>
+                                                            </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive table-card mt-3 mb-1">
+                                        <table class="table align-middle table-nowrap" id="customerTable">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Amount</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list form-check-all">
+                                                {{#each paymentHistory}}
+                                                {{#if (eq type "outgoing")}}
+                                                <tr>
+                                                    <td>{{moment date}}</td>
+                                                    <td><span class="text-danger">-{{amount}}₺</span></td>
+                                                </tr>
+                                                {{/if}}
+                                                {{#if (eq type "incoming")}}
+                                                <tr>
+                                                    <td>{{moment date}}</td>
+                                                    <td><span class="text-success">+{{amount}}₺</span></td>
+                                                </tr>
+                                                {{/if}}
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div><!-- end card -->
+                        </div>
+                    </form>
+                    <!-- end col -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
         </div>
+        <!-- container-fluid -->
     </div>
+    <!-- End Page-content -->
+
 </div>

@@ -17,6 +17,7 @@ const FormSchema = new mongoose.Schema({
     formKind:{type:String},
     questAndAnswer:[qaaSchema],
     formType:{type:String},
+    confirmation:{type:Boolean, default:false},
     formStatus:{type:String},
     formUser:{type: Schema.Types.ObjectId, ref: "user"},
     actualForm:{type: Schema.Types.ObjectId, ref: "form"},

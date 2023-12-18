@@ -161,7 +161,7 @@ router.post("/answer/:id", async (req, res) => {
             newForm.questAndAnswer[10].answer == "45 minutes" ||
             newForm.questAndAnswer[10].answer == "60 minutes" ||
             newForm.questAndAnswer[9].answer ==
-              " No the lesson is cancelled in the last 0-1h"
+            " No the lesson is cancelled in the last 0-1h"
           ) {
             user.moneyToBePaid =
               Number(user.moneyToBePaid) + Number(user.feePerLesson);
@@ -197,7 +197,7 @@ router.post("/answer/:id", async (req, res) => {
               newForm.questAndAnswer[10].answer == "45 minutes" ||
               newForm.questAndAnswer[10].answer == "60 minutes" ||
               newForm.questAndAnswer[9].answer ==
-                " No the lesson is cancelled in the last 0-1h"
+              " No the lesson is cancelled in the last 0-1h"
             ) {
               student.moneyToBePaid =
                 Number(student.moneyToBePaid) + Number(student.feePerLesson);
@@ -260,7 +260,7 @@ router.post("/answer/:id", async (req, res) => {
 router.get("/formedit", async (req, res) => {
   try {
     const forms = await Form.find({ formType: "Answer" }).lean();
-    const users = await User.find({role:"Teacher"});
+    const users = await User.find({ role: "Teacher" });
     let count = 0;
     for (const form of forms) {
       for (const user of users) {
@@ -273,7 +273,7 @@ router.get("/formedit", async (req, res) => {
           const userId = new mongoose.Types.ObjectId(user._id);
           await Form.findByIdAndUpdate(
             form._id,
-            { $set: { "questAndAnswer.1.answer":userId } }
+            { $set: { "questAndAnswer.1.answer": userId } }
           );
         }
       }
@@ -285,5 +285,138 @@ router.get("/formedit", async (req, res) => {
   }
 });
 
+router.get("/form-confirmation/list", async (req, res) => {
+  const form = await Form.find({ formType: "Answer", actualForm: "6569a0a3be6ebd006513a277", confirmation: false }).populate({ path: "questAndAnswer.1.answer", model: User }).populate({ path: "questAndAnswer.2.answer", model: User }).lean();
+  res.render("site/forms/formConfirmationList", { form, userData: req.userData })
+})
+
+router.get("/form-confirmation/detail/:id", async (req, res) => {
+  const form = await Form.findOne({ _id: req.params.id }).lean()
+  res.render("site/forms/formConfirmationDetail", { form, userData: req.userData })
+})
+
+router.post("/confirm/:id", async (req, res) => {
+  let form = await Form.findOne({ _id: req.params.id })
+  if(req.body.action === "turkish"){
+    ai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "user",
+          content: `Can you translate the sentence I will give into Turkish in the most correct and formal way? Just write the answer:${form.questAndAnswer[15].answer}`,
+        },
+      ],
+    }).then((respond) => {
+      form.questAndAnswer[15].answer = respond.choices[0].message.content;
+      ai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "user",
+            content: `Can you translate the sentence I will give into Turkish in the most correct and formal way? Just write the answer:${form.questAndAnswer[16].answer}`,
+          },
+        ],
+      }).then((respond) =>{
+        form.questAndAnswer[16].answer = respond.choices[0].message.content;
+        ai.chat.completions.create({
+          model: "gpt-3.5-turbo",
+          messages: [
+            {
+              role: "user",
+              content: `Can you translate the sentence I will give into Turkish in the most correct and formal way? Just write the answer:${form.questAndAnswer[17].answer}`,
+            },
+          ],
+        }).then((respond) => {
+          form.questAndAnswer[17].answer = respond.choices[0].message.content;
+          form.save();
+  
+        })
+      })
+      res.redirect(`/form/form-confirmation/detail/${req.params.id}`);
+    });
+  }
+  else if(req.body.action === "english"){
+    ai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "user",
+          content: `Can you translate the sentence I will give into English in the most correct and formal way? Just write the answer:${form.questAndAnswer[15].answer}`,
+        },
+      ],
+    }).then((respond) => {
+      form.questAndAnswer[15].answer = respond.choices[0].message.content;
+      ai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "user",
+            content: `Can you translate the sentence I will give into English in the most correct and formal way? Just write the answer:${form.questAndAnswer[16].answer}`,
+          },
+        ],
+      }).then((respond) =>{
+        form.questAndAnswer[16].answer = respond.choices[0].message.content;
+        ai.chat.completions.create({
+          model: "gpt-3.5-turbo",
+          messages: [
+            {
+              role: "user",
+              content: `Can you translate the sentence I will give into English in the most correct and formal way? Just write the answer:${form.questAndAnswer[17].answer}`,
+            },
+          ],
+        }).then((respond) => {
+          form.questAndAnswer[17].answer = respond.choices[0].message.content;
+          form.save();
+  
+        })
+      })
+      res.redirect(`/form/form-confirmation/detail/${req.params.id}`);
+    });
+  }
+  else if(req.body.action === "arabic"){
+    console.log("arabic")
+    ai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "user",
+          content: `Can you translate the sentence I will give into Arabic in the most correct and formal way? Just write the answer:${form.questAndAnswer[15].answer}`,
+        },
+      ],
+    }).then((respond) => {
+      form.questAndAnswer[15].answer = respond.choices[0].message.content;
+      ai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "user",
+            content: `Can you translate the sentence I will give into Arabic in the most correct and formal way? Just write the answer:${form.questAndAnswer[16].answer}`,
+          },
+        ],
+      }).then((respond) =>{
+        form.questAndAnswer[16].answer = respond.choices[0].message.content;
+        ai.chat.completions.create({
+          model: "gpt-3.5-turbo",
+          messages: [
+            {
+              role: "user",
+              content: `Can you translate the sentence I will give into Arabic in the most correct and formal way? Just write the answer:${form.questAndAnswer[17].answer}`,
+            },
+          ],
+        }).then((respond) => {
+          form.questAndAnswer[17].answer = respond.choices[0].message.content;
+          form.save();
+  
+        })
+      })
+      res.redirect(`/form/form-confirmation/detail/${req.params.id}`);
+    });
+  }
+  else if(req.body.action === "confirm"){
+    form.confirmation=true;
+    form.save();
+  }
+  
+})
 
 module.exports = router;

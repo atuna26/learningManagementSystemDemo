@@ -1,41 +1,53 @@
-<div class="content-body" style="min-height: 1116px;">
-    <div class="container-fluid">
-        <!-- Add Project -->
-        <div class="row page-titles mx-0">
-            <div class="col-sm-6 p-md-0">
-            </div>
-            {{!-- <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Components</a></li>
-                </ol>
-            </div> --}}
-        </div>
-        <!-- row -->
-        <div class="row d-flex justify-content-center">
-            <div class="col-xl-6 col-xxl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">{{form.formName}}</h4>
-                    </div>
-                    <div class="card-body">
-                        {{#each form.questAndAnswer}}
-                        {{#if question}}
-                        <div class="row d-flex">
-                            <div class="form-group col-md-12">
-                                <label class="mb-1"><strong>{{question}}</strong></label>
-                                <input type="text" name="questAndAnswer.{{@index}}.answer" value="{{answer}}" readonly
-                                    class="form-control">
-                            </div>
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        {{!-- <h4 class="mb-sm-0">Created Forms</h4> --}}
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                {{!-- <li class="breadcrumb-item"><a href="javascript: void(0);">Form</a></li>
+                                <li class="breadcrumb-item active">Created Forms</li> --}}
+                            </ol>
                         </div>
-                        <hr class="text-primary">
-                        {{/if}}
-                        {{/each}}
+
                     </div>
                 </div>
             </div>
+            <!-- end page title -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-6 col-xxl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">{{form.formName}}</h4>
+                        </div>
+                        <div class="card-body">
+                            {{#each form.questAndAnswer}}
+                            {{#if question}}
+                            <div class="row d-flex">
+                                <div class="form-group col-md-12">
+                                    <label class="mb-1"><strong>{{question}}</strong></label>
+                                    <input type="text" name="questAndAnswer.{{@index}}.answer" value="{{answer}}"
+                                        readonly class="form-control">
+                                </div>
+                            </div>
+                            <hr class="text-primary">
+                            {{/if}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end col -->
         </div>
+        <!-- end row -->
     </div>
+    <!-- container-fluid -->
 </div>
-</div>
-</div>
+<!-- End Page-content -->

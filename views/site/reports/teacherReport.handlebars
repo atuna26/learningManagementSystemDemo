@@ -1,61 +1,96 @@
-<div class="content-body">
-    <div class="container-fluid">
-        <div class="form-head d-flex flex-wrap mb-sm-4 mb-3 align-items-center">
-            <div class="me-auto  d-lg-block mb-3">
-                <h2 class="text-black font-w700 mb-0">Reports</h2>
-            </div>
-        </div>
+<div class="main-content">
 
+    <div class="page-content">
+        <div class="container-fluid">
 
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Teacher Report</h4>
 
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Reports</a></li>
+                                <li class="breadcrumb-item active">Teacher Report</li>
+                            </ol>
+                        </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Teacher Reports</h4>
-
-                        <form action="/report/teacher-reports/filter" method="post">
-                            <div class="row d-flex justify-content-center align-items-center">
-                                <div class="col-md-4 mx-4">
-                                    <p class="mb-1">Start Date</p>
-                                    <input type="date" name="startDate" value="{{moment startD}}" id="">
-                                </div>
-                                <div class="col-md-4 mx-3">
-                                    <p class="mb-1">End Date</p>
-                                    <input type="date" name="endDate" value="{{moment endD}}" id="">
-                                </div>
-                                <div class="col-md-2">
-                                    <button class="btn btn-primary mr-2" type="submit">Filter</button>
-                                </div>
-                        </form>
-                    </div>
-
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-responsive-lg mb-4 dataTablesCard card-table text-black"
-                            id="example5">
-                            <thead>
-                                <tr>
-                                    <th>Teacher Name Surname</th>
-                                    <th>Hours</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each reportData}}
-                                <tr>
-                                    <td>{{teacherName}}</td>
-                                    <td>{{formCount}}</td>
-                                </tr>
-                                {{/each}}
-
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0">Teacher List</h4>
+                        </div><!-- end card header -->
+
+                        <div class="card-body">
+                            <div id="customerList">
+                                <div class="row g-4 mb-3">
+                                    <div class="col-sm-auto">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <form action="/report/teacher-reports/filter" method="post">
+
+                                            <div class="row d-flex justify-content-start align-items-end">
+                                                <div class="col-md-2">
+                                                    <p class="mb-1">Start Date</p>
+                                                    <input type="date" name="startDate" value="{{moment startD}}" id="">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <p class="mb-1">End Date</p>
+                                                    <input type="date" name="endDate" value="{{moment endD}}" id="">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button class="btn btn-primary mr-2" type="submit">Filter</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive table-card mt-3 mb-1">
+                                    <table class="table align-middle table-nowrap" id="customerTable">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Teacher Name Surname</th>
+                                                <th>Hours</th>
+                                                <th>Cancelled Hours</th>
+                                                <th>Detail</th>
+
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list form-check-all">
+                                            {{#each reportData}}
+                                            <tr>
+                                                <td>{{teacherName}}</td>
+                                                <td>{{formCount}}</td>
+                                                <td>{{cancelled}}</td>
+                                                <td>  <a class="badge bg-primary-subtle text-primary"
+                                                        href="/report/teacher-reports/detail/?id={{teacherid}}">view</a>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div><!-- end card -->
+                    </div>
+                    <!-- end col -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
         </div>
+        <!-- container-fluid -->
     </div>
+    <!-- End Page-content -->
+
 </div>

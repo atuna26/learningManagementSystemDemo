@@ -1,41 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
 <head>
-    <!-- Meta -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="DexignZone">
-    <meta name="robots" content="">
-    <meta name="keywords"
-        content="bootstrap, courses, education admin template, educational, instructors, codeigniter, learning admin, learning admin theme, learning application, lessons, lms admin template, lms rails, quizzes ui, school admin">
-    <meta name="description"
-        content="Owlio is a clean-coded, responsive CodeIgniter template that can be easily customised to fit the needs of various instructors and lms admin template, educational, learning application, lessons, and other businesses.">
-    <meta property="og:title" content="Owlio - CodeIgniter School Admission Admin Dashboard Template">
-    <meta property="og:description"
-        content="Owlio is a clean-coded, responsive CodeIgniter template that can be easily customised to fit the needs of various instructors and lms admin template, educational, learning application, lessons, and other businesses.">
-    <meta property="og:image" content="https://owlio.dexignzone.com/codeigniter/social-image.png">
-    <meta name="format-detection" content="telephone=no">
 
-    <!-- Mobile Specific -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <title>Dashboard | Invoika - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
-    <!-- PAGE TITLE HERE -->
-    <title>Owlio - CodeIgniter School Admission Admin Dashboard Template</title>
+    {{#if gridjs}}
+    <!-- gridjs css -->
+    <link rel="stylesheet" href="/assets/libs/gridjs/theme/mermaid.min.css">
+    {{/if}}
 
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
+    <!-- plugin css -->
+    <link href="/assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="/assets/vendor/chartist/css/chartist.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/vendor/toastr/css/toastr.min.css" rel="stylesheet" type="text/css" />
-    <link href="/assets/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
-
-     <link href="/assets/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">    
-    <!-- Form step -->
-    <link href="/assets/vendor/jquery-smartwizard/dist/css/smart_wizard.min.css" rel="stylesheet">
-
-    <link href="/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
-
-    <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+    <!-- Layout config Js -->
+    <script src="/assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="/assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -43,9 +34,10 @@
 
     {{>nav}}
     {{{body}}}
+    </div> <!-- Navın içinde başlayıp body'i kapsayan bir div var her dosyada fazlalık gözükmesin diye buraya ekledim -->
+
     {{>footer}}
 
 
 </body>
-
 </html>

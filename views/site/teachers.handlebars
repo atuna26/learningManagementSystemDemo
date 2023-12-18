@@ -1,184 +1,201 @@
-<div class="content-body" style="min-height: 862px;">
-    <div class="container-fluid">
-        <div class="form-head d-flex flex-wrap mb-sm-4 mb-3 align-items-center">
-            <div class="me-auto  d-lg-block mb-3">
-                <h2 class="text-black font-w700 mb-0">Teachers</h2>
-            </div>
-            <a href="" data-bs-toggle="modal" data-bs-target="#addOrderModal"
-                class="btn btn-primary btn-rounded mb-3"><i class="fa fa-user-plus me-3"></i>New Teacher</a>
-            <!-- Add Order -->
-            <div class="modal fade" id="addOrderModal">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">New Teacher Form</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal">
-                            </button>
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0">Teachers</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Teachers</a></li>
+                                <li class="breadcrumb-item active">Teacher List</li>
+                            </ol>
                         </div>
-                        <form action="/users/register/teacher" method="POST">
-                            <div class="modal-body">
-                                <div class="form-group md-12 row">
-                                    <div class="col-md-6"> <label class="mb-1"><strong>Name</strong></label>
-                                        <input type="text" name="userName" class="form-control" placeholder="Name">
-                                    </div>
-                                    <div class="col-md-6"> <label class="mb-1"><strong>Surname</strong></label>
-                                        <input type="text" name="userSurname" class="form-control"
-                                            placeholder="Surname">
-                                    </div>
 
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label class="mb-1"><strong>Email</strong></label>
-                                        <input type="email" name="mailAddress" class="form-control"
-                                            placeholder="hello@example.com">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="mb-1"><strong>Phone Number</strong></label>
-                                        <input type="tel" name="phoneNumber" class="form-control"
-                                            placeholder="Phone Number">
-                                    </div>
-                                </div>
-                                <div class="row">
-
-                                    <div class="form-group col-md-6">
-                                        <label class="mb-1"><strong>Password</strong></label>
-                                        <input type="password" id="userPassword" name="password" class="form-control"
-                                            placeholder="Password">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <div class="text-center mt-4">
-                                            <button type="button" onclick="randomPassword()"
-                                                class="btn btn-info btn-block lh-1">Generate Random
-                                                Password</button>
-                                        </div>
-                                    </div>
-                                    <div class="" id="teacherGroup">
-                                        <div class="form-group">
-                                            <label>Choose the lesson(s) the teacher will teach:</label>
-                                            <div
-                                                class="dropdown bootstrap-select show-tick form-control default-select">
-                                                <select multiple="" class="form-control default-select" name="lesson"
-                                                    id="sel2">
-                                                    {{#each lesson}}
-                                                    <option value="{{_id}}">{{lessonName}}</option>
-                                                    {{/each}}
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger light"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Create new teacher</button>
-                                </div>
-                        </form>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="table-responsive ">
-                    <table class="table table-responsive-lg mb-4 dataTablesCard card-table text-black" id="example5">
-                        <thead>
-                            <tr>
-                                <th>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkAll">
-                                        <label class="form-check-label" for="checkAll">
+            <!-- end page title -->
 
-                                        </label>
-                                    </div>
-                                </th>
-                                <th>#</th>
-                                <th>Date Join</th>
-                                <th class="text-center">Name</th>
-                                <th>Contact</th>
-                                <th class="text-end">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each user}}
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="check1">
-                                        <label class="form-check-label" for="check1">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title mb-0 flex-grow-1">Teacher List</h4>
+                            <a href="" data-bs-toggle="modal" data-bs-target="#addOrderModal"
+                                class="btn btn-primary btn-rounded mb-3"><i class="fa fa-user-plus me-3"></i>New
+                                Teacher</a>
+                        </div><!-- end card header -->
 
-                                        </label>
-                                    </div>
-                                </td>
-                                <td>{{@index}} </td>
-                                <td>{{moment date}}</td>
-                                <td>
-                                    <div class="media d-flex align-items-center">
-                                        <img src="{{profilePhoto}}" class="rounded me-2" width="50" alt="">
-                                        <div class="media-body text-nowrap">
-                                            <h6 class="text-black font-w600 fs-16 mb-0">{{userName}} {{userSurname}}
-                                            </h6>
+                        <div class="card-body">
+                            <div id="table-gridjs">
+                                <div role="complementary" class="gridjs gridjs-container">
+                                    <div class="gridjs-head">
+                                        <div class="gridjs-search"><input type="search" placeholder="Type a keyword..."
+                                                aria-label="Type a keyword..." class="gridjs-input gridjs-search-input">
                                         </div>
                                     </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex justify-content-center">
-                                        <a class="contact-icon me-3 " href="#"><i class="fa fa-phone"
-                                                aria-hidden="true"></i></a>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="dropdown float-end custom-dropdown c-pointer mb-0">
-                                        <div class="" data-bs-toggle="dropdown">
-                                            <svg class="primary-icon" width="24" height="24" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
-                                                    stroke="#2E2E2E" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round"></path>
-                                                <path
-                                                    d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
-                                                    stroke="#2E2E2E" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round"></path>
-                                                <path
-                                                    d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
-                                                    stroke="#2E2E2E" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round"></path>
-                                            </svg>
-                                        </div>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a class="dropdown-item" href="javascript:void(0);">Details</a>
-                                            <a class="dropdown-item text-danger" href="javascript:void(0);">Cancel</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            {{/each}}
+                                    <div class="gridjs-wrapper">
+                                        <table role="grid" class="gridjs-table">
+                                            <thead class="gridjs-thead">
+                                                <tr class="gridjs-tr">
+                                                    <th class="gridjs-th gridjs-th-sort" tabindex="0">
+                                                        <div class="gridjs-th-content">#</div>
+                                                    <th data-column-id="name" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Name</div>
+                                                    </th>
+                                                    <th data-column-id="date" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Date</div>
+                                                    </th>
+                                                    <th data-column-id="contact" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Contact</div>
+                                                    </th>
+                                                    <th data-column-id="actions" class="gridjs-th gridjs-th-sort"
+                                                        tabindex="0">
+                                                        <div class="gridjs-th-content">Actions</div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="gridjs-tbody">
+                                                {{#each user}}
 
-                        </tbody>
-                    </table>
+                                                <tr class="gridjs-tr">
+                                                    <td data-column-id="id" class="gridjs-td"><span><span
+                                                                class="fw-semibold">{{@index}}</span></span></td>
+                                                    <td data-column-id="name" class="gridjs-td">{{userName}}
+                                                        {{userSurname}}</td>
+                                                    <td data-column-id="parentName" class="gridjs-td">{{moment date}}
+                                                    </td>
+                                                    <td data-column-id="contact" class="gridjs-td">
+                                                        <div class="d-flex justify-content-center">
+                                                            <a class="contact-icon me-3 " href="#"><i
+                                                                    class="las la-phone" aria-hidden="true"></i></a>
+                                                        </div>
+                                                    </td>
+                                                    <td data-column-id="actions" class="gridjs-td"><span>
+                                                            <div
+                                                                class="dropdown float-end custom-dropdown c-pointer mb-0">
+                                                                <div class="" data-bs-toggle="dropdown">
+                                                                    <svg class="primary-icon" width="24" height="24"
+                                                                        viewBox="0 0 24 24" fill="none"
+                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                        <path
+                                                                            d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+                                                                            stroke="#2E2E2E" stroke-width="2"
+                                                                            stroke-linecap="round"
+                                                                            stroke-linejoin="round"></path>
+                                                                        <path
+                                                                            d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+                                                                            stroke="#2E2E2E" stroke-width="2"
+                                                                            stroke-linecap="round"
+                                                                            stroke-linejoin="round"></path>
+                                                                        <path
+                                                                            d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+                                                                            stroke="#2E2E2E" stroke-width="2"
+                                                                            stroke-linecap="round"
+                                                                            stroke-linejoin="round"></path>
+                                                                    </svg>
+                                                                </div>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <a class="dropdown-item"
+                                                                        href="javascript:void(0);">Details</a>
+                                                                    <a class="dropdown-item text-danger"
+                                                                        href="javascript:void(0);">Cancel</a>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div id="gridjs-temp" class="gridjs-temp"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- end card -->
                 </div>
+                <!-- end col -->
             </div>
-            <div class="col-xl-12">
-                <nav aria-label="Page navigation example ">
-                    <ul class="pagination pagination-circle mt-3">
-                        <li class="page-item page-indicator">
-                            <a class="page-link" href="javascript:void(0)">
-                                <i class="la la-angle-left"></i></a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                        <li class="page-item page-indicator">
-                            <a class="page-link" href="javascript:void(0)">
-                                <i class="la la-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+            <!-- end row -->
+
+
+
+        </div>
+        <!-- container-fluid -->
+    </div>
+    <!-- End Page-content -->
+
+</div>
+<div class="modal fade" id="addOrderModal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Teacher Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                </button>
             </div>
+            <form action="/users/register/teacher" method="POST">
+                <div class="modal-body">
+                    <div class="form-group md-12 row">
+                        <div class="col-md-6"> <label class="mb-1"><strong>Name</strong></label>
+                            <input type="text" name="userName" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="col-md-6"> <label class="mb-1"><strong>Surname</strong></label>
+                            <input type="text" name="userSurname" class="form-control" placeholder="Surname">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="mb-1"><strong>Email</strong></label>
+                            <input type="email" name="mailAddress" class="form-control" placeholder="hello@example.com">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="mb-1"><strong>Phone Number</strong></label>
+                            <input type="tel" name="phoneNumber" class="form-control" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            <label class="mb-1"><strong>Password</strong></label>
+                            <input type="password" id="userPassword" name="password" class="form-control"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="text-center mt-4">
+                                <button type="button" onclick="randomPassword()"
+                                    class="btn btn-info btn-block lh-1">Generate Random
+                                    Password</button>
+                            </div>
+                        </div>
+                        <div class="" id="teacherGroup">
+                            <div class="form-group">
+                                <label>Choose the lesson(s) the teacher will teach:</label>
+                                <div class="dropdown bootstrap-select show-tick form-control default-select">
+                                    <select multiple="" class="form-control default-select" name="lesson" id="sel2">
+                                        {{#each lesson}}
+                                        <option value="{{_id}}">{{lessonName}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Create new teacher</button>
+                    </div>
+            </form>
         </div>
     </div>
 </div>

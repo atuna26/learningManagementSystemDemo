@@ -24,6 +24,7 @@ router.use(LoadRoleInfo);
 
 /*PLANNED TABLE */
 router.get("/plannedTable", (req, res) => {
+  
   User.find({})
     .lean()
     .then((user) => {
@@ -179,6 +180,8 @@ router.post("/new-lesson", async (req, res) => {
 
 /** Course Timelist */
 router.get("/course-timeList", (req, res) => {
+  let listjs=true;
+  let prismjs=true;
   User.find({})
     .lean()
     .then((user) => {
@@ -195,7 +198,7 @@ router.get("/course-timeList", (req, res) => {
                 userData: req.userData,
                 user: user,
                 lesson: lesson,
-                weeklyTable: weeklyTable,
+                weeklyTable: weeklyTable,listjs,prismjs
               });
             });
         });
@@ -203,6 +206,8 @@ router.get("/course-timeList", (req, res) => {
 });
 
 router.get("/course-timeList/filtered", async (req, res) => {
+  let listjs=true;
+  let prismjs=true;
   const week = req.query.week;
   const teacher = req.query.teacher;
   const student = req.query.student;
@@ -227,7 +232,7 @@ router.get("/course-timeList/filtered", async (req, res) => {
                 userData: req.userData,
                 user: user,
                 lesson: lesson,
-                weeklyTable: weeklyTable,
+                weeklyTable: weeklyTable,listjs,prismjs
               });
               console.log(weeklyTable);
             });
@@ -273,8 +278,11 @@ router.post("/filter-courseList", (req, res) => {
   );
 });
 
+
+
 /**Course Registration */
 router.get("/course-registration", async (req, res) => {
+  let prismjs;
   const user = await User.findOne({ _id: req.session.userId });
   const userId = user._id;
   User.find({})
@@ -294,7 +302,7 @@ router.get("/course-registration", async (req, res) => {
                 user: user,
                 lesson: lesson,
                 weeklyTable: weeklyTable,
-                userId,
+                userId,prismjs
               });
             });
         });

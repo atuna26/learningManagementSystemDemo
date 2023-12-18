@@ -1,902 +1,611 @@
-<!--*******************
-        Preloader start
-    ********************-->
-<div id="preloader">
-	<div class="sk-three-bounce">
-		<div class="sk-child sk-bounce1"></div>
-		<div class="sk-child sk-bounce2"></div>
-		<div class="sk-child sk-bounce3"></div>
-	</div>
-</div>
-<!--*******************
-        Preloader end
-    ********************-->
+<div id="layout-wrapper">
 
-<!--**********************************
-        Main wrapper start
-    ***********************************-->
-<div id="main-wrapper">
+    <header id="page-topbar">
+        <div class="layout-width">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box horizontal-logo">
+                        <a href="index.html" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="/assets/images/logo-sm.png" alt="" height="22">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="/assets/images/logo-dark.png" alt="" height="21">
+                            </span>
+                        </a>
 
-	<!--**********************************
-    Nav header start
-***********************************-->
-	<div class="nav-header">
-		<a href="/" class="brand-logo">
-			<svg class="logo-abbr" width="54" height="54" viewBox="0 0 54 54" fill="none"
-				xmlns="http://www.w3.org/2000/svg">
-				<img src="/assets/images/pblogo.webp" width="100" alt="">
+                        <a href="index.html" class="logo logo-light">
+                            <span class="logo-sm">
+                                <img src="/assets/images/logo-sm.png" alt="" height="22">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="/assets/images/logo-light.png" alt="" height="21">
+                            </span>
+                        </a>
+                    </div>
 
-			</svg>
-		</a>
+                    <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
+                        id="topnav-hamburger-icon">
+                        <span class="hamburger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
 
-		<div class="nav-control">
-			<div class="hamburger">
-				<span class="line"></span><span class="line"></span><span class="line"></span>
-			</div>
-		</div>
-	</div>
-	<!--**********************************
-    Nav header end
-***********************************-->
-	<!--**********************************
-	Chat box start
-***********************************-->
-	<div class="chatbox">
-		<div class="chatbox-close"></div>
-		<div class="custom-tab-1">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#notes">Notes</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-bs-toggle="tab" href="#alerts">Alerts</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" data-bs-toggle="tab" href="#chat">Chat</a>
-				</li>
-			</ul>
-			<div class="tab-content">
-				<div class="tab-pane fade active show" id="chat" role="tabpanel">
-					<div class="card mb-sm-3 mb-md-0 contacts_card dz-chat-user-box">
-						<div class="card-header chat-list-header text-center">
-							<a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
-									viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
-										<rect fill="#000000" opacity="0.3"
-											transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) "
-											x="4" y="11" width="16" height="2" rx="1" />
-									</g>
-								</svg></a>
-							<div>
-								<h6 class="mb-1">Chat List</h6>
-								<p class="mb-0">Show All</p>
-							</div>
-							<a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
-									viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<rect x="0" y="0" width="24" height="24" />
-										<circle fill="#000000" cx="5" cy="12" r="2" />
-										<circle fill="#000000" cx="12" cy="12" r="2" />
-										<circle fill="#000000" cx="19" cy="12" r="2" />
-									</g>
-								</svg></a>
-						</div>
-						<div class="card-body contacts_body p-0 dz-scroll  " id="DZ_W_Contacts_Body">
-							<ul class="contacts">
-								<li class="name-first-letter">A</li>
-								<li class="active dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon"></span>
-										</div>
-										<div class="user_info">
-											<span>Archie Parker</span>
-											<p>Kalid is online</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>Alfie Mason</span>
-											<p>Taherah left 7 mins ago</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/3.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon"></span>
-										</div>
-										<div class="user_info">
-											<span>AharlieKane</span>
-											<p>Sami is online</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/4.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>Athan Jacoby</span>
-											<p>Nargis left 30 mins ago</p>
-										</div>
-									</div>
-								</li>
-								<li class="name-first-letter">B</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/5.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>Bashid Samim</span>
-											<p>Rashid left 50 mins ago</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon"></span>
-										</div>
-										<div class="user_info">
-											<span>Breddie Ronan</span>
-											<p>Kalid is online</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>Ceorge Carson</span>
-											<p>Taherah left 7 mins ago</p>
-										</div>
-									</div>
-								</li>
-								<li class="name-first-letter">D</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/3.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon"></span>
-										</div>
-										<div class="user_info">
-											<span>Darry Parker</span>
-											<p>Sami is online</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/4.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>Denry Hunter</span>
-											<p>Nargis left 30 mins ago</p>
-										</div>
-									</div>
-								</li>
-								<li class="name-first-letter">J</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/5.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>Jack Ronan</span>
-											<p>Rashid left 50 mins ago</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon"></span>
-										</div>
-										<div class="user_info">
-											<span>Jacob Tucker</span>
-											<p>Kalid is online</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>James Logan</span>
-											<p>Taherah left 7 mins ago</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/3.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon"></span>
-										</div>
-										<div class="user_info">
-											<span>Joshua Weston</span>
-											<p>Sami is online</p>
-										</div>
-									</div>
-								</li>
-								<li class="name-first-letter">O</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/4.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>Oliver Acker</span>
-											<p>Nargis left 30 mins ago</p>
-										</div>
-									</div>
-								</li>
-								<li class="dz-chat-user">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont">
-											<img src="/assets/images/avatar/5.jpg" class="rounded-circle user_img"
-												alt="">
-											<span class="online_icon offline"></span>
-										</div>
-										<div class="user_info">
-											<span>Oscar Weston</span>
-											<p>Rashid left 50 mins ago</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="card chat dz-chat-history-box d-none">
-						<div class="card-header chat-list-header text-center">
-							<a href="#" class="dz-chat-history-back">
-								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-									width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<polygon points="0 0 24 0 24 24 0 24" />
-										<rect fill="#000000" opacity="0.3"
-											transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) "
-											x="14" y="7" width="2" height="10" rx="1" />
-										<path
-											d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z"
-											fill="#000000" fill-rule="nonzero"
-											transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) " />
-									</g>
-								</svg>
-							</a>
-							<div>
-								<h6 class="mb-1">Chat with Khelesh</h6>
-								<p class="mb-0 text-success">Online</p>
-							</div>
-							<div class="dropdown">
-								<a href="#" data-bs-toggle="dropdown" aria-expanded="false"><svg
-										xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-										width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-										<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-											<rect x="0" y="0" width="24" height="24" />
-											<circle fill="#000000" cx="5" cy="12" r="2" />
-											<circle fill="#000000" cx="12" cy="12" r="2" />
-											<circle fill="#000000" cx="19" cy="12" r="2" />
-										</g>
-									</svg></a>
-								<ul class="dropdown-menu dropdown-menu-end">
-									<li class="dropdown-item"><i class="fa fa-user-circle text-primary me-2"></i>
-										View profile</li>
-									<li class="dropdown-item"><i class="fa fa-users text-primary me-2"></i> Add to
-										close friends</li>
-									<li class="dropdown-item"><i class="fa fa-plus text-primary me-2"></i> Add to
-										group</li>
-									<li class="dropdown-item"><i class="fa fa-ban text-primary me-2"></i> Block</li>
-								</ul>
-							</div>
-						</div>
-						<div class="card-body msg_card_body dz-scroll" id="DZ_W_Contacts_Body3">
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-								<div class="msg_cotainer">
-									Hi, how are you samim?
-									<span class="msg_time">8:40 AM, today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Hi Khalid i am good tnx how about you?
-									<span class="msg_time_send">8:55 AM, today</span>
-								</div>
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-								<div class="msg_cotainer">
-									I am good too, thank you for your chat template
-									<span class="msg_time">9:00 AM, today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									You are welcome
-									<span class="msg_time_send">9:05 AM, today</span>
-								</div>
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-								<div class="msg_cotainer">
-									I am looking for your next templates
-									<span class="msg_time">9:07 AM, today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Ok, thank you have a good day
-									<span class="msg_time_send">9:10 AM, today</span>
-								</div>
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-								<div class="msg_cotainer">
-									Bye, see you
-									<span class="msg_time">9:12 AM, today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-								<div class="msg_cotainer">
-									Hi, how are you samim?
-									<span class="msg_time">8:40 AM, today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Hi Khalid i am good tnx how about you?
-									<span class="msg_time_send">8:55 AM, today</span>
-								</div>
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-								<div class="msg_cotainer">
-									I am good too, thank you for your chat template
-									<span class="msg_time">9:00 AM, today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									You are welcome
-									<span class="msg_time_send">9:05 AM, today</span>
-								</div>
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-								<div class="msg_cotainer">
-									I am looking for your next templates
-									<span class="msg_time">9:07 AM, today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send">
-									Ok, thank you have a good day
-									<span class="msg_time_send">9:10 AM, today</span>
-								</div>
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/2.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="/assets/images/avatar/1.jpg" class="rounded-circle user_img_msg" alt="">
-								</div>
-								<div class="msg_cotainer">
-									Bye, see you
-									<span class="msg_time">9:12 AM, today</span>
-								</div>
-							</div>
-						</div>
-						<div class="card-footer type_msg">
-							<div class="input-group">
-								<textarea class="form-control" placeholder="Type your message..."></textarea>
-								<div class="input-group-append">
-									<button type="button" class="btn btn-primary"><i
-											class="fa fa-location-arrow"></i></button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="tab-pane fade" id="alerts" role="tabpanel">
-					<div class="card mb-sm-3 mb-md-0 contacts_card">
-						<div class="card-header chat-list-header text-center">
-							<a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
-									viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<rect x="0" y="0" width="24" height="24" />
-										<circle fill="#000000" cx="5" cy="12" r="2" />
-										<circle fill="#000000" cx="12" cy="12" r="2" />
-										<circle fill="#000000" cx="19" cy="12" r="2" />
-									</g>
-								</svg></a>
-							<div>
-								<h6 class="mb-1">Notications</h6>
-								<p class="mb-0">Show All</p>
-							</div>
-							<a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
-									viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<rect x="0" y="0" width="24" height="24" />
-										<path
-											d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
-											fill="#000000" fill-rule="nonzero" opacity="0.3" />
-										<path
-											d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z"
-											fill="#000000" fill-rule="nonzero" />
-									</g>
-								</svg></a>
-						</div>
-						<div class="card-body contacts_body p-0 dz-scroll" id="DZ_W_Contacts_Body1">
-							<ul class="contacts">
-								<li class="name-first-letter">SEVER STATUS</li>
-								<li class="active">
-									<div class="d-flex bd-highlight">
-										<div class="img_cont primary">KK</div>
-										<div class="user_info">
-											<span>David Nester Birthday</span>
-											<p class="text-primary">today</p>
-										</div>
-									</div>
-								</li>
-								<li class="name-first-letter">SOCIAL</li>
-								<li>
-									<div class="d-flex bd-highlight">
-										<div class="img_cont success">RU</div>
-										<div class="user_info">
-											<span>Perfection Simplified</span>
-											<p>Jame Smith commented on your status</p>
-										</div>
-									</div>
-								</li>
-								<li class="name-first-letter">SEVER STATUS</li>
-								<li>
-									<div class="d-flex bd-highlight">
-										<div class="img_cont primary">AU</div>
-										<div class="user_info">
-											<span>AharlieKane</span>
-											<p>Sami is online</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="d-flex bd-highlight">
-										<div class="img_cont info">MO</div>
-										<div class="user_info">
-											<span>Athan Jacoby</span>
-											<p>Nargis left 30 mins ago</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="card-footer"></div>
-					</div>
-				</div>
-				<div class="tab-pane fade" id="notes">
-					<div class="card mb-sm-3 mb-md-0 note_card">
-						<div class="card-header chat-list-header text-center">
-							<a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
-									viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
-										<rect fill="#000000" opacity="0.3"
-											transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) "
-											x="4" y="11" width="16" height="2" rx="1" />
-									</g>
-								</svg></a>
-							<div>
-								<h6 class="mb-1">Notes</h6>
-								<p class="mb-0">Add New Nots</p>
-							</div>
-							<a href="#"><svg xmlns="http://www.w3.org/2000/svg"
-									xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px"
-									viewBox="0 0 24 24" version="1.1">
-									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-										<rect x="0" y="0" width="24" height="24" />
-										<path
-											d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z"
-											fill="#000000" fill-rule="nonzero" opacity="0.3" />
-										<path
-											d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z"
-											fill="#000000" fill-rule="nonzero" />
-									</g>
-								</svg></a>
-						</div>
-						<div class="card-body contacts_body p-0 dz-scroll" id="DZ_W_Contacts_Body2">
-							<ul class="contacts">
-								<li class="active">
-									<div class="d-flex bd-highlight">
-										<div class="user_info">
-											<span>New order placed..</span>
-											<p>10 Aug 2020</p>
-										</div>
-										<div class="ms-auto">
-											<a href="#" class="btn btn-primary btn-xs sharp me-1"><i
-													class="fa fa-pencil"></i></a>
-											<a href="#" class="btn btn-danger btn-xs sharp"><i
-													class="fa fa-trash"></i></a>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="d-flex bd-highlight">
-										<div class="user_info">
-											<span>Youtube, a video-sharing website..</span>
-											<p>10 Aug 2020</p>
-										</div>
-										<div class="ms-auto">
-											<a href="#" class="btn btn-primary btn-xs sharp me-1"><i
-													class="fa fa-pencil"></i></a>
-											<a href="#" class="btn btn-danger btn-xs sharp"><i
-													class="fa fa-trash"></i></a>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="d-flex bd-highlight">
-										<div class="user_info">
-											<span>john just buy your product..</span>
-											<p>10 Aug 2020</p>
-										</div>
-										<div class="ms-auto">
-											<a href="#" class="btn btn-primary btn-xs sharp me-1"><i
-													class="fa fa-pencil"></i></a>
-											<a href="#" class="btn btn-danger btn-xs sharp"><i
-													class="fa fa-trash"></i></a>
-										</div>
-									</div>
-								</li>
-								<li>
-									<div class="d-flex bd-highlight">
-										<div class="user_info">
-											<span>Athan Jacoby</span>
-											<p>10 Aug 2020</p>
-										</div>
-										<div class="ms-auto">
-											<a href="#" class="btn btn-primary btn-xs sharp me-1"><i
-													class="fa fa-pencil"></i></a>
-											<a href="#" class="btn btn-danger btn-xs sharp"><i
-													class="fa fa-trash"></i></a>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--**********************************
-	Chat box End
-***********************************-->
-	<!--**********************************
-	Header start
-***********************************-->
-	<div class="header">
-		<div class="header-content">
-			<nav class="navbar navbar-expand">
-				<div class="collapse navbar-collapse justify-content-between">
-					<div class="header-left">
-						<div class="dashboard_bar">
-							<div class="input-group search-area d-lg-inline-flex d-none me-5">
-								<span class="input-group-text" id="header-search">
-									<a href="javascript:void(0);">
-										<i class="flaticon-381-search-2"></i>
-									</a>
-								</span>
-								<input type="text" class="form-control" placeholder="Search here" aria-label="Username"
-									aria-describedby="header-search">
-							</div>
+                    <!-- App Search-->
+                    <form class="app-search d-none d-md-block me-2">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
+                                id="search-options" value="">
+                            <span class="las la-search search-widget-icon"></span>
+                            <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
+                                id="search-close-options"></span>
+                        </div>
+                        <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
+                            <div data-simplebar style="max-height: 320px;">
+                                <!-- item-->
+                                <div class="dropdown-header">
+                                    <h6 class="text-overflow text-muted mb-0 text-uppercase">Recent Searches</h6>
+                                </div>
 
-						</div>
-					</div>
-					<ul class="navbar-nav header-right">
-						<li class="nav-item dropdown notification_dropdown">
-							<a class="nav-link bell dz-theme-mode" href="javascript:void(0);">
-								<i id="icon-light" class="fas fa-sun"></i>
-								<i id="icon-dark" class="fas fa-moon"></i>
+                                <div class="dropdown-item bg-transparent text-wrap">
+                                    <a href="index.html" class="btn btn-soft-secondary btn-sm btn-rounded">how to
+                                        setup <i class="mdi mdi-magnify ms-1"></i></a>
+                                    <a href="index.html" class="btn btn-soft-secondary btn-sm btn-rounded">buttons
+                                        <i class="mdi mdi-magnify ms-1"></i></a>
+                                </div>
+                                <!-- item-->
+                                <div class="dropdown-header mt-2">
+                                    <h6 class="text-overflow text-muted mb-1 text-uppercase">Pages</h6>
+                                </div>
 
-							</a>
-						</li>
-						<li class="nav-item dropdown notification_dropdown">
-							<a class="nav-link  ai-icon" href="javascript:void(0)" role="button"
-								data-bs-toggle="dropdown">
-								<svg width="28" height="28" viewBox="0 0 28 28" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M25.4707 19.1862L23.3333 15.9802V11.6667C23.3333 9.19135 22.35 6.81738 20.5997 5.06704C18.8493 3.3167 16.4753 2.33337 14 2.33337C11.5246 2.33337 9.15066 3.3167 7.40033 5.06704C5.64999 6.81738 4.66666 9.19135 4.66666 11.6667V15.9802L2.52932 19.1862C2.41256 19.362 2.34562 19.5661 2.33561 19.7769C2.32559 19.9877 2.37288 20.1972 2.47245 20.3833C2.57201 20.5693 2.72013 20.7249 2.90106 20.8335C3.08199 20.9421 3.28897 20.9997 3.49999 21H24.5C24.711 20.9997 24.918 20.9421 25.0989 20.8335C25.2798 20.7249 25.428 20.5693 25.5275 20.3833C25.6271 20.1972 25.6744 19.9877 25.6644 19.7769C25.6544 19.5661 25.5874 19.362 25.4707 19.1862Z"
-										fill="#A5A5A5" />
-									<path
-										d="M14 25.6666C15.0344 25.6675 16.0397 25.324 16.8572 24.6903C17.6748 24.0565 18.258 23.1686 18.515 22.1666H9.485C9.74197 23.1686 10.3252 24.0565 11.1428 24.6903C11.9603 25.324 12.9656 25.6675 14 25.6666Z"
-										fill="#A5A5A5" />
-								</svg>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="ri-bubble-chart-line align-middle fs-18 text-muted me-2"></i>
+                                    <span>Analytics Dashboard</span>
+                                </a>
 
-								<span class="badge light text-white bg-primary rounded-circle">{{length}}</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-end">
-								<div id="dlab_W_Notification1" class="widget-media dz-scroll p-3 height380">
-									<ul class="timeline">
-										{{#each notification}}
-										<li>
-											<div class="timeline-panel">
-												<div class="media me-2 {{color}}">
-													<i class="{{symbol}}"></i>
-												</div>
-												<div class="media-body">
-													<h6 class="mb-1">{{title}}</h6>
-													<small class="d-block">{{date}}</small>
-												</div>
-											</div>
-										</li>
-										{{/each}}
-									</ul>
-								</div>
-								<a class="all-notification" href="javascript:void(0)">See all notifications <i
-										class="ti-arrow-right"></i></a>
-							</div>
-						</li>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="ri-lifebuoy-line align-middle fs-18 text-muted me-2"></i>
+                                    <span>Help Center</span>
+                                </a>
 
-						<li class="nav-item dropdown notification_dropdown">
-							<a class="nav-link bell bell-link" href="javascript:void(0)">
-								<svg width="28" height="28" viewBox="0 0 28 28" fill="none"
-									xmlns="http://www.w3.org/2000/svg">
-									<path
-										d="M23.3334 9.33329V16.3333C23.3313 18.1892 22.5932 19.9685 21.2808 21.2808C19.9685 22.5931 18.1892 23.3313 16.3334 23.3333H9.33335C9.02393 23.3333 8.72719 23.4562 8.5084 23.675C8.2896 23.8938 8.16669 24.1905 8.16669 24.5C8.16669 24.8094 8.2896 25.1061 8.5084 25.3249C8.72719 25.5437 9.02393 25.6666 9.33335 25.6666H16.3334C18.8078 25.6638 21.1802 24.6795 22.9299 22.9298C24.6796 21.1801 25.6638 18.8078 25.6667 16.3333V9.33329C25.6667 9.02387 25.5438 8.72713 25.325 8.50833C25.1062 8.28954 24.8094 8.16663 24.5 8.16663C24.1906 8.16663 23.8939 8.28954 23.6751 8.50833C23.4563 8.72713 23.3334 9.02387 23.3334 9.33329Z"
-										fill="#A5A5A5" />
-									<path
-										d="M16.3333 22.1667C17.8799 22.1649 19.3626 21.5497 20.4561 20.4562C21.5497 19.3626 22.1649 17.8799 22.1667 16.3334V8.16671C22.1649 6.62017 21.5497 5.1375 20.4561 4.04393C19.3626 2.95036 17.8799 2.3352 16.3333 2.33337H8.16668C6.62014 2.3352 5.13747 2.95036 4.0439 4.04393C2.95033 5.1375 2.33517 6.62017 2.33334 8.16671V16.3334C2.33517 17.8799 2.95033 19.3626 4.0439 20.4562C5.13747 21.5497 6.62014 22.1649 8.16668 22.1667H16.3333ZM9.11168 10.9832L10.603 13.0454L15.5408 8.47669C15.7681 8.26653 16.0695 8.15525 16.3788 8.16733C16.6881 8.17941 16.9799 8.31385 17.19 8.54109C17.4002 8.76833 17.5115 9.06974 17.4994 9.37903C17.4873 9.68831 17.3529 9.98013 17.1256 10.1903L11.2218 15.652C11.1007 15.7641 10.9571 15.8491 10.8006 15.9016C10.6442 15.954 10.4783 15.9727 10.3141 15.9563C10.1499 15.94 9.99103 15.889 9.84799 15.8067C9.70495 15.7244 9.58099 15.6127 9.48431 15.4789L7.22168 12.3503C7.04949 12.0993 6.98221 11.7909 7.0342 11.491C7.08619 11.1911 7.25333 10.9234 7.49996 10.745C7.74658 10.5666 8.05317 10.4916 8.35428 10.5361C8.65539 10.5806 8.92719 10.7411 9.11168 10.9832Z"
-										fill="#A5A5A5" />
-								</svg>
-								<span class="badge light text-white bg-primary rounded-circle">6</span>
-							</a>
-						</li>
-						<li class="nav-item dropdown header-profile">
-							<a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
-								<img src="/assets/images/avatar/1.png" width="20" alt="" class="rounded-circle">
-								<div class="header-info">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="ri-user-settings-line align-middle fs-18 text-muted me-2"></i>
+                                    <span>My account settings</span>
+                                </a>
 
-									<span>{{userData.userName}}</span>
-									<small>{{userData.role}}</small>
-								</div>
-								<i class="fa fa-caret-down ms-3 me-2 " aria-hidden="true"></i>
-							</a>
-							<div class="dropdown-menu dropdown-menu-end">
-								<a href="/app_profile" class="dropdown-item ai-icon">
-									<svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
-										width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-										stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-										<circle cx="12" cy="7" r="4"></circle>
-									</svg>
-									<span class="ms-2">Profile </span>
-								</a>
-								<a href="/email_inbox" class="dropdown-item ai-icon">
-									<svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success"
-										width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-										stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-										<path
-											d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-										</path>
-										<polyline points="22,6 12,13 2,6"></polyline>
-									</svg>
-									<span class="ms-2">Inbox </span>
-								</a>
-								<form action="/users/logout" method="Post">
-									<a href="javascript:;" onclick="parentNode.submit();" class="dropdown-item ai-icon">
-										<svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
-											width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-											<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
-											<polyline points="16 17 21 12 16 7"></polyline>
-											<line x1="21" y1="12" x2="9" y2="12"></line>
-										</svg>
-										<span class="ms-2">Logout</span>
-									</a>
-								</form>
-							</div>
-						</li>
-						<li class="nav-item lenguage-btn">
-							<select class="form-control btn-head default-select me-3">
-								<option>EN</option>
-								<option>SP</option>
-								<option>GER</option>
-								<option>FREN</option>
-							</select>
-						</li>
-					</ul>
-				</div>
-			</nav>
-		</div>
-	</div>
-	<!--**********************************
-	Header end ti-comment-alt
-***********************************-->
-	<!--**********************************
-    Sidebar start
-***********************************-->
-	<div class="deznav">
-		<div class="deznav-scroll">
-			<ul class="metismenu" id="menu">
-				<li><a href="/dashboard" class="ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-025-dashboard"></i>
-						<span class="nav-text">Dashboard</span>
-					</a>
-				</li>
-				{{#if (eq userData.role "Student") }}
-				<li><a href="/report/student/weekly" class="ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="fa-solid fa-chart-line"></i>
-						<span class="nav-text">Report</span>
-					</a>
-				</li>
-				{{/if}}
-				{{#if (eq userData.role "Teacher")}}
-				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-022-copy"></i>
-						<span class="nav-text">Course</span>
-					</a>
-					<ul aria-expanded="false">
-						<li><a href="/lesson/lesson-list">My Courses</a></li>
+                                <!-- item-->
+                                <div class="dropdown-header mt-2">
+                                    <h6 class="text-overflow text-muted mb-2 text-uppercase">Members</h6>
+                                </div>
 
-					</ul>
-				</li>
-				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-072-printer"></i>
-						<span class="nav-text">Forms</span>
-					</a>
-					<ul aria-expanded="false">
-						<li><a href="/form/available-form">Available Forms</a></li>
-						<li><a href="/form/sended-form">Sended Forms</a></li>
-					</ul>
-				</li>
+                                <div class="notification-list">
+                                    <!-- item -->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
+                                        <div class="d-flex">
+                                            <img src="/assets/images/users/avatar-2.jpg"
+                                                class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="flex-1">
+                                                <h6 class="m-0">Angela Bernier</h6>
+                                                <span class="fs-11 mb-0 text-muted">Manager</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- item -->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
+                                        <div class="d-flex">
+                                            <img src="/assets/images/users/avatar-3.jpg"
+                                                class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="flex-1">
+                                                <h6 class="m-0">David Grasso</h6>
+                                                <span class="fs-11 mb-0 text-muted">Web Designer</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- item -->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
+                                        <div class="d-flex">
+                                            <img src="/assets/images/users/avatar-5.jpg"
+                                                class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="flex-1">
+                                                <h6 class="m-0">Mike Bunch</h6>
+                                                <span class="fs-11 mb-0 text-muted">React Developer</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
 
-				{{/if}}
-				{{#if (eq userData.role "Admin") }}
-				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="la la-users" style="font-size:30px"></i>
-						<span class="nav-text">Users</span>
-					</a>
-					<ul aria-expanded="false">
-						<li><a href="/users/register">Create New User</a></li>
-						<li><a href="/users">All Users</a></li>
-						<li><a href="/users/student">Students</a></li>
-						<li><a href="/users/teacher">Teachers</a></li>
-					</ul>
-				</li>
-				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-022-copy"></i>
-						<span class="nav-text">Course</span>
-					</a>
-					<ul aria-expanded="false">
-						<li><a href="/course/course-list">Courses</a></li>
-						<li><a href="/course/course-timeList">Course List</a></li>
-						<li><a href="/course/plannedTable">Planned Course Table</a></li>
-						<li><a href="/course/course-registration">Course Registration</a></li>
-						<li><a href="/course/course-registration/request">Course Registration Requests</a></li>
-					</ul>
-				</li>
-				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-072-printer"></i>
-						<span class="nav-text">Forms</span>
-					</a>
-					<ul aria-expanded="false" style="">
-						<li><a href="/form/available-form">Available Forms</a></li>
-						<li><a href="/form/sended-form">Sended Forms</a></li>
-						<li><a href="/form/created-form">Created Forms</a></li>
-					</ul>
-				</li>
-				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="fa-solid fa-chart-line"></i>
-						<span class="nav-text">Reports</span>
-					</a>
-					<ul aria-expanded="false" style="">
-						<li><a href="/report/form-reports">Form Reports</a></li>
-						<li><a href="/report/teacher-reports">Teacher Reports</a></li>
-						<li><a href="/report/student-reports">Student Reports</a></li>
+                            <div class="text-center pt-3 pb-1">
+                                <a href="pages-search-results.html" class="btn btn-primary btn-sm">View All Results
+                                    <i class="ri-arrow-right-line ms-1"></i></a>
+                            </div>
+                        </div>
+                    </form>
 
-					</ul>
-				</li>
-				<li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-						<i class="fa-solid fa-calculator"></i>
-						<span class="nav-text">Accounting</span>
-					</a>
-					<ul aria-expanded="false" style="">
-						<li><a href="/accounting/students">Student List</a></li>
-						<li><a href="/accounting/teachers">Teacher List</a></li>
-						<li><a href="/accounting/t-account">T-Account</a></li>
-					</ul>
-				</li>
+                </div>
 
-				{{/if}}
-			</ul>
-			{{!-- <div class="drum-box">
-				<img src="/assets/images/ellipse5.png" alt="">
-				<p class="fs-18 font-w500 mb-4">PB Education System</p>
-				<a class="" href="javascript:void(0);"><i class="fa fa-long-arrow-right"></i>
-				</a>
-			</div> --}}
-			<div class="copyright">
+                <div class="d-flex align-items-center">
 
-			</div>
-		</div>
-	</div>
-	<!--**********************************
-    Sidebar end
-***********************************-->
+
+
+                    <div class="dropdown d-md-none topbar-head-dropdown header-item">
+                        <button type="button" class="btn btn-icon btn-topbar btn-ghost-primary rounded-circle"
+                            id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="bx bx-search fs-22"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-search-dropdown">
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ..."
+                                            aria-label="Recipient's username">
+                                        <button class="btn btn-primary" type="submit"><i
+                                                class="mdi mdi-magnify"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="ms-1 header-item d-none d-sm-flex">
+                        <button type="button" class="btn btn-icon btn-topbar btn-ghost-primary rounded-circle"
+                            data-toggle="fullscreen">
+                            <i class='las la-expand fs-24'></i>
+                        </button>
+                    </div>
+
+                    <div class="ms-1 header-item d-none d-sm-flex">
+                        <button type="button"
+                            class="btn btn-icon btn-topbar btn-ghost-primary rounded-circle light-dark-mode">
+                            <i class='las la-moon fs-24'></i>
+                        </button>
+                    </div>
+
+                    <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
+                        <button type="button" class="btn btn-icon btn-topbar btn-ghost-primary rounded-circle"
+                            id="page-header-notifications-dropdown" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                            <i class='las la-bell fs-24'></i>
+                            <span
+                                class="position-absolute topbar-badge fs-9 translate-middle badge rounded-pill bg-danger">3<span
+                                    class="visually-hidden">unread messages</span></span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                            aria-labelledby="page-header-notifications-dropdown">
+
+                            <div class="dropdown-head rounded-top">
+                                <div class="p-3 bg-primary bg-pattern">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="m-0 fs-16 fw-semibold text-white"> Notifications </h6>
+                                        </div>
+                                        <div class="col-auto dropdown-tabs">
+                                            <span class="badge bg-light-subtle text-light  fs-13"> 4 New</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2">
+                                    <div data-simplebar style="max-height: 300px;" class="pe-2">
+                                        <div
+                                            class="text-reset notification-item d-block dropdown-item position-relative">
+                                            <div class="d-flex">
+                                                <div class="avatar-xs me-3">
+                                                    <span
+                                                        class="avatar-title bg-info-subtle text-info   text-info rounded-circle fs-16">
+                                                        <i class="bx bx-badge-check"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <a href="#!" class="stretched-link">
+                                                        <h6 class="mt-0 fs-14 mb-2 lh-base">Your <b>Elite</b> author
+                                                            Graphic
+                                                            Optimization <span class="text-secondary">reward</span>
+                                                            is
+                                                            ready!
+                                                        </h6>
+                                                    </a>
+                                                    <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                        <span><i class="mdi mdi-clock-outline"></i> Just 30 sec
+                                                            ago</span>
+                                                    </p>
+                                                </div>
+                                                <div class="px-2 fs-15">
+                                                    <div class="form-check notification-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="all-notification-check01">
+                                                        <label class="form-check-label"
+                                                            for="all-notification-check01"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="text-reset notification-item d-block dropdown-item position-relative">
+                                            <div class="d-flex">
+                                                <img src="/assets/images/users/avatar-2.jpg"
+                                                    class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                <div class="flex-1">
+                                                    <a href="#!" class="stretched-link">
+                                                        <h6 class="mt-0 mb-1 fs-14 fw-semibold">Angela Bernier</h6>
+                                                    </a>
+                                                    <div class="fs-13 text-muted">
+                                                        <p class="mb-1">Answered to your comment on the cash flow
+                                                            forecast's
+                                                            graph 🔔.</p>
+                                                    </div>
+                                                    <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                        <span><i class="mdi mdi-clock-outline"></i> 48 min
+                                                            ago</span>
+                                                    </p>
+                                                </div>
+                                                <div class="px-2 fs-15">
+                                                    <div class="form-check notification-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="all-notification-check02">
+                                                        <label class="form-check-label"
+                                                            for="all-notification-check02"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="text-reset notification-item d-block dropdown-item position-relative">
+                                            <div class="d-flex">
+                                                <div class="avatar-xs me-3">
+                                                    <span
+                                                        class="avatar-title bg-danger-subtle text-danger  text-danger rounded-circle fs-16">
+                                                        <i class='bx bx-message-square-dots'></i>
+                                                    </span>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <a href="#!" class="stretched-link">
+                                                        <h6 class="mt-0 mb-2 fs-13 lh-base">You have received <b
+                                                                class="text-success">20</b> new messages in the
+                                                            conversation
+                                                        </h6>
+                                                    </a>
+                                                    <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                        <span><i class="mdi mdi-clock-outline"></i> 2 hrs ago</span>
+                                                    </p>
+                                                </div>
+                                                <div class="px-2 fs-15">
+                                                    <div class="form-check notification-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="all-notification-check03">
+                                                        <label class="form-check-label"
+                                                            for="all-notification-check03"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="text-reset notification-item d-block dropdown-item position-relative">
+                                            <div class="d-flex">
+                                                <img src="/assets/images/users/avatar-8.jpg"
+                                                    class="me-3 rounded-circle avatar-xs" alt="user-pic">
+                                                <div class="flex-1">
+                                                    <a href="#!" class="stretched-link">
+                                                        <h6 class="mt-0 mb-1 fs-14 fw-semibold">Maureen Gibson</h6>
+                                                    </a>
+                                                    <div class="fs-13 text-muted">
+                                                        <p class="mb-1">We talked about a project on linkedin.</p>
+                                                    </div>
+                                                    <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
+                                                        <span><i class="mdi mdi-clock-outline"></i> 4 hrs ago</span>
+                                                    </p>
+                                                </div>
+                                                <div class="px-2 fs-15">
+                                                    <div class="form-check notification-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="all-notification-check04">
+                                                        <label class="form-check-label"
+                                                            for="all-notification-check04"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="my-3 text-center view-all">
+                                            <button type="button"
+                                                class="btn btn-soft-success btn-sm waves-effect waves-light">View
+                                                All Notifications <i
+                                                    class="ri-arrow-right-line align-middle"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown header-item">
+                        <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span class="d-flex align-items-center">
+                                <img class="rounded-circle header-profile-user" src="/lms/1.png" alt="Header Avatar">
+                                <span class="text-start ms-xl-2">
+                                    <span
+                                        class="d-none d-xl-inline-block fw-medium user-name-text fs-16">{{userData.userName}}
+                                        <i class="las la-angle-down fs-12 ms-1"></i></span>
+                                </span>
+                            </span>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                            <a class="dropdown-item" href="#"><i class="bx bx-user fs-15 align-middle me-1"></i>
+                                <span key="t-profile">Profile</span></a>
+                            <a class="dropdown-item" href="#"><i class="bx bx-wallet fs-15 align-middle me-1"></i>
+                                <span key="t-my-wallet">My Wallet</span></a>
+                            <a class="dropdown-item d-block" href="#"><span
+                                    class="badge bg-success float-end">11</span><i
+                                    class="bx bx-wrench fs-15 align-middle me-1"></i> <span
+                                    key="t-settings">Settings</span></a>
+                            <a class="dropdown-item" href="auth-lockscreen.html"><i
+                                    class="bx bx-lock-open fs-15 align-middle me-1"></i> <span key="t-lock-screen">Lock
+                                    screen</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="#"><i
+                                    class="bx bx-power-off fs-15 align-middle me-1 text-danger"></i> <span
+                                    key="t-logout">Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- removeNotificationModal -->
+    <div id="removeNotificationModal" class="modal fade zoomIn" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        id="NotificationModalbtn-close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mt-2 text-center">
+                        <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop"
+                            colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
+                        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
+                            <h4>Are you sure ?</h4>
+                            <p class="text-muted mx-4 mb-0">Are you sure you want to remove this Notification ?</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
+                        <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn w-sm btn-danger" id="delete-notification">Yes, Delete
+                            It!</button>
+                    </div>
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- ========== App Menu ========== -->
+    <div class="app-menu navbar-menu">
+        <!-- LOGO -->
+        <div class="navbar-brand-box">
+            <!-- Dark Logo-->
+            <a href="index.html" class="logo logo-dark">
+                {{!-- <span class="logo-sm">
+                    <img src="/assets/images/logo-sm.png" alt="" height="22">
+                </span>
+                <span class="logo-lg">
+                    <img src="/assets/images/logo-dark.png" alt="" height="21">
+                </span> --}}
+            </a>
+            <!-- Light Logo-->
+            <a href="index.html" class="logo logo-light">
+                {{!-- <span class="logo-sm">
+                    <img src="/assets/images/logo-sm.png" alt="" height="22">
+                </span>
+                <span class="logo-lg">
+                    <img src="/assets/images/logo-light.png" alt="" height="21">
+                </span> --}}
+            </a>
+            <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
+                id="vertical-hover">
+                <i class="ri-record-circle-line"></i>
+            </button>
+        </div>
+
+        <div id="scrollbar">
+            <div class="container-fluid">
+
+                <div id="two-column-menu">
+                </div>
+                <ul class="navbar-nav" id="navbar-nav">
+                    <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">MENU</span></li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="/">
+                            <i class="las la-house-damage"></i> <span data-key="t-dashboard">Dashboard</span>
+                        </a>
+                    </li>
+                    <!-- Student Part Begin -->
+                    {{#if (eq userData.role "Student") }}
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="/report/student/weekly">
+                            <i class="bx bxs-report"></i> <span data-key="t-report">Report</span>
+                        </a>
+                    </li>
+                    {{/if}}
+                    <!-- Student Part End -->
+
+                    <!-- Teacher Part Begin -->
+
+                    {{#if (eq userData.role "Teacher")}}
+
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#courseTeacher" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="courseTeacher">
+                            <i class="las la-chalkboard-teacher"></i> <span data-key="t-courses">Course</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="courseTeacher">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="/lesson/lesson-list" class="nav-link" data-key="t-MyCourses">My Courses</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#formTeacher" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="formTeacher">
+                            <i class="lab la-wpforms"></i> <span data-key="t-courses">Forms</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="formTeacher">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="/form/available-form" class="nav-link"
+                                        data-key="t-availableForms">Available Forms</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/form/sended-form" class="nav-link" data-key="t-sendedForms">Sended
+                                        Forms</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    {{/if}}
+                    <!-- Teacher Part End -->
+
+                    <!-- Admin Part Begin -->
+                    {{#if (eq userData.role "Admin") }}
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#usersAdmin" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="usersAdmin">
+                            <i class="las la-users"></i> <span data-key="t-users">Users</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="usersAdmin">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="/users" class="nav-link">All Users</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/users/student" class="nav-link">Students</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/users/teacher" class="nav-link">Teachers</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#courseAdmin" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="courseAdmin">
+                            <i class="las la-chalkboard-teacher"></i> <span data-key="t-courses">Course</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="courseAdmin">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="/course/course-list" class="nav-link">Courses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/course/course-timeList" class="nav-link">Course List</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/course/plannedTable" class="nav-link">Planned Course Table</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/course/course-registration" class="nav-link">Course Registration</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/course/course-registration/request" class="nav-link">Course Registration
+                                        Requests</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#formAdmin" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="formAdmin">
+                            <i class="lab la-wpforms"></i> <span data-key="t-courses">Forms</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="formAdmin">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="/form/available-form" class="nav-link"
+                                        data-key="t-availableForms">Available Forms</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/form/sended-form" class="nav-link" data-key="t-sendedForms">Sended
+                                        Forms</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/form/created-form" class="nav-link" data-key="t-createdForms">Created Forms</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a href="/form/form-confirmation/list" class="nav-link" data-key="t-createdForms">Form Confirmation</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#reportsAdmin" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="reportsAdmin">
+                            <i class="bx bxs-report"></i> <span data-key="t-courses">Reports</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="reportsAdmin">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="/report/form-reports" class="nav-link"
+                                        data-key="t-availableForms">Form Reports</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/report/teacher-reports" class="nav-link">Teacher Reports</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/report/student-reports" class="nav-link">Student Reports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#accountingAdmin" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="accountingAdmin">
+                            <i class="las la-file-invoice-dollar"></i> <span data-key="t-courses">Accounting</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="accountingAdmin">
+                            <ul class="nav nav-sm flex-column">
+                               <li class="nav-item">
+                                    <a href="/accounting/students" class="nav-link">Student List</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/accounting/teachers" class="nav-link">Teacher List</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a href="/accounting/t-account" class="nav-link">T-Account</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    {{/if}}
+                    <!-- Admin Part End -->
+
+                </ul>
+            </div>
+            <!-- Sidebar -->
+        </div>
+
+        <div class="sidebar-background"></div>
+    </div>
+    <!-- Left Sidebar End -->
+    <!-- Vertical Overlay-->
+    <div class="vertical-overlay"></div>
