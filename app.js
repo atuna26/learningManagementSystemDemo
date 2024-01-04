@@ -44,6 +44,11 @@ app.use(methodOverride('_method'))
 
 const hbs = exphbs.create({
     helpers: {
+        gt: function(a,b){
+            if(a>b){
+                return true;
+            }
+        },
         checkHour: function(a,b,total){
             let expect=(b-a)*60
             if(expect==total){

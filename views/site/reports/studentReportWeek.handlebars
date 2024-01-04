@@ -49,7 +49,7 @@
                                         </thead>
                                         <tbody class="list form-check-all">
                                             {{#each weeklyTable}}
-
+                                            {{#if (gt ../userData.currentWeek week) }}
                                             <tr>
                                                 <td>{{year}} Week: {{week}} </td>
                                                 <td>{{startDate}} - {{endDate}} </td>
@@ -59,6 +59,7 @@
                                                         href="/report/student-reports/week?startDate={{startDate}}&endDate={{endDate}}">Check</a>
                                                 </td>
                                             </tr>
+                                            {{/if}}
                                             {{/each}}
                                         </tbody>
                                     </table>

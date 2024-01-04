@@ -6,6 +6,8 @@ const Lesson = require("../models/Lesson");
 const mongoose = require("mongoose");
 const openai = require("openai");
 const Notification = require("../models/Notification");
+const moment = require('moment');
+
 
 const ai = new openai.OpenAI({
   apiKey: process.env.API_KEY,
@@ -260,23 +262,19 @@ router.post("/answer/:id", async (req, res) => {
 router.get("/formedit", async (req, res) => {
   try {
     const forms = await Form.find({ formType: "Answer" }).lean();
-    const users = await User.find({ role: "Teacher" });
+    const users = await User.find({ role: "Student" });
     let count = 0;
     for (const form of forms) {
-      for (const user of users) {
-        let formName = form.questAndAnswer[1].answer;
+      const currentAnswerDate = form.questAndAnswer[3].answer;
 
-        // Eğer formName bir dize ise ve içinde user.userName geçiyorsa
-        if (typeof formName === "string" && formName.includes(user.userName)) {
-          count++
-          console.log(count)
-          const userId = new mongoose.Types.ObjectId(user._id);
-          await Form.findByIdAndUpdate(
-            form._id,
-            { $set: { "questAndAnswer.1.answer": userId } }
-          );
-        }
-      }
+      // Yeni tarih formatına çevir
+      const newAnswerDate = moment(currentAnswerDate, "DD.MM.YYYY").format("MM.DD.YYYY");
+      count++
+      console.log(count)
+      await Form.findByIdAndUpdate(
+        form._id,
+        { $set: { "questAndAnswer.3.answer": newAnswerDate } }
+      );
     }
     res.send("Formlar başarıyla güncellendi.");
   } catch (error) {
@@ -297,7 +295,7 @@ router.get("/form-confirmation/detail/:id", async (req, res) => {
 
 router.post("/confirm/:id", async (req, res) => {
   let form = await Form.findOne({ _id: req.params.id })
-  if(req.body.action === "turkish"){
+  if (req.body.action === "turkish") {
     ai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
@@ -307,6 +305,7 @@ router.post("/confirm/:id", async (req, res) => {
         },
       ],
     }).then((respond) => {
+      form.questAndAnswer[15].oldAnswer = form.questAndAnswer[15].answer
       form.questAndAnswer[15].answer = respond.choices[0].message.content;
       ai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -316,7 +315,8 @@ router.post("/confirm/:id", async (req, res) => {
             content: `Can you translate the sentence I will give into Turkish in the most correct and formal way? Just write the answer:${form.questAndAnswer[16].answer}`,
           },
         ],
-      }).then((respond) =>{
+      }).then((respond) => {
+        form.questAndAnswer[16].oldAnswer = form.questAndAnswer[16].answer
         form.questAndAnswer[16].answer = respond.choices[0].message.content;
         ai.chat.completions.create({
           model: "gpt-3.5-turbo",
@@ -327,15 +327,16 @@ router.post("/confirm/:id", async (req, res) => {
             },
           ],
         }).then((respond) => {
+          form.questAndAnswer[17].oldAnswer = form.questAndAnswer[17].answer;
           form.questAndAnswer[17].answer = respond.choices[0].message.content;
           form.save();
-  
+
         })
       })
       res.redirect(`/form/form-confirmation/detail/${req.params.id}`);
     });
   }
-  else if(req.body.action === "english"){
+  else if (req.body.action === "english") {
     ai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
@@ -345,6 +346,7 @@ router.post("/confirm/:id", async (req, res) => {
         },
       ],
     }).then((respond) => {
+      form.questAndAnswer[15].oldAnswer = form.questAndAnswer[15].answer
       form.questAndAnswer[15].answer = respond.choices[0].message.content;
       ai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -354,7 +356,8 @@ router.post("/confirm/:id", async (req, res) => {
             content: `Can you translate the sentence I will give into English in the most correct and formal way? Just write the answer:${form.questAndAnswer[16].answer}`,
           },
         ],
-      }).then((respond) =>{
+      }).then((respond) => {
+        form.questAndAnswer[16].oldAnswer = form.questAndAnswer[16].answer
         form.questAndAnswer[16].answer = respond.choices[0].message.content;
         ai.chat.completions.create({
           model: "gpt-3.5-turbo",
@@ -365,15 +368,16 @@ router.post("/confirm/:id", async (req, res) => {
             },
           ],
         }).then((respond) => {
+          form.questAndAnswer[17].oldAnswer = form.questAndAnswer[17].answer;
           form.questAndAnswer[17].answer = respond.choices[0].message.content;
           form.save();
-  
+
         })
       })
       res.redirect(`/form/form-confirmation/detail/${req.params.id}`);
     });
   }
-  else if(req.body.action === "arabic"){
+  else if (req.body.action === "arabic") {
     console.log("arabic")
     ai.chat.completions.create({
       model: "gpt-3.5-turbo",
@@ -384,6 +388,7 @@ router.post("/confirm/:id", async (req, res) => {
         },
       ],
     }).then((respond) => {
+      form.questAndAnswer[15].oldAnswer = form.questAndAnswer[15].answer
       form.questAndAnswer[15].answer = respond.choices[0].message.content;
       ai.chat.completions.create({
         model: "gpt-3.5-turbo",
@@ -393,7 +398,8 @@ router.post("/confirm/:id", async (req, res) => {
             content: `Can you translate the sentence I will give into Arabic in the most correct and formal way? Just write the answer:${form.questAndAnswer[16].answer}`,
           },
         ],
-      }).then((respond) =>{
+      }).then((respond) => {
+        form.questAndAnswer[16].oldAnswer = form.questAndAnswer[16].answer
         form.questAndAnswer[16].answer = respond.choices[0].message.content;
         ai.chat.completions.create({
           model: "gpt-3.5-turbo",
@@ -404,19 +410,26 @@ router.post("/confirm/:id", async (req, res) => {
             },
           ],
         }).then((respond) => {
+          form.questAndAnswer[17].oldAnswer = form.questAndAnswer[17].answer;
           form.questAndAnswer[17].answer = respond.choices[0].message.content;
           form.save();
-  
+
         })
       })
       res.redirect(`/form/form-confirmation/detail/${req.params.id}`);
     });
   }
-  else if(req.body.action === "confirm"){
-    form.confirmation=true;
+  else if (req.body.action === "confirm") {
+    form.confirmation = true;
     form.save();
   }
-  
+  else if (req.body.action === "cancel") {
+    form.questAndAnswer[15].answer = form.questAndAnswer[15].oldAnswer;
+    form.questAndAnswer[16].answer = form.questAndAnswer[16].oldAnswer;
+    form.questAndAnswer[17].answer = form.questAndAnswer[17].oldAnswer;
+    form.save();
+  }
+
 })
 
 module.exports = router;

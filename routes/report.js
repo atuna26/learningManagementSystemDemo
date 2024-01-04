@@ -15,7 +15,7 @@ async function LoadRoleInfo(req, res, next) {
             userName: user.userName,
             role: user.role,
             id: user._id,
-            currentWeek: "1",
+            currentWeek: "23",
         };
         req.userData = userData;
 
@@ -132,7 +132,9 @@ router.get("/teacher-reports", async (req, res) => {
         const reportData = await Promise.all(
             teachers.map(async (teacher) => {
                 let formCount = 0
-                let cancelledCount = 0
+                let cancelledFirst = 0
+                let cancelledSecond = 0
+                let cancelledThird = 0
                 let forms = await Form.find({ "questAndAnswer.1.answer": teacher._id }).lean()
                 forms = forms.filter((form => {
                     const lessonDate = new Date(form.questAndAnswer[3].answer);
@@ -163,14 +165,20 @@ router.get("/teacher-reports", async (req, res) => {
                     }
                     if (forms.questAndAnswer[9].answer ==
                         "No, the lesson is cancelled in the last 0-1h") {
-                        cancelledCount++
+                            cancelledFirst++
+                    }else if (forms.questAndAnswer[9].answer ==
+                        "No, the lesson is cancelled in the last 1-10h") {
+                            cancelledSecond++
+                    }else if (forms.questAndAnswer[9].answer ==
+                        "No, the lesson is cancelled in the last 10-24h") {
+                            cancelledThird++
                     }
                 })
                 return {
                     teacherid: teacher._id,
                     teacherName: teacher.userName,
                     formCount,
-                    cancelled: cancelledCount
+                    cancelledFirst,cancelledSecond,cancelledThird
                 };
             })
         );
@@ -232,7 +240,7 @@ router.get("/teacher-reports/detail", async (req, res) => {
 
         // Promise'ları bekliyoruz
         studentReport = await Promise.all(promises);
-        res.render("site/reports/teacherReportDetail", { studentReport, userData: req.userData, startD, endD });
+        res.render("site/reports/teacherReportDetail", { studentReport, userData: req.userData, startD, endD,teacher });
     } catch (error) {
         console.error(error);
         res.status(500).send("Internal Server Error");

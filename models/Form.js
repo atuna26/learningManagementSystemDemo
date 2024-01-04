@@ -6,6 +6,7 @@ const qaaSchema = new mongoose.Schema({
     isRequired:{type:String},
     question: { type: String},
     answer: { type: String},
+    oldAnswer:{type: String},
     chatgptAnswer:{type:String},
     answerList: [{ type: String}],
     order:{type:Number}

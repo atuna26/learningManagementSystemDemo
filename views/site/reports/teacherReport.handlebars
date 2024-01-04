@@ -60,7 +60,9 @@
                                             <tr>
                                                 <th>Teacher Name Surname</th>
                                                 <th>Hours</th>
-                                                <th>Cancelled Hours</th>
+                                                <th>Cancelled Hours &lt; 1 </th>
+                                                <th>Cancelled Hours &lt; 10 </th>
+                                                <th>Cancelled Hours &lt; 24 </th>
                                                 <th>Detail</th>
 
 
@@ -71,7 +73,9 @@
                                             <tr>
                                                 <td>{{teacherName}}</td>
                                                 <td>{{formCount}}</td>
-                                                <td>{{cancelled}}</td>
+                                                <td> <span class="text-danger"> {{cancelledFirst}}</span></td>
+                                                <td> <span class="text-warning-emphasis"> {{cancelledSecond}}</span></td>
+                                                <td> <span class="text-info-emphasis">  {{cancelledThird}}</span></td>
                                                 <td>  <a class="badge bg-primary-subtle text-primary"
                                                         href="/report/teacher-reports/detail/?id={{teacherid}}">view</a>
                                                 </td>
